@@ -1,0 +1,236 @@
+% ============================================================
+% PARTIE II - CHAPITRE I : Étude préliminaire et Méthode
+% ============================================================
+\chapter{Étude préliminaire et Méthode}
+\pagestyle{styleGlobal}
+\label{chap:etude_preliminaire}
+
+% ============================================================
+\section{Étude de l'existant}
+% ============================================================
+
+\subsection{Description des activités (situation actuelle)}
+
+Akieni est une société spécialisée dans la transformation numérique et les solutions logicielles, basée à Brazzaville. Elle propose des formations aux métiers du numérique, de six à neuf mois, aux jeunes de 16 à 30 ans, dans des domaines comme le développement web, la science des données et la conception d'interfaces. Elle accompagne aussi des entreprises et des institutions dans leurs projets de transformation numérique, notamment en leur fournissant des outils digitaux adaptés à leurs besoins.
+
+Cependant, malgré ces activités, la mise en relation entre les prestataires de services professionnels et les clients se fait encore de manière informelle. Les prestataires se font connaître par le bouche-à-oreille, les contacts téléphoniques directs ou les recommandations de proches. Les clients, de leur côté, n'ont aucun outil pour comparer les offres, vérifier les compétences des prestataires ou sécuriser leurs paiements.
+
+\subsection{Critique de l'existant (limites)}
+
+Bien qu'Akieni soit un acteur important de la transformation numérique au Congo, il n'existe, à ce jour, aucune application ou plateforme dédiée à la mise en relation entre prestataires de services et clients au sein de la structure. Toute la gestion de cette mise en relation repose sur des échanges informels, ce qui engendre plusieurs limites importantes :
+
+\begin{itemize}
+    \item les prestataires n'ont aucun moyen simple de se rendre visibles auprès des clients potentiels, leur notoriété dépend entièrement de leur réseau personnel ;
+    \item les clients ne disposent d'aucun outil pour évaluer la qualité ou la disponibilité d'un prestataire avant de le contacter ;
+    \item les transactions se font sans encadrement : il n'existe aucun système de paiement sécurisé, aucun mécanisme pour résoudre les litiges et aucune garantie en cas de prestation non réalisée ;
+    \item il n'y a aucune traçabilité des missions réalisées ni de système de notation permettant de mesurer la satisfaction des clients ;
+    \item le processus de recherche d'un prestataire est long, peu fiable et source d'incertitude pour les deux parties.
+\end{itemize}
+
+Ces limites montrent clairement que la situation actuelle nécessite une solution numérique structurée. C'est pourquoi, dans le point suivant, nous allons proposer plusieurs solutions envisageables pour y répondre.
+
+\subsection{Proposition des solutions}
+
+Face aux limites identifiées, il est apparu nécessaire d'explorer différentes pistes pour y répondre. Après analyse et discussion au sein de notre équipe, trois solutions ont été envisagées, chacune présentant ses propres caractéristiques, ses avantages et ses inconvénients. Ces solutions sont présentées de façon équitable afin de permettre au lecteur de se faire une idée objective de chacune d'elles.
+
+\vspace{0.4cm}
+\noindent\textbf{a- Solution 1 : le portail web avec gestion de profils et messagerie intégrée}
+
+\vspace{0.3cm}
+Il s'agit d'un site web qui permet aux prestataires de créer un profil en ligne détaillé regroupant leurs compétences, leurs tarifs et leur zone d'intervention, et aux clients de les contacter directement via un système de messagerie intégré. Les utilisateurs peuvent consulter les profils et engager des conversations sans quitter la plateforme.
+
+\vspace{0.2cm}
+\textit{Avantages :}
+\begin{itemize}
+    \item accessible depuis tous les terminaux (smartphone, tablette, ordinateur) via un navigateur, sans téléchargement ;
+    \item mise en place rapide et coût de développement modéré ;
+    \item interface simple, facile à prendre en main même pour les utilisateurs peu expérimentés ;
+    \item bonne visibilité des prestataires grâce aux profils détaillés et référençables.
+\end{itemize}
+
+\vspace{0.1cm}
+\textit{Inconvénients :}
+\begin{itemize}
+    \item pas de gestion intégrée des paiements ni de mécanisme de sécurisation des fonds ;
+    \item pas de système de mise en correspondance automatique entre prestataires et clients ;
+    \item les litiges ne peuvent pas être gérés de façon structurée depuis la plateforme.
+\end{itemize}
+
+\vspace{0.4cm}
+\noindent\textbf{b- Solution 2 : le développement d'une application web cross-plateforme (PWA) avec matching et paiement sécurisé}
+
+\vspace{0.3cm}
+Il s'agit de développer une application web progressive (PWA), accessible depuis tous les terminaux sans installation obligatoire. Elle intègre des fonctionnalités complètes, à savoir la gestion des profils, la publication de missions, la messagerie, la mise en correspondance intelligente entre prestataires et clients, le paiement sécurisé par Mobile Money et le système de notation. C'est la solution que nous avons retenue pour «~SALISA~».
+
+\vspace{0.2cm}
+\textit{Avantages :}
+\begin{itemize}
+    \item une seule base de code compatible avec tous les terminaux, ce qui réduit les coûts et les délais de développement ;
+    \item aucun téléchargement nécessaire, l'application est accessible directement via un navigateur ;
+    \item fonctionne correctement même sur des connexions internet lentes (2G/3G), grâce à son architecture mobile-first ;
+    \item intègre le paiement par Mobile Money (MTN MoMo, Airtel Money), adapté au contexte local ;
+    \item algorithme de mise en correspondance pour aider les clients à trouver le bon prestataire rapidement ;
+    \item système d'escrow pour sécuriser les transactions et protéger les deux parties.
+\end{itemize}
+
+\vspace{0.1cm}
+\textit{Inconvénients :}
+\begin{itemize}
+    \item nécessite une connexion internet pour bénéficier de toutes les fonctionnalités ;
+    \item certaines fonctionnalités natives des terminaux peuvent être légèrement plus limitées que dans une application mobile native.
+\end{itemize}
+
+\vspace{0.4cm}
+\noindent\textbf{c- Solution 3 : le développement d'une application mobile native (Android et iOS)}
+
+\vspace{0.3cm}
+Il s'agit de développer deux applications mobiles distinctes, l'une pour Android et l'autre pour iOS, chacune exploitant pleinement les capacités des terminaux mobiles concernés. Ces applications intègrent toutes les fonctionnalités de mise en relation, de paiement et de notification.
+
+\vspace{0.2cm}
+\textit{Avantages :}
+\begin{itemize}
+    \item expérience utilisateur optimale sur chaque système, grâce à l'accès complet aux fonctionnalités natives du terminal, telles que l'appareil photo, le GPS, les notifications et les contacts ;
+    \item performances élevées, même pour les animations et les interactions complexes ;
+    \item notifications push natives, très efficaces pour alerter les utilisateurs en temps réel ;
+    \item fonctionnement hors ligne poussé, grâce au stockage local des données sur le terminal.
+\end{itemize}
+
+\vspace{0.1cm}
+\textit{Inconvénients :}
+\begin{itemize}
+    \item coût de développement plus élevé car il faut maintenir deux bases de code distinctes, l'une pour Android et l'autre pour iOS ;
+    \item l'utilisateur doit télécharger l'application depuis un store, ce qui constitue une barrière à l'adoption ;
+    \item les mises à jour doivent être soumises et validées par les stores avant d'être disponibles.
+\end{itemize}
+
+\subsection{Choix de la solution}
+
+Notre choix se porte sur la \textbf{solution 2 : le développement d'une application web cross-plateforme (PWA)} ; c'est cette solution qui a donné naissance à «~SALISA~».
+
+% ============================================================
+\section{Méthode}
+% ============================================================
+
+En génie logiciel, une \textbf{méthode} désigne l'association d'un langage de modélisation et d'un processus de développement. Le langage de modélisation sert à représenter le système de façon graphique et structurée, tandis que le processus de développement organise les étapes à suivre pour le concevoir et le réaliser. Pour «~SALISA~», nous avons couplé \textbf{UML} à un processus unifié \cite{roques_uml}. Parmi les processus unifiés qui existent, comme le RUP (\textit{Rational Unified Process}) ou l'OpenUP (\textit{Open Unified Process}), notre choix s'est porté sur le \textbf{2TUP} (\textit{Two Tracks Unified Process}), qui est le mieux adapté à la complexité et aux contraintes de notre projet.
+
+% ============================================================
+\subsection{Le langage de modélisation}
+% ============================================================
+
+\subsubsection{Présentation d'UML}
+
+\textbf{UML} (\textit{Unified Modeling Language}, ou Langage de Modélisation Unifié) est un langage graphique standardisé par l'OMG (\textit{Object Management Group}) depuis 1997 \cite{booch_uml}. Il constitue aujourd'hui la référence mondiale pour la modélisation des systèmes logiciels orientés objet.
+
+L'objectif d'UML est de fournir un langage visuel commun qui permet aux équipes de travail, qu'ils soient analystes, concepteurs, développeurs ou clients, de communiquer clairement sur la structure et le comportement d'un système. Il peut s'intégrer à toute démarche de développement, itérative ou non.
+
+Pour «~SALISA~», UML présente plusieurs atouts : ses notations sont reconnues et documentées dans le monde entier, facilitant la compréhension et la maintenance du système ; il permet de représenter aussi bien la vue statique que la vue dynamique du système \cite{fowler_uml} ; il est intégralement utilisé par le processus 2TUP pour produire ses livrables de modélisation ; et ses diagrammes servent de lien clair entre les besoins exprimés et le travail réalisé par les développeurs.
+
+\subsubsection{Les types de diagrammes UML}
+
+La version 2.x d'UML propose \textbf{quatorze types de diagrammes}, répartis en deux grandes familles \cite{booch_uml}.
+
+\vspace{0.3cm}
+\noindent\textbf{a- Diagrammes structurels (vue statique)}
+
+\vspace{0.2cm}
+Ces diagrammes décrivent la structure permanente du système. On y trouve notamment :
+
+\begin{itemize}
+    \item \textbf{le diagramme de classes :} représente les classes du système, leurs attributs, leurs méthodes et les relations qui les unissent. C'est le diagramme central de la conception orientée objet ;
+    \item \textbf{le diagramme d'objets :} montre des instances concrètes des classes à un moment précis du système ;
+    \item \textbf{le diagramme de composants :} décrit l'architecture physique du logiciel en termes de modules et d'interfaces ;
+    \item \textbf{le diagramme de déploiement :} représente la répartition des composants sur les équipements matériels ;
+    \item \textbf{le diagramme de paquetages :} organise les éléments du modèle en groupes logiques ;
+    \item \textbf{le diagramme de structure composite :} décrit la structure interne d'un élément et ses collaborations ;
+    \item \textbf{le diagramme de profils :} permet d'adapter UML à un domaine particulier.
+\end{itemize}
+
+\vspace{0.3cm}
+\noindent\textbf{b- Diagrammes comportementaux (vue dynamique)}
+
+\vspace{0.2cm}
+Ces diagrammes décrivent le comportement du système dans le temps. Parmi eux, on trouve entre autres :
+
+\begin{itemize}
+    \item \textbf{le diagramme de cas d'utilisation :} identifie les acteurs du système et les fonctionnalités qu'ils peuvent utiliser. C'est le point de départ de l'analyse des besoins ;
+    \item \textbf{le diagramme de séquence :} montre les échanges entre objets dans le temps, selon un scénario précis ;
+    \item \textbf{le diagramme de communication :} similaire au diagramme de séquence, mais met l'accent sur les liens entre les objets ;
+    \item \textbf{le diagramme d'activités :} représente un enchaînement d'actions et de décisions dans un processus ;
+    \item \textbf{le diagramme d'états-transitions :} décrit les états par lesquels passe un objet au cours de sa vie ;
+    \item \textbf{le diagramme de vue d'ensemble des interactions :} résume plusieurs interactions sous forme de fragments ;
+    \item \textbf{le diagramme de temps :} représente l'évolution des états d'un objet dans le temps.
+\end{itemize}
+
+Pour «~SALISA~», nous utiliserons principalement le \textbf{diagramme de contexte statique}, le \textbf{diagramme de cas d'utilisation}, le \textbf{diagramme de séquence}, le \textbf{diagramme d'activités}, le \textbf{diagramme de classes} et le \textbf{diagramme de déploiement}.
+
+% ============================================================
+\subsection{Le processus de développement}
+% ============================================================
+
+\subsubsection{Présentation du Processus Unifié (UP)}
+
+Le \textbf{Processus Unifié} (\textit{Unified Process}, abrégé \textbf{UP}) est un cadre de développement logiciel itératif et incrémental, formalisé par Ivar Jacobson, Grady Booch et James Rumbaugh, les trois créateurs d'UML, à la fin des années 1990 \cite{jacobson_up}. Sa version commerciale la plus connue est le \textit{Rational Unified Process} (RUP).
+
+L'UP repose sur quatre principes fondamentaux : il est itératif et incrémental, ce qui signifie que le développement est découpé en cycles courts appelés itérations, chacun produisant une partie fonctionnelle du logiciel ; il est centré sur l'architecture, une base solide étant définie dès le début pour guider tout le développement ; il est piloté par les cas d'utilisation, les fonctionnalités attendues guidant toutes les activités du processus ; et il est orienté risques, les éléments les plus délicats étant traités en priorité.
+
+L'UP s'organise en quatre phases : l'Inception (Lancement) pour définir le périmètre du travail et évaluer la faisabilité ; l'Élaboration pour capturer les besoins et concevoir l'architecture de référence ; la Construction pour développer les fonctionnalités et produire un produit fonctionnel ; et la Transition pour déployer le produit et corriger les dernières anomalies.
+
+\subsubsection{Présentation du processus 2TUP}
+
+Le \textbf{2TUP} (\textit{Two Tracks Unified Process}) est une adaptation du Processus Unifié, proposée par Pascal Roques et Franck Vallée dans leur ouvrage \textit{UML en action} \cite{roques_uml}. Il a été conçu pour répondre à une réalité fréquente dans les projets informatiques : les exigences changent souvent et les contraintes techniques sont parfois imposées avant même que les besoins fonctionnels soient complètement définis. Sa particularité est son organisation en deux branches parallèles qui se rejoignent en phase de réalisation.
+
+\vspace{0.4cm}
+\noindent\textbf{a- Branche fonctionnelle (What)}
+
+\vspace{0.2cm}
+Elle recueille et formalise ce que les utilisateurs attendent du système. On y trouve entre autres la capture des besoins fonctionnels, la modélisation des cas d'utilisation, la description textuelle et les diagrammes de séquence des cas d'utilisation prioritaires, ainsi que la modélisation du domaine métier à travers le diagramme de classes métier.
+
+\vspace{0.4cm}
+\noindent\textbf{b- Branche technique (How)}
+
+\vspace{0.2cm}
+Elle prend en charge les contraintes d'infrastructure et d'architecture liées au contexte du projet. Elle couvre la capture des besoins techniques et des contraintes non fonctionnelles, la définition de l'architecture logicielle et matérielle, le choix des technologies et des outils, ainsi que le prototypage de l'architecture technique.
+
+\vspace{0.4cm}
+\noindent\textbf{c- Branche de réalisation (fusion)}
+
+\vspace{0.2cm}
+Les deux branches précédentes se rejoignent pour produire le système final. Cette phase comprend la conception préliminaire qui intègre les modèles fonctionnels dans l'architecture technique, la conception détaillée qui spécifie précisément les composants et les interfaces, ainsi que le codage, les tests et l'intégration pour aboutir à la livraison du produit.
+
+La figure~\ref{fig:2tup_schema} illustre la structure en forme de « Y » caractéristique du processus 2TUP.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.75\textwidth]{schema_2tup_Y.png}
+    \caption{Structure en Y du processus 2TUP}
+    \label{fig:2tup_schema}
+\end{figure}
+
+\subsubsection{2TUP et UML}
+
+Le processus 2TUP et le langage UML fonctionnent ensemble : 2TUP utilise UML comme unique langage de modélisation tout au long de ses phases, et chaque livrable produit est un diagramme UML \cite{roques_uml}. Cette cohérence garantit une bonne traçabilité entre les besoins exprimés et les composants réalisés.
+
+Le tableau~\ref{tab:2tup_uml} ci-dessous résume la correspondance entre les phases du 2TUP et les diagrammes UML mobilisés pour «~SALISA~».
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|p{4cm}|p{3.5cm}|p{6cm}|}
+\hline
+\textbf{Phase 2TUP} & \textbf{Branche} & \textbf{Diagrammes UML utilisés} \\
+\hline
+Capture des besoins fonctionnels & Fonctionnelle & Diagramme de contexte statique, Diagramme de cas d'utilisation \\
+\hline
+Spécification détaillée & Fonctionnelle & Diagramme de séquence, Diagramme d'activités \\
+\hline
+Capture des besoins techniques & Technique & Diagramme de déploiement \\
+\hline
+Conception architecturale & Réalisation & Diagramme de composants, Diagramme de déploiement \\
+\hline
+Conception du domaine & Réalisation & Diagramme de classes, Diagramme d'objets \\
+\hline
+\end{tabular}
+\caption{Correspondance entre les phases 2TUP et les diagrammes UML utilisés}
+\label{tab:2tup_uml}
+\end{table}
+
+«~SALISA~» combine des besoins fonctionnels nombreux, comme l'inscription des utilisateurs, la mise en correspondance, le paiement ou la messagerie, et des contraintes techniques fortes liées au contexte local, telles que le Mobile Money \cite{mtn_momo}, une connexion parfois limitée ou une architecture distribuée. Le 2TUP permet de traiter ces deux dimensions en parallèle, de façon rigoureuse et coordonnée, ce qui en fait le processus idéal pour notre projet.

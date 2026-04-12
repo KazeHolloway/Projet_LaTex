@@ -1,0 +1,76 @@
+% ============================================================
+% SOMMAIRE - Grands titres uniquement
+% ============================================================
+\chapter*{Sommaire}
+\pagestyle{styleGlobal}
+\markboth{Sommaire}{Sommaire}
+\addcontentsline{toc}{chapter}{Sommaire}
+
+% Ligne normale : Titre ........ page
+\newcommand{\lignesom}[2]{%
+    \noindent #1\dotfill\textbf{#2}\par\addvspace{4pt}%
+}
+
+% Ligne indentée (chapitres sous les parties)
+\newcommand{\lignesomindent}[2]{%
+    \noindent\hspace{1cm}#1\dotfill\textbf{#2}\par\addvspace{4pt}%
+}
+
+\vspace{0.6cm}
+
+% ---- SECTION I ----
+\noindent\textbf{\large SECTION I}
+
+\vspace{0.4cm}
+
+\lignesom{Dédicace}{\pageref{sec:dedicace}}
+\lignesom{Remerciements}{\pageref{sec:remerciements}}
+\lignesom{Liste des figures}{\pageref{sec:figures}}
+\lignesom{Liste des tableaux}{\pageref{sec:tableaux}}
+\lignesom{Abréviations et sigles}{\pageref{sec:abreviations}}
+
+\vspace{0.7cm}
+
+% ---- SECTION II ----
+\noindent\textbf{\large SECTION II}
+
+\vspace{0.4cm}
+
+\lignesom{Introduction}{\pageref{sec:introduction}}
+
+\vspace{0.3cm}
+\noindent\textbf{Première Partie : Présentation Générale}
+
+\vspace{0.2cm}
+\lignesomindent{Chapitre I : La structure d'accueil et le sujet}{\pageref{chap:structure_sujet}}
+
+\vspace{0.3cm}
+\noindent\textbf{Deuxième Partie : Analyse et Conception}
+
+\vspace{0.2cm}
+\lignesomindent{Chapitre I : Étude préliminaire et Méthode}{\pageref{chap:etude_preliminaire}}
+\lignesomindent{Chapitre II : Analyse et Conception}{\pageref{chap:analyse_conception}}
+
+\vspace{0.3cm}
+\noindent\textbf{Troisième Partie : Évaluation et Réalisation du Projet}
+
+\vspace{0.2cm}
+\lignesomindent{Chapitre I : L'évaluation du projet}{\pageref{chap:evaluation}}
+\lignesomindent{Chapitre II : Les outils et les techniques utilisés}{\pageref{chap:outils}}
+
+\vspace{0.2cm}
+\lignesom{Conclusion}{\pageref{sec:conclusion}}
+
+\vspace{0.7cm}
+
+% ---- SECTION III ----
+% La table des matières s'étend sur les pages a, b, c
+% La bibliographie commence à la page d
+% Les annexes commencent à la page e
+\noindent\textbf{\large SECTION III}
+
+\vspace{0.4cm}
+
+\lignesom{Table des matières}{\pageref{sec:tabledesmatieres}}
+\lignesom{Bibliographie}{\pageref{sec:bibliographie}}
+\lignesom{Annexes}{\pageref{sec:annexes}}

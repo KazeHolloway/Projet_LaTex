@@ -1,0 +1,20 @@
+# Fichiers LaTeX à ignorer
+*.aux
+*.bbl
+*.blg
+*.lof
+*.lot
+*.toc
+*.out
+*.synctex.gz
+*.log
+
+*.fls
+*.fdb_latexmk
+*.gz
+
+# Windows
+Thumbs.db
+
+# Mac
+.DS_Store
