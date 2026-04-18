@@ -35,7 +35,7 @@ Les besoins fonctionnels représentent l'ensemble des fonctionnalités que «~SA
 
 \subsection{Besoins Techniques}
 
-Les besoins techniques définissent les contraintes non fonctionnelles auxquelles «~SALISA~» doit répondre pour fonctionner correctement dans son contexte d'utilisation :
+Les besoins techniques désignent l'ensemble des contraintes non fonctionnelles auxquelles un système doit se conformer, qu'il s'agisse de performances, de sécurité, de disponibilité ou de compatibilité avec l'environnement d'exécution. Pour «~SALISA~», ces contraintes sont directement liées au contexte congolais, et se déclinent de la façon suivante :
 
 \begin{itemize}
 	\item architecture Progressive Web Application (PWA) \cite{next_js}, mobile-first, utilisable depuis tous les terminaux sans installation ;
@@ -67,21 +67,21 @@ Un acteur représente toute entité externe qui interagit avec le système «~SA
 Nous avons identifié quatre principaux acteurs humains :
 
 \begin{itemize}
-	\item \textbf{Visiteur :} utilisateur non connecté, sans compte sur la plateforme. Il peut consulter «~SALISA~» et rechercher des prestataires, mais son seul point d'entrée vers les fonctionnalités complètes est l'inscription, qui lui permet de devenir un utilisateur à part entière ;
+	\item \textbf{Visiteur :} utilisateur non encore enregistré sur la plateforme. Son unique interaction avec «~SALISA~» est l'inscription, qui lui permet de créer un compte et de devenir un utilisateur à part entière ;
 	\item \textbf{Demandeur :} utilisateur connecté qui cherche et embauche des prestataires. Il publie des missions, contacte des prestataires, paie et note les prestations ;
 	\item \textbf{Prestataire :} utilisateur connecté qui propose ses services. Il crée son profil, répond aux missions et envoie des devis ;
-	\item \textbf{Administrateur :} utilisateur connecté chargé de modérer la plateforme, de vérifier les identités, de gérer les litiges et de configurer le système.
+	\item \textbf{Administrateur :} utilisateur connecté chargé d'administrer la plateforme, de vérifier les identités, de gérer les litiges et de configurer le système.
 \end{itemize}
 
 \vspace{0.3cm}
 \noindent\textbf{b- Acteurs systèmes}
 
 \vspace{0.2cm}
-En UML, un acteur système est tout système informatique externe qui échange des données avec notre application. Nous en avons identifié deux pour «~SALISA~» :
+En modélisation UML, on désigne par acteur système tout composant logiciel extérieur au système étudié qui interagit avec lui par l'échange de données ou de services. Nous en avons identifié deux pour «~SALISA~» :
 
 \begin{itemize}
-	\item \textbf{Service de paiement :} regroupe les APIs de MTN MoMo et d'Airtel Money. «~SALISA~» leur envoie des requêtes de paiement et en reçoit des confirmations de transaction \cite{mtn_momo} ;
-	\item \textbf{Service de notifications :} regroupe Twilio SMS et WhatsApp Business API. «~SALISA~» lui envoie des instructions pour délivrer les codes OTP, les alertes et les messages aux utilisateurs.
+	\item \textbf{service de paiement :} regroupe les APIs de MTN MoMo et d'Airtel Money. «~SALISA~» leur envoie des requêtes de paiement et en reçoit des confirmations de transaction \cite{mtn_momo} ;
+	\item \textbf{service de notifications :} regroupe Twilio SMS et WhatsApp Business API. «~SALISA~» lui envoie des instructions pour délivrer les codes OTP, les alertes et les messages aux utilisateurs.
 \end{itemize}
 
 \subsubsection{Diagramme de contexte statique}
@@ -95,105 +95,221 @@ Le diagramme de contexte statique présente «~SALISA~» au centre et montre tou
 	\label{fig:contexte_statique}
 \end{figure}
 
-Au centre se trouve le système «~SALISA~» représenté par un rectangle. Autour, les quatre acteurs humains (symbole stickman UML) interagissent avec lui : le Visiteur consulte la plateforme et peut s'inscrire ; le Demandeur publie des missions, paie et note ; le Prestataire crée son profil, répond et envoie des devis ; l'Administrateur modère et configure. Les deux acteurs systèmes (rectangles avec stéréotype \textit{$\langle\langle$système$\rangle\rangle$}) sont : le Service de paiement pour les transactions, et le Service de notifications pour les alertes SMS et WhatsApp.
+Au centre se trouve le système «~SALISA~» représenté par un rectangle. Autour, les quatre acteurs humains (symbole stickman UML) interagissent avec lui : le Visiteur s'inscrit sur la plateforme ; le Demandeur publie des missions, paie et note ; le Prestataire crée son profil, répond et envoie des devis ; l'Administrateur administre et configure. Les deux acteurs systèmes (rectangles avec stéréotype \textit{$\langle\langle$système$\rangle\rangle$}) sont : le service de paiement pour les transactions, et le service de notifications pour les alertes SMS et WhatsApp.
 
 \subsubsection{Identification des cas d'utilisation}
 
-Un cas d'utilisation décrit une interaction entre un acteur et le système pour accomplir un objectif précis. Pour «~SALISA~», nous avons recensé 39 cas d'utilisation, regroupés en neuf familles selon les acteurs concernés :
+Un cas d'utilisation décrit une interaction entre un acteur et le système pour accomplir un objectif précis. Pour «~SALISA~», nous avons recensé 39 cas d'utilisation, regroupés en neuf familles selon les acteurs concernés. Les tableaux~\ref{tab:cu_f1} à~\ref{tab:cu_f9} présentent le détail de chacune de ces familles.
 
-\vspace{0.3cm}
-\noindent\textbf{Famille 1 : Authentification et gestion du compte}
+\begin{table}[H]
+	\centering
+	\begin{tabular}{|p{3cm}|p{10.5cm}|}
+		\hline
+		\multicolumn{2}{|c|}{\cellcolor{vertCongo}\textcolor{white}{\textbf{Famille 1 : Authentification et gestion du compte}}} \\
+		\hline
+		\rowcolor{vertCongo}
+		\textcolor{white}{\textbf{Cas d'utilisation}} & \textcolor{white}{\textbf{Définition}} \\
+		\hline
+		\textbf{UC-01} & s'inscrire via numéro de téléphone (Visiteur) \\
+		\hline
+		\textbf{UC-02} & valider le code OTP (Visiteur) \\
+		\hline
+		\textbf{UC-03} & choisir son rôle lors de l'inscription (Visiteur) \\
+		\hline
+		\textbf{UC-04} & se connecter (Demandeur, Prestataire, Administrateur) \\
+		\hline
+		\textbf{UC-05} & se déconnecter (Demandeur, Prestataire, Administrateur) \\
+		\hline
+	\end{tabular}
+	\caption{Cas d'utilisation de la famille F1 : Authentification et gestion du compte}
+	\label{tab:cu_f1}
+\end{table}
 
-\begin{itemize}
-	\item UC-01 : s'inscrire via numéro de téléphone (Visiteur) ;
-	\item UC-02 : valider le code OTP (Visiteur) ;
-	\item UC-03 : choisir son rôle lors de l'inscription (Visiteur) ;
-	\item UC-04 : se connecter (Demandeur, Prestataire, Administrateur) ;
-	\item UC-05 : se déconnecter (Demandeur, Prestataire, Administrateur).
-\end{itemize}
+\begin{table}[H]
+	\centering
+	\begin{tabular}{|p{3cm}|p{10.5cm}|}
+		\hline
+		\multicolumn{2}{|c|}{\cellcolor{vertCongo}\textcolor{white}{\textbf{Famille 2 : Gestion du profil prestataire}}} \\
+		\hline
+		\rowcolor{vertCongo}
+		\textcolor{white}{\textbf{Cas d'utilisation}} & \textcolor{white}{\textbf{Définition}} \\
+		\hline
+		\textbf{UC-06} & compléter son profil prestataire (Prestataire) \\
+		\hline
+		\textbf{UC-07} & gérer son portfolio (Prestataire) \\
+		\hline
+		\textbf{UC-08} & définir ses tarifs et sa disponibilité (Prestataire) \\
+		\hline
+		\textbf{UC-09} & gérer ses catégories et compétences (Prestataire) \\
+		\hline
+		\textbf{UC-10} & faire vérifier son identité pour obtenir le badge Vérifié (Prestataire, Administrateur) \\
+		\hline
+	\end{tabular}
+	\caption{Cas d'utilisation de la famille F2 : Gestion du profil prestataire}
+	\label{tab:cu_f2}
+\end{table}
 
-\noindent\textbf{Famille 2 : Gestion du profil prestataire}
+\begin{table}[H]
+	\centering
+	\begin{tabular}{|p{3cm}|p{10.5cm}|}
+		\hline
+		\multicolumn{2}{|c|}{\cellcolor{vertCongo}\textcolor{white}{\textbf{Famille 3 : Gestion des missions}}} \\
+		\hline
+		\rowcolor{vertCongo}
+		\textcolor{white}{\textbf{Cas d'utilisation}} & \textcolor{white}{\textbf{Définition}} \\
+		\hline
+		\textbf{UC-11} & publier une mission (Demandeur) \\
+		\hline
+		\textbf{UC-12} & utiliser l'assistant IA pour la description (Demandeur) \\
+		\hline
+		\textbf{UC-13} & gérer ses missions publiées (Demandeur) \\
+		\hline
+	\end{tabular}
+	\caption{Cas d'utilisation de la famille F3 : Gestion des missions}
+	\label{tab:cu_f3}
+\end{table}
 
-\begin{itemize}
-	\item UC-06 : compléter son profil prestataire (Prestataire) ;
-	\item UC-07 : gérer son portfolio (Prestataire) ;
-	\item UC-08 : définir ses tarifs et sa disponibilité (Prestataire) ;
-	\item UC-09 : gérer ses catégories et compétences (Prestataire) ;
-	\item UC-10 : faire vérifier son identité pour obtenir le badge Vérifié (Prestataire, Administrateur).
-\end{itemize}
+\begin{table}[H]
+	\centering
+	\begin{tabular}{|p{3cm}|p{10.5cm}|}
+		\hline
+		\multicolumn{2}{|c|}{\cellcolor{vertCongo}\textcolor{white}{\textbf{Famille 4 : Recherche et matching}}} \\
+		\hline
+		\rowcolor{vertCongo}
+		\textcolor{white}{\textbf{Cas d'utilisation}} & \textcolor{white}{\textbf{Définition}} \\
+		\hline
+		\textbf{UC-14} & rechercher un prestataire (Demandeur) \\
+		\hline
+		\textbf{UC-15} & filtrer les résultats de recherche (Demandeur) \\
+		\hline
+		\textbf{UC-16} & consulter le score de matching (Demandeur) \\
+		\hline
+		\textbf{UC-17} & recevoir des suggestions proactives de prestataires (Demandeur) \\
+		\hline
+		\textbf{UC-18} & consulter le profil d'un prestataire (Demandeur) \\
+		\hline
+	\end{tabular}
+	\caption{Cas d'utilisation de la famille F4 : Recherche et matching}
+	\label{tab:cu_f4}
+\end{table}
 
-\noindent\textbf{Famille 3 : Gestion des missions}
+\begin{table}[H]
+	\centering
+	\begin{tabular}{|p{3cm}|p{10.5cm}|}
+		\hline
+		\multicolumn{2}{|c|}{\cellcolor{vertCongo}\textcolor{white}{\textbf{Famille 5 : Messagerie et devis}}} \\
+		\hline
+		\rowcolor{vertCongo}
+		\textcolor{white}{\textbf{Cas d'utilisation}} & \textcolor{white}{\textbf{Définition}} \\
+		\hline
+		\textbf{UC-19} & envoyer un message (Demandeur, Prestataire) \\
+		\hline
+		\textbf{UC-20} & envoyer un devis (Prestataire) \\
+		\hline
+		\textbf{UC-21} & accepter un devis (Demandeur) \\
+		\hline
+		\textbf{UC-22} & refuser ou demander une modification de devis (Demandeur) \\
+		\hline
+	\end{tabular}
+	\caption{Cas d'utilisation de la famille F5 : Messagerie et devis}
+	\label{tab:cu_f5}
+\end{table}
 
-\begin{itemize}
-	\item UC-11 : publier une mission (Demandeur) ;
-	\item UC-12 : utiliser l'assistant IA pour la description (Demandeur) ;
-	\item UC-13 : gérer ses missions publiées (Demandeur).
-\end{itemize}
+\begin{table}[H]
+	\centering
+	\begin{tabular}{|p{3cm}|p{10.5cm}|}
+		\hline
+		\multicolumn{2}{|c|}{\cellcolor{vertCongo}\textcolor{white}{\textbf{Famille 6 : Paiement et escrow}}} \\
+		\hline
+		\rowcolor{vertCongo}
+		\textcolor{white}{\textbf{Cas d'utilisation}} & \textcolor{white}{\textbf{Définition}} \\
+		\hline
+		\textbf{UC-23} & payer une mission via Mobile Money (Demandeur, service de paiement) \\
+		\hline
+		\textbf{UC-24} & choisir MTN MoMo comme moyen de paiement (Demandeur) \\
+		\hline
+		\textbf{UC-25} & choisir Airtel Money comme moyen de paiement (Demandeur) \\
+		\hline
+		\textbf{UC-26} & valider la mission terminée (Demandeur) \\
+		\hline
+		\textbf{UC-27} & scanner le code QR de validation sur place (Prestataire) \\
+		\hline
+		\textbf{UC-28} & ouvrir un litige (Demandeur, Prestataire) \\
+		\hline
+		\textbf{UC-29} & demander un retrait Mobile Money (Prestataire) \\
+		\hline
+	\end{tabular}
+	\caption{Cas d'utilisation de la famille F6 : Paiement et escrow}
+	\label{tab:cu_f6}
+\end{table}
 
-\noindent\textbf{Famille 4 : Recherche et matching}
+\begin{table}[H]
+	\centering
+	\begin{tabular}{|p{3cm}|p{10.5cm}|}
+		\hline
+		\multicolumn{2}{|c|}{\cellcolor{vertCongo}\textcolor{white}{\textbf{Famille 7 : Notation et réputation}}} \\
+		\hline
+		\rowcolor{vertCongo}
+		\textcolor{white}{\textbf{Cas d'utilisation}} & \textcolor{white}{\textbf{Définition}} \\
+		\hline
+		\textbf{UC-30} & laisser un avis après mission (Demandeur, Prestataire) \\
+		\hline
+		\textbf{UC-31} & signaler un avis abusif (Demandeur, Prestataire) \\
+		\hline
+	\end{tabular}
+	\caption{Cas d'utilisation de la famille F7 : Notation et réputation}
+	\label{tab:cu_f7}
+\end{table}
 
-\begin{itemize}
-	\item UC-14 : rechercher un prestataire (Visiteur, Demandeur) ;
-	\item UC-15 : filtrer les résultats de recherche (Visiteur, Demandeur) ;
-	\item UC-16 : consulter le score de matching (Demandeur) ;
-	\item UC-17 : recevoir des suggestions proactives de prestataires (Demandeur) ;
-	\item UC-18 : consulter le profil d'un prestataire (Visiteur, Demandeur).
-\end{itemize}
+\begin{table}[H]
+	\centering
+	\begin{tabular}{|p{3cm}|p{10.5cm}|}
+		\hline
+		\multicolumn{2}{|c|}{\cellcolor{vertCongo}\textcolor{white}{\textbf{Famille 8 : Notifications}}} \\
+		\hline
+		\rowcolor{vertCongo}
+		\textcolor{white}{\textbf{Cas d'utilisation}} & \textcolor{white}{\textbf{Définition}} \\
+		\hline
+		\textbf{UC-32} & recevoir des notifications multi-canaux (Demandeur, Prestataire, service de notifications) \\
+		\hline
+		\textbf{UC-33} & configurer ses préférences de notification (Demandeur, Prestataire) \\
+		\hline
+	\end{tabular}
+	\caption{Cas d'utilisation de la famille F8 : Notifications}
+	\label{tab:cu_f8}
+\end{table}
 
-\noindent\textbf{Famille 5 : Messagerie et devis}
-
-\begin{itemize}
-	\item UC-19 : envoyer un message (Demandeur, Prestataire) ;
-	\item UC-20 : envoyer un devis (Prestataire) ;
-	\item UC-21 : accepter un devis (Demandeur) ;
-	\item UC-22 : refuser ou demander une modification de devis (Demandeur).
-\end{itemize}
-
-\noindent\textbf{Famille 6 : Paiement et escrow}
-
-\begin{itemize}
-	\item UC-23 : payer une mission via Mobile Money (Demandeur, Service de paiement) ;
-	\item UC-24 : choisir MTN MoMo comme moyen de paiement (Demandeur) ;
-	\item UC-25 : choisir Airtel Money comme moyen de paiement (Demandeur) ;
-	\item UC-26 : valider la mission terminée (Demandeur) ;
-	\item UC-27 : scanner le code QR de validation sur place (Prestataire) ;
-	\item UC-28 : ouvrir un litige (Demandeur, Prestataire) ;
-	\item UC-29 : demander un retrait Mobile Money (Prestataire).
-\end{itemize}
-
-\noindent\textbf{Famille 7 : Notation et réputation}
-
-\begin{itemize}
-	\item UC-30 : laisser un avis après mission (Demandeur, Prestataire) ;
-	\item UC-31 : signaler un avis abusif (Demandeur, Prestataire).
-\end{itemize}
-
-\noindent\textbf{Famille 8 : Notifications}
-
-\begin{itemize}
-	\item UC-32 : recevoir des notifications multi-canaux (Demandeur, Prestataire, Service de notifications) ;
-	\item UC-33 : configurer ses préférences de notification (Demandeur, Prestataire).
-\end{itemize}
-
-\noindent\textbf{Famille 9 : Administration}
-
-\begin{itemize}
-	\item UC-34 : accéder au tableau de bord de modération (Administrateur) ;
-	\item UC-35 : valider ou rejeter une vérification d'identité (Administrateur) ;
-	\item UC-36 : gérer les signalements (Administrateur) ;
-	\item UC-37 : suspendre un compte utilisateur (Administrateur) ;
-	\item UC-38 : configurer le système (Administrateur) ;
-	\item UC-39 : consulter les statistiques avancées (Administrateur).
-\end{itemize}
+\begin{table}[H]
+	\centering
+	\begin{tabular}{|p{3cm}|p{10.5cm}|}
+		\hline
+		\multicolumn{2}{|c|}{\cellcolor{vertCongo}\textcolor{white}{\textbf{Famille 9 : Administration}}} \\
+		\hline
+		\rowcolor{vertCongo}
+		\textcolor{white}{\textbf{Cas d'utilisation}} & \textcolor{white}{\textbf{Définition}} \\
+		\hline
+		\textbf{UC-34} & accéder au tableau de bord de modération (Administrateur) \\
+		\hline
+		\textbf{UC-35} & valider ou rejeter une vérification d'identité (Administrateur) \\
+		\hline
+		\textbf{UC-36} & gérer les signalements (Administrateur) \\
+		\hline
+		\textbf{UC-37} & suspendre un compte utilisateur (Administrateur) \\
+		\hline
+		\textbf{UC-38} & configurer le système (Administrateur) \\
+		\hline
+		\textbf{UC-39} & consulter les statistiques avancées (Administrateur) \\
+		\hline
+	\end{tabular}
+	\caption{Cas d'utilisation de la famille F9 : Administration}
+	\label{tab:cu_f9}
+\end{table}
 
 \subsubsection{Relation entre les cas d'utilisation}
 
-Les relations entre cas d'utilisation permettent de structurer et de clarifier les dépendances entre les fonctionnalités du système \cite{roques_uml}. Deux types de relations sont utilisés.
+Les relations entre cas d'utilisation permettent de structurer et de clarifier les dépendances entre les fonctionnalités du système \cite{roques_uml}. On en distingue deux types principaux. La relation \textbf{$\langle\langle$include$\rangle\rangle$} indique qu'un cas d'utilisation est toujours exécuté dans le cadre d'un autre : par exemple, UC-01 (s'inscrire) inclut systématiquement UC-02 (valider le code OTP), car on ne peut pas créer de compte sans valider le code reçu par SMS ; de même, UC-21 (accepter un devis) inclut UC-23 (payer via Mobile Money), car l'acceptation d'un devis déclenche toujours le processus de paiement. La relation \textbf{$\langle\langle$extend$\rangle\rangle$}, quant à elle, indique qu'un cas d'utilisation est exécuté de façon optionnelle dans certaines conditions : par exemple, UC-11 (publier une mission) peut optionnellement étendre vers UC-12 (utiliser l'assistant IA), selon le choix du demandeur, et UC-26 (valider la mission) peut étendre vers UC-27 (scanner le code QR), uniquement pour les missions réalisées en présentiel.
 
-La relation \textbf{$\langle\langle$include$\rangle\rangle$} indique qu'un cas d'utilisation est toujours exécuté dans le cadre d'un autre. Par exemple, UC-01 (s'inscrire) inclut systématiquement UC-02 (valider le code OTP), car on ne peut pas créer de compte sans valider le code reçu par SMS. De même, UC-21 (accepter un devis) inclut UC-23 (payer via Mobile Money), car l'acceptation d'un devis déclenche toujours le processus de paiement.
-
-La relation \textbf{$\langle\langle$extend$\rangle\rangle$} indique qu'un cas d'utilisation est exécuté de façon optionnelle dans certaines conditions. Par exemple, UC-11 (publier une mission) peut optionnellement étendre vers UC-12 (utiliser l'assistant IA), selon le choix du demandeur. De même, UC-26 (valider la mission) peut étendre vers UC-27 (scanner le code QR), uniquement pour les missions réalisées en présentiel.
-
+\vspace{0.4cm}
 La figure~\ref{fig:cu_global} présente le diagramme de cas d'utilisation global de «~SALISA~», organisé autour des neuf familles fonctionnelles.
 
 \begin{figure}[H]

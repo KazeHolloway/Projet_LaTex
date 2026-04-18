@@ -20,11 +20,11 @@ Cependant, malgré ces activités, la mise en relation entre les prestataires de
 Bien qu'Akieni soit un acteur important de la transformation numérique au Congo, il n'existe, à ce jour, aucune application ou plateforme dédiée à la mise en relation entre prestataires de services et clients au sein de la structure. Toute la gestion de cette mise en relation repose sur des échanges informels, ce qui engendre plusieurs limites importantes :
 
 \begin{itemize}
-    \item les prestataires n'ont aucun moyen simple de se rendre visibles auprès des clients potentiels, leur notoriété dépend entièrement de leur réseau personnel ;
-    \item les clients ne disposent d'aucun outil pour évaluer la qualité ou la disponibilité d'un prestataire avant de le contacter ;
-    \item les transactions se font sans encadrement : il n'existe aucun système de paiement sécurisé, aucun mécanisme pour résoudre les litiges et aucune garantie en cas de prestation non réalisée ;
-    \item il n'y a aucune traçabilité des missions réalisées ni de système de notation permettant de mesurer la satisfaction des clients ;
-    \item le processus de recherche d'un prestataire est long, peu fiable et source d'incertitude pour les deux parties.
+	\item les prestataires n'ont aucun moyen simple de se rendre visibles auprès des clients potentiels, leur notoriété dépend entièrement de leur réseau personnel ;
+	\item les clients ne disposent d'aucun outil pour évaluer la qualité ou la disponibilité d'un prestataire avant de le contacter ;
+	\item les transactions se font sans encadrement : il n'existe aucun système de paiement sécurisé, aucun mécanisme pour résoudre les litiges et aucune garantie en cas de prestation non réalisée ;
+	\item il n'y a aucune traçabilité des missions réalisées ni de système de notation permettant de mesurer la satisfaction des clients ;
+	\item le processus de recherche d'un prestataire est long, peu fiable et source d'incertitude pour les deux parties.
 \end{itemize}
 
 Ces limites montrent clairement que la situation actuelle nécessite une solution numérique structurée. C'est pourquoi, dans le point suivant, nous allons proposer plusieurs solutions envisageables pour y répondre.
@@ -34,30 +34,30 @@ Ces limites montrent clairement que la situation actuelle nécessite une solutio
 Face aux limites identifiées, il est apparu nécessaire d'explorer différentes pistes pour y répondre. Après analyse et discussion au sein de notre équipe, trois solutions ont été envisagées, chacune présentant ses propres caractéristiques, ses avantages et ses inconvénients. Ces solutions sont présentées de façon équitable afin de permettre au lecteur de se faire une idée objective de chacune d'elles.
 
 \vspace{0.4cm}
-\noindent\textbf{a- Solution 1 : le portail web avec gestion de profils et messagerie intégrée}
+\noindent\textbf{a- Solution 1 : portail web de mise en relation avec annuaire de profils et messagerie intégrée (PHP, MySQL, Bootstrap)}
 
 \vspace{0.3cm}
-Il s'agit d'un site web qui permet aux prestataires de créer un profil en ligne détaillé regroupant leurs compétences, leurs tarifs et leur zone d'intervention, et aux clients de les contacter directement via un système de messagerie intégré. Les utilisateurs peuvent consulter les profils et engager des conversations sans quitter la plateforme.
+Il s'agit de concevoir un portail web permettant aux prestataires de publier un profil détaillé regroupant leurs compétences, leurs tarifs et leur zone d'intervention, et aux clients de les rechercher et de les contacter directement via un système de messagerie intégré. Cette approche repose sur des technologies web éprouvées, telles que PHP côté serveur, MySQL pour la base de données et Bootstrap pour l'interface. Elle vise avant tout à offrir une visibilité numérique simple aux prestataires qui n'en ont aucune aujourd'hui.
 
 \vspace{0.2cm}
 \textit{Avantages :}
 \begin{itemize}
-    \item accessible depuis tous les terminaux (smartphone, tablette, ordinateur) via un navigateur, sans téléchargement ;
-    \item mise en place rapide et coût de développement modéré ;
-    \item interface simple, facile à prendre en main même pour les utilisateurs peu expérimentés ;
-    \item bonne visibilité des prestataires grâce aux profils détaillés et référençables.
+	\item accessible depuis tous les terminaux (smartphone, tablette, ordinateur) via un navigateur, sans téléchargement ;
+	\item mise en place rapide et coût de développement modéré, grâce à des technologies simples et bien documentées ;
+	\item interface intuitive, facile à prendre en main même pour les utilisateurs peu expérimentés ;
+	\item bonne visibilité des prestataires grâce aux profils détaillés et référençables par les moteurs de recherche.
 \end{itemize}
 
 \vspace{0.1cm}
 \textit{Inconvénients :}
 \begin{itemize}
-    \item pas de gestion intégrée des paiements ni de mécanisme de sécurisation des fonds ;
-    \item pas de système de mise en correspondance automatique entre prestataires et clients ;
-    \item les litiges ne peuvent pas être gérés de façon structurée depuis la plateforme.
+	\item pas de gestion intégrée des paiements ni de mécanisme de sécurisation des fonds ;
+	\item pas de système de mise en correspondance automatique entre prestataires et clients ;
+	\item les litiges ne peuvent pas être gérés de façon structurée depuis la plateforme.
 \end{itemize}
 
 \vspace{0.4cm}
-\noindent\textbf{b- Solution 2 : le développement d'une application web cross-plateforme (PWA) avec matching et paiement sécurisé}
+\noindent\textbf{b- Solution 2 : développement d'une application web cross-plateforme (PWA) avec matching intelligent et paiement sécurisé}
 
 \vspace{0.3cm}
 Il s'agit de développer une application web progressive (PWA), accessible depuis tous les terminaux sans installation obligatoire. Elle intègre des fonctionnalités complètes, à savoir la gestion des profils, la publication de missions, la messagerie, la mise en correspondance intelligente entre prestataires et clients, le paiement sécurisé par Mobile Money et le système de notation. C'est la solution que nous avons retenue pour «~SALISA~».
@@ -65,47 +65,47 @@ Il s'agit de développer une application web progressive (PWA), accessible depui
 \vspace{0.2cm}
 \textit{Avantages :}
 \begin{itemize}
-    \item une seule base de code compatible avec tous les terminaux, ce qui réduit les coûts et les délais de développement ;
-    \item aucun téléchargement nécessaire, l'application est accessible directement via un navigateur ;
-    \item fonctionne correctement même sur des connexions internet lentes (2G/3G), grâce à son architecture mobile-first ;
-    \item intègre le paiement par Mobile Money (MTN MoMo, Airtel Money), adapté au contexte local ;
-    \item algorithme de mise en correspondance pour aider les clients à trouver le bon prestataire rapidement ;
-    \item système d'escrow pour sécuriser les transactions et protéger les deux parties.
+	\item une seule base de code compatible avec tous les terminaux, ce qui réduit les coûts et les délais de développement ;
+	\item aucun téléchargement nécessaire, l'application est accessible directement via un navigateur ;
+	\item fonctionne correctement même sur des connexions internet lentes (2G/3G), grâce à son architecture mobile-first ;
+	\item intègre le paiement par Mobile Money (MTN MoMo, Airtel Money), adapté au contexte local ;
+	\item algorithme de mise en correspondance pour aider les clients à trouver le bon prestataire rapidement ;
+	\item système d'escrow pour sécuriser les transactions et protéger les deux parties.
 \end{itemize}
 
 \vspace{0.1cm}
 \textit{Inconvénients :}
 \begin{itemize}
-    \item nécessite une connexion internet pour bénéficier de toutes les fonctionnalités ;
-    \item certaines fonctionnalités natives des terminaux peuvent être légèrement plus limitées que dans une application mobile native.
+	\item nécessite une connexion internet pour bénéficier de toutes les fonctionnalités ;
+	\item certaines fonctionnalités natives des terminaux peuvent être légèrement plus limitées que dans une application mobile native.
 \end{itemize}
 
 \vspace{0.4cm}
-\noindent\textbf{c- Solution 3 : le développement d'une application mobile native (Android et iOS)}
+\noindent\textbf{c- Solution 3 : développement d'une application mobile native de mise en relation entre prestataires et clients (React Native)}
 
 \vspace{0.3cm}
-Il s'agit de développer deux applications mobiles distinctes, l'une pour Android et l'autre pour iOS, chacune exploitant pleinement les capacités des terminaux mobiles concernés. Ces applications intègrent toutes les fonctionnalités de mise en relation, de paiement et de notification.
+Il s'agit de développer une application mobile native, conçue spécifiquement pour les systèmes Android et iOS, en s'appuyant sur le framework React Native qui permet de partager une grande partie du code entre les deux plateformes tout en accédant aux fonctionnalités propres à chaque terminal. Cette application intègrerait toutes les fonctionnalités de mise en relation, de paiement et de notification, en tirant pleinement parti des capacités matérielles des smartphones, notamment le GPS, l'appareil photo et les notifications système.
 
 \vspace{0.2cm}
 \textit{Avantages :}
 \begin{itemize}
-    \item expérience utilisateur optimale sur chaque système, grâce à l'accès complet aux fonctionnalités natives du terminal, telles que l'appareil photo, le GPS, les notifications et les contacts ;
-    \item performances élevées, même pour les animations et les interactions complexes ;
-    \item notifications push natives, très efficaces pour alerter les utilisateurs en temps réel ;
-    \item fonctionnement hors ligne poussé, grâce au stockage local des données sur le terminal.
+	\item expérience utilisateur optimale sur chaque système, grâce à l'accès complet aux fonctionnalités natives du terminal, telles que l'appareil photo, le GPS, les notifications et les contacts ;
+	\item performances élevées, même pour les animations et les interactions complexes ;
+	\item notifications push natives, très efficaces pour alerter les utilisateurs en temps réel ;
+	\item fonctionnement hors ligne poussé, grâce au stockage local des données sur le terminal.
 \end{itemize}
 
 \vspace{0.1cm}
 \textit{Inconvénients :}
 \begin{itemize}
-    \item coût de développement plus élevé car il faut maintenir deux bases de code distinctes, l'une pour Android et l'autre pour iOS ;
-    \item l'utilisateur doit télécharger l'application depuis un store, ce qui constitue une barrière à l'adoption ;
-    \item les mises à jour doivent être soumises et validées par les stores avant d'être disponibles.
+	\item coût de développement plus élevé car il faut maintenir deux versions distinctes, l'une pour Android et l'autre pour iOS, même avec React Native ;
+	\item l'utilisateur doit télécharger l'application depuis un store, ce qui constitue une barrière à l'adoption ;
+	\item les mises à jour doivent être soumises et validées par les stores avant d'être disponibles.
 \end{itemize}
 
 \subsection{Choix de la solution}
 
-Notre choix se porte sur la \textbf{solution 2 : le développement d'une application web cross-plateforme (PWA)} ; c'est cette solution qui a donné naissance à «~SALISA~».
+Notre choix se porte sur la \textbf{solution 2 : développement d'une application web cross-plateforme (PWA)} ; c'est cette solution qui a donné naissance à «~SALISA~».
 
 % ============================================================
 \section{Méthode}
@@ -136,13 +136,13 @@ La version 2.x d'UML propose \textbf{quatorze types de diagrammes}, répartis en
 Ces diagrammes décrivent la structure permanente du système. On y trouve notamment :
 
 \begin{itemize}
-    \item \textbf{le diagramme de classes :} représente les classes du système, leurs attributs, leurs méthodes et les relations qui les unissent. C'est le diagramme central de la conception orientée objet ;
-    \item \textbf{le diagramme d'objets :} montre des instances concrètes des classes à un moment précis du système ;
-    \item \textbf{le diagramme de composants :} décrit l'architecture physique du logiciel en termes de modules et d'interfaces ;
-    \item \textbf{le diagramme de déploiement :} représente la répartition des composants sur les équipements matériels ;
-    \item \textbf{le diagramme de paquetages :} organise les éléments du modèle en groupes logiques ;
-    \item \textbf{le diagramme de structure composite :} décrit la structure interne d'un élément et ses collaborations ;
-    \item \textbf{le diagramme de profils :} permet d'adapter UML à un domaine particulier.
+	\item \textbf{le diagramme de classes :} représente les classes du système, leurs attributs, leurs méthodes et les relations qui les unissent. C'est le diagramme central de la conception orientée objet ;
+	\item \textbf{le diagramme d'objets :} montre des instances concrètes des classes à un moment précis du système ;
+	\item \textbf{le diagramme de composants :} décrit l'architecture physique du logiciel en termes de modules et d'interfaces ;
+	\item \textbf{le diagramme de déploiement :} représente la répartition des composants sur les équipements matériels ;
+	\item \textbf{le diagramme de paquetages :} organise les éléments du modèle en groupes logiques ;
+	\item \textbf{le diagramme de structure composite :} décrit la structure interne d'un élément et ses collaborations ;
+	\item \textbf{le diagramme de profils :} permet d'adapter UML à un domaine particulier.
 \end{itemize}
 
 \vspace{0.3cm}
@@ -152,13 +152,13 @@ Ces diagrammes décrivent la structure permanente du système. On y trouve notam
 Ces diagrammes décrivent le comportement du système dans le temps. Parmi eux, on trouve entre autres :
 
 \begin{itemize}
-    \item \textbf{le diagramme de cas d'utilisation :} identifie les acteurs du système et les fonctionnalités qu'ils peuvent utiliser. C'est le point de départ de l'analyse des besoins ;
-    \item \textbf{le diagramme de séquence :} montre les échanges entre objets dans le temps, selon un scénario précis ;
-    \item \textbf{le diagramme de communication :} similaire au diagramme de séquence, mais met l'accent sur les liens entre les objets ;
-    \item \textbf{le diagramme d'activités :} représente un enchaînement d'actions et de décisions dans un processus ;
-    \item \textbf{le diagramme d'états-transitions :} décrit les états par lesquels passe un objet au cours de sa vie ;
-    \item \textbf{le diagramme de vue d'ensemble des interactions :} résume plusieurs interactions sous forme de fragments ;
-    \item \textbf{le diagramme de temps :} représente l'évolution des états d'un objet dans le temps.
+	\item \textbf{le diagramme de cas d'utilisation :} identifie les acteurs du système et les fonctionnalités qu'ils peuvent utiliser. C'est le point de départ de l'analyse des besoins ;
+	\item \textbf{le diagramme de séquence :} montre les échanges entre objets dans le temps, selon un scénario précis ;
+	\item \textbf{le diagramme de communication :} similaire au diagramme de séquence, mais met l'accent sur les liens entre les objets ;
+	\item \textbf{le diagramme d'activités :} représente un enchaînement d'actions et de décisions dans un processus ;
+	\item \textbf{le diagramme d'états-transitions :} décrit les états par lesquels passe un objet au cours de sa vie ;
+	\item \textbf{le diagramme de vue d'ensemble des interactions :} résume plusieurs interactions sous forme de fragments ;
+	\item \textbf{le diagramme de temps :} représente l'évolution des états d'un objet dans le temps.
 \end{itemize}
 
 Pour «~SALISA~», nous utiliserons principalement le \textbf{diagramme de contexte statique}, le \textbf{diagramme de cas d'utilisation}, le \textbf{diagramme de séquence}, le \textbf{diagramme d'activités}, le \textbf{diagramme de classes} et le \textbf{diagramme de déploiement}.
@@ -200,10 +200,10 @@ Les deux branches précédentes se rejoignent pour produire le système final. C
 La figure~\ref{fig:2tup_schema} illustre la structure en forme de « Y » caractéristique du processus 2TUP.
 
 \begin{figure}[H]
-    \centering
-    \includegraphics[width=0.75\textwidth]{schema_2tup_Y.png}
-    \caption{Structure en Y du processus 2TUP}
-    \label{fig:2tup_schema}
+	\centering
+	\includegraphics[width=0.75\textwidth]{schema_2tup_Y.png}
+	\caption{Structure en Y du processus 2TUP}
+	\label{fig:2tup_schema}
 \end{figure}
 
 \subsubsection{2TUP et UML}
@@ -213,24 +213,24 @@ Le processus 2TUP et le langage UML fonctionnent ensemble : 2TUP utilise UML com
 Le tableau~\ref{tab:2tup_uml} ci-dessous résume la correspondance entre les phases du 2TUP et les diagrammes UML mobilisés pour «~SALISA~».
 
 \begin{table}[H]
-\centering
-\begin{tabular}{|p{4cm}|p{3.5cm}|p{6cm}|}
-\hline
-\textbf{Phase 2TUP} & \textbf{Branche} & \textbf{Diagrammes UML utilisés} \\
-\hline
-Capture des besoins fonctionnels & Fonctionnelle & Diagramme de contexte statique, Diagramme de cas d'utilisation \\
-\hline
-Spécification détaillée & Fonctionnelle & Diagramme de séquence, Diagramme d'activités \\
-\hline
-Capture des besoins techniques & Technique & Diagramme de déploiement \\
-\hline
-Conception architecturale & Réalisation & Diagramme de composants, Diagramme de déploiement \\
-\hline
-Conception du domaine & Réalisation & Diagramme de classes, Diagramme d'objets \\
-\hline
-\end{tabular}
-\caption{Correspondance entre les phases 2TUP et les diagrammes UML utilisés}
-\label{tab:2tup_uml}
+	\centering
+	\begin{tabular}{|p{4cm}|p{3.5cm}|p{6cm}|}
+		\hline
+		\textbf{Phase 2TUP} & \textbf{Branche} & \textbf{Diagrammes UML utilisés} \\
+		\hline
+		Capture des besoins fonctionnels & Fonctionnelle & Diagramme de contexte statique, Diagramme de cas d'utilisation \\
+		\hline
+		Spécification détaillée & Fonctionnelle & Diagramme de séquence, Diagramme d'activités \\
+		\hline
+		Capture des besoins techniques & Technique & Diagramme de déploiement \\
+		\hline
+		Conception architecturale & Réalisation & Diagramme de composants, Diagramme de déploiement \\
+		\hline
+		Conception du domaine & Réalisation & Diagramme de classes, Diagramme d'objets \\
+		\hline
+	\end{tabular}
+	\caption{Correspondance entre les phases 2TUP et les diagrammes UML utilisés}
+	\label{tab:2tup_uml}
 \end{table}
 
 «~SALISA~» combine des besoins fonctionnels nombreux, comme l'inscription des utilisateurs, la mise en correspondance, le paiement ou la messagerie, et des contraintes techniques fortes liées au contexte local, telles que le Mobile Money \cite{mtn_momo}, une connexion parfois limitée ou une architecture distribuée. Le 2TUP permet de traiter ces deux dimensions en parallèle, de façon rigoureuse et coordonnée, ce qui en fait le processus idéal pour notre projet.
