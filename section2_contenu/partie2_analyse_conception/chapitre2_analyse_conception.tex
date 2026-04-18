@@ -14,23 +14,23 @@
 Les besoins fonctionnels représentent l'ensemble des fonctionnalités que «~SALISA~» doit offrir à ses utilisateurs. Nous les avons identifiés à partir de l'analyse des problèmes rencontrés dans la mise en relation manuelle entre prestataires et clients. Ces besoins sont les suivants :
 
 \begin{itemize}
-    \item inscription via un numéro de téléphone, avec validation par code OTP ;
-    \item connexion et déconnexion sécurisées ;
-    \item choix du rôle lors de l'inscription (prestataire, demandeur ou les deux) ;
-    \item création et gestion du profil prestataire (informations, portfolio, tarifs, disponibilité, catégories de services) ;
-    \item vérification d'identité et obtention de badges de certification ;
-    \item publication de missions par le demandeur ;
-    \item recherche et filtrage de prestataires par catégorie, arrondissement, disponibilité et budget ;
-    \item mise en correspondance intelligente (matching) entre missions et prestataires ;
-    \item messagerie directe entre demandeur et prestataire ;
-    \item envoi et acceptation de devis structurés ;
-    \item paiement sécurisé via Mobile Money (MTN MoMo et Airtel Money) \cite{mtn_momo} ;
-    \item sécurisation des fonds par escrow jusqu'à la validation de la mission ;
-    \item validation de la mission terminée et libération des fonds ;
-    \item gestion des litiges entre prestataires et demandeurs ;
-    \item notation et dépôt d'avis après chaque mission réalisée ;
-    \item notifications multi-canaux (push PWA, WhatsApp, SMS) ;
-    \item tableau de bord de modération pour les administrateurs.
+	\item inscription via un numéro de téléphone, avec validation par code OTP ;
+	\item connexion et déconnexion sécurisées ;
+	\item choix du rôle lors de l'inscription (prestataire, demandeur ou les deux) ;
+	\item création et gestion du profil prestataire (informations, portfolio, tarifs, disponibilité, catégories de services) ;
+	\item vérification d'identité et obtention de badges de certification ;
+	\item publication de missions par le demandeur ;
+	\item recherche et filtrage de prestataires par catégorie, arrondissement, disponibilité et budget ;
+	\item mise en correspondance intelligente (matching) entre missions et prestataires ;
+	\item messagerie directe entre demandeur et prestataire ;
+	\item envoi et acceptation de devis structurés ;
+	\item paiement sécurisé via Mobile Money (MTN MoMo et Airtel Money) \cite{mtn_momo} ;
+	\item sécurisation des fonds par escrow jusqu'à la validation de la mission ;
+	\item validation de la mission terminée et libération des fonds ;
+	\item gestion des litiges entre prestataires et demandeurs ;
+	\item notation et dépôt d'avis après chaque mission réalisée ;
+	\item notifications multi-canaux (push PWA, WhatsApp, SMS) ;
+	\item tableau de bord de modération pour les administrateurs.
 \end{itemize}
 
 \subsection{Besoins Techniques}
@@ -38,16 +38,16 @@ Les besoins fonctionnels représentent l'ensemble des fonctionnalités que «~SA
 Les besoins techniques définissent les contraintes non fonctionnelles auxquelles «~SALISA~» doit répondre pour fonctionner correctement dans son contexte d'utilisation :
 
 \begin{itemize}
-    \item architecture Progressive Web Application (PWA) \cite{next_js}, mobile-first, utilisable depuis tous les terminaux sans installation ;
-    \item compatibilité avec les réseaux à faible débit (2G/3G) pour garantir l'accès dans les zones peu couvertes ;
-    \item fonctionnement hors ligne partiel pour la consultation des profils et des missions déjà chargés ;
-    \item sécurité des échanges par protocoles HTTPS et WSS, authentification par JWT et OTP ;
-    \item performance : temps de réponse des API inférieur à 2 secondes pour 95\% des requêtes ;
-    \item disponibilité cible de 99,5\% ;
-    \item intégration des API de paiement Mobile Money (MTN MoMo et Airtel Money) \cite{mtn_momo} ;
-    \item base de données relationnelle (PostgreSQL) \cite{postgresql} avec cache Redis pour les sessions et les résultats fréquents ;
-    \item messagerie en temps réel via WebSocket ;
-    \item stockage des fichiers (photos de profil, pièces jointes) sur un service cloud externe.
+	\item architecture Progressive Web Application (PWA) \cite{next_js}, mobile-first, utilisable depuis tous les terminaux sans installation ;
+	\item compatibilité avec les réseaux à faible débit (2G/3G) pour garantir l'accès dans les zones peu couvertes ;
+	\item fonctionnement hors ligne partiel pour la consultation des profils et des missions déjà chargés ;
+	\item sécurité des échanges par protocoles HTTPS et WSS, authentification par JWT et OTP ;
+	\item performance : temps de réponse des API inférieur à 2 secondes pour 95\% des requêtes ;
+	\item disponibilité cible de 99,5\% ;
+	\item intégration des API de paiement Mobile Money (MTN MoMo et Airtel Money) \cite{mtn_momo} ;
+	\item base de données relationnelle (PostgreSQL) \cite{postgresql} avec cache Redis pour les sessions et les résultats fréquents ;
+	\item messagerie en temps réel via WebSocket ;
+	\item stockage des fichiers (photos de profil, pièces jointes) sur un service cloud externe.
 \end{itemize}
 
 % ============================================================
@@ -64,13 +64,13 @@ Un acteur représente toute entité externe qui interagit avec le système «~SA
 \noindent\textbf{a- Acteurs humains}
 
 \vspace{0.2cm}
-Nous avons identifié quatre acteurs humains principaux :
+Nous avons identifié quatre principaux acteurs humains :
 
 \begin{itemize}
-    \item \textbf{Visiteur :} utilisateur non connecté. Il peut consulter la plateforme et faire des recherches publiques limitées ;
-    \item \textbf{Demandeur :} utilisateur connecté qui cherche et embauche des prestataires. Il publie des missions, contacte, paie et note ;
-    \item \textbf{Prestataire :} utilisateur connecté qui propose ses services. Il crée son profil, répond aux missions et envoie des devis ;
-    \item \textbf{Administrateur :} utilisateur connecté chargé de modérer la plateforme, de vérifier les identités, de gérer les litiges et de configurer le système.
+	\item \textbf{Visiteur :} utilisateur non connecté, sans compte sur la plateforme. Il peut consulter «~SALISA~» et rechercher des prestataires, mais son seul point d'entrée vers les fonctionnalités complètes est l'inscription, qui lui permet de devenir un utilisateur à part entière ;
+	\item \textbf{Demandeur :} utilisateur connecté qui cherche et embauche des prestataires. Il publie des missions, contacte des prestataires, paie et note les prestations ;
+	\item \textbf{Prestataire :} utilisateur connecté qui propose ses services. Il crée son profil, répond aux missions et envoie des devis ;
+	\item \textbf{Administrateur :} utilisateur connecté chargé de modérer la plateforme, de vérifier les identités, de gérer les litiges et de configurer le système.
 \end{itemize}
 
 \vspace{0.3cm}
@@ -80,8 +80,8 @@ Nous avons identifié quatre acteurs humains principaux :
 En UML, un acteur système est tout système informatique externe qui échange des données avec notre application. Nous en avons identifié deux pour «~SALISA~» :
 
 \begin{itemize}
-    \item \textbf{Service de paiement :} regroupe les APIs de MTN MoMo et d'Airtel Money. «~SALISA~» leur envoie des requêtes de paiement et en reçoit des confirmations de transaction \cite{mtn_momo} ;
-    \item \textbf{Service de notifications :} regroupe Twilio SMS et WhatsApp Business API. «~SALISA~» lui envoie des instructions pour délivrer les codes OTP, les alertes et les messages aux utilisateurs.
+	\item \textbf{Service de paiement :} regroupe les APIs de MTN MoMo et d'Airtel Money. «~SALISA~» leur envoie des requêtes de paiement et en reçoit des confirmations de transaction \cite{mtn_momo} ;
+	\item \textbf{Service de notifications :} regroupe Twilio SMS et WhatsApp Business API. «~SALISA~» lui envoie des instructions pour délivrer les codes OTP, les alertes et les messages aux utilisateurs.
 \end{itemize}
 
 \subsubsection{Diagramme de contexte statique}
@@ -89,15 +89,15 @@ En UML, un acteur système est tout système informatique externe qui échange d
 Le diagramme de contexte statique présente «~SALISA~» au centre et montre toutes les entités externes qui interagissent avec lui. La figure~\ref{fig:contexte_statique} illustre ce diagramme.
 
 \begin{figure}[H]
-    \centering
-    \includegraphics[width=0.95\textwidth]{diagramme_contexte_statique.png}
-    \caption{Diagramme de contexte statique de «~SALISA~»}
-    \label{fig:contexte_statique}
+	\centering
+	\includegraphics[width=0.95\textwidth]{diagramme_contexte_statique.png}
+	\caption{Diagramme de contexte statique de «~SALISA~»}
+	\label{fig:contexte_statique}
 \end{figure}
 
-Au centre se trouve le système «~SALISA~» représenté par un rectangle. Autour, les quatre acteurs humains (symbole stickman UML) interagissent avec lui : le Visiteur consulte la plateforme ; le Demandeur publie des missions, paie et note ; le Prestataire crée son profil, répond et envoie des devis ; l'Administrateur modère et configure. Les deux acteurs systèmes (rectangles avec stéréotype \textit{$\langle\langle$système$\rangle\rangle$}) sont : le Service de paiement pour les transactions, et le Service de notifications pour les alertes SMS et WhatsApp.
+Au centre se trouve le système «~SALISA~» représenté par un rectangle. Autour, les quatre acteurs humains (symbole stickman UML) interagissent avec lui : le Visiteur consulte la plateforme et peut s'inscrire ; le Demandeur publie des missions, paie et note ; le Prestataire crée son profil, répond et envoie des devis ; l'Administrateur modère et configure. Les deux acteurs systèmes (rectangles avec stéréotype \textit{$\langle\langle$système$\rangle\rangle$}) sont : le Service de paiement pour les transactions, et le Service de notifications pour les alertes SMS et WhatsApp.
 
-\subsubsection{Identification des cas d'utilisations}
+\subsubsection{Identification des cas d'utilisation}
 
 Un cas d'utilisation décrit une interaction entre un acteur et le système pour accomplir un objectif précis. Pour «~SALISA~», nous avons recensé 39 cas d'utilisation, regroupés en neuf familles selon les acteurs concernés :
 
@@ -105,102 +105,167 @@ Un cas d'utilisation décrit une interaction entre un acteur et le système pour
 \noindent\textbf{Famille 1 : Authentification et gestion du compte}
 
 \begin{itemize}
-    \item UC-01 : s'inscrire via numéro de téléphone (Visiteur) ;
-    \item UC-02 : valider le code OTP (Visiteur) ;
-    \item UC-03 : choisir son rôle lors de l'inscription (Visiteur) ;
-    \item UC-04 : se connecter (Visiteur) ;
-    \item UC-05 : se déconnecter (Demandeur, Prestataire, Administrateur).
+	\item UC-01 : s'inscrire via numéro de téléphone (Visiteur) ;
+	\item UC-02 : valider le code OTP (Visiteur) ;
+	\item UC-03 : choisir son rôle lors de l'inscription (Visiteur) ;
+	\item UC-04 : se connecter (Demandeur, Prestataire, Administrateur) ;
+	\item UC-05 : se déconnecter (Demandeur, Prestataire, Administrateur).
 \end{itemize}
 
 \noindent\textbf{Famille 2 : Gestion du profil prestataire}
 
 \begin{itemize}
-    \item UC-06 : compléter son profil prestataire (Prestataire) ;
-    \item UC-07 : gérer son portfolio (Prestataire) ;
-    \item UC-08 : définir ses tarifs et sa disponibilité (Prestataire) ;
-    \item UC-09 : gérer ses catégories et compétences (Prestataire) ;
-    \item UC-10 : faire vérifier son identité pour obtenir le badge Vérifié (Prestataire, Administrateur).
+	\item UC-06 : compléter son profil prestataire (Prestataire) ;
+	\item UC-07 : gérer son portfolio (Prestataire) ;
+	\item UC-08 : définir ses tarifs et sa disponibilité (Prestataire) ;
+	\item UC-09 : gérer ses catégories et compétences (Prestataire) ;
+	\item UC-10 : faire vérifier son identité pour obtenir le badge Vérifié (Prestataire, Administrateur).
 \end{itemize}
 
 \noindent\textbf{Famille 3 : Gestion des missions}
 
 \begin{itemize}
-    \item UC-11 : publier une mission (Demandeur) ;
-    \item UC-12 : utiliser l'assistant IA pour la description (Demandeur) ;
-    \item UC-13 : gérer ses missions publiées (Demandeur).
+	\item UC-11 : publier une mission (Demandeur) ;
+	\item UC-12 : utiliser l'assistant IA pour la description (Demandeur) ;
+	\item UC-13 : gérer ses missions publiées (Demandeur).
 \end{itemize}
 
 \noindent\textbf{Famille 4 : Recherche et matching}
 
 \begin{itemize}
-    \item UC-14 : rechercher un prestataire (Visiteur, Demandeur) ;
-    \item UC-15 : filtrer les résultats de recherche (Visiteur, Demandeur) ;
-    \item UC-16 : consulter le score de matching (Demandeur) ;
-    \item UC-17 : recevoir des suggestions proactives de prestataires (Demandeur) ;
-    \item UC-18 : consulter le profil d'un prestataire (Visiteur, Demandeur).
+	\item UC-14 : rechercher un prestataire (Visiteur, Demandeur) ;
+	\item UC-15 : filtrer les résultats de recherche (Visiteur, Demandeur) ;
+	\item UC-16 : consulter le score de matching (Demandeur) ;
+	\item UC-17 : recevoir des suggestions proactives de prestataires (Demandeur) ;
+	\item UC-18 : consulter le profil d'un prestataire (Visiteur, Demandeur).
 \end{itemize}
 
 \noindent\textbf{Famille 5 : Messagerie et devis}
 
 \begin{itemize}
-    \item UC-19 : envoyer un message (Demandeur, Prestataire) ;
-    \item UC-20 : envoyer un devis (Prestataire) ;
-    \item UC-21 : accepter un devis (Demandeur) ;
-    \item UC-22 : refuser ou demander une modification de devis (Demandeur).
+	\item UC-19 : envoyer un message (Demandeur, Prestataire) ;
+	\item UC-20 : envoyer un devis (Prestataire) ;
+	\item UC-21 : accepter un devis (Demandeur) ;
+	\item UC-22 : refuser ou demander une modification de devis (Demandeur).
 \end{itemize}
 
 \noindent\textbf{Famille 6 : Paiement et escrow}
 
 \begin{itemize}
-    \item UC-23 : payer une mission via Mobile Money (Demandeur, Service de paiement) ;
-    \item UC-24 : choisir MTN MoMo comme moyen de paiement (Demandeur) ;
-    \item UC-25 : choisir Airtel Money comme moyen de paiement (Demandeur) ;
-    \item UC-26 : valider la mission terminée (Demandeur) ;
-    \item UC-27 : scanner le code QR de validation sur place (Prestataire) ;
-    \item UC-28 : ouvrir un litige (Demandeur, Prestataire) ;
-    \item UC-29 : demander un retrait Mobile Money (Prestataire).
+	\item UC-23 : payer une mission via Mobile Money (Demandeur, Service de paiement) ;
+	\item UC-24 : choisir MTN MoMo comme moyen de paiement (Demandeur) ;
+	\item UC-25 : choisir Airtel Money comme moyen de paiement (Demandeur) ;
+	\item UC-26 : valider la mission terminée (Demandeur) ;
+	\item UC-27 : scanner le code QR de validation sur place (Prestataire) ;
+	\item UC-28 : ouvrir un litige (Demandeur, Prestataire) ;
+	\item UC-29 : demander un retrait Mobile Money (Prestataire).
 \end{itemize}
 
 \noindent\textbf{Famille 7 : Notation et réputation}
 
 \begin{itemize}
-    \item UC-30 : laisser un avis après mission (Demandeur, Prestataire) ;
-    \item UC-31 : signaler un avis abusif (Demandeur, Prestataire).
+	\item UC-30 : laisser un avis après mission (Demandeur, Prestataire) ;
+	\item UC-31 : signaler un avis abusif (Demandeur, Prestataire).
 \end{itemize}
 
 \noindent\textbf{Famille 8 : Notifications}
 
 \begin{itemize}
-    \item UC-32 : recevoir des notifications multi-canaux (Demandeur, Prestataire, Service de notifications) ;
-    \item UC-33 : configurer ses préférences de notification (Demandeur, Prestataire).
+	\item UC-32 : recevoir des notifications multi-canaux (Demandeur, Prestataire, Service de notifications) ;
+	\item UC-33 : configurer ses préférences de notification (Demandeur, Prestataire).
 \end{itemize}
 
 \noindent\textbf{Famille 9 : Administration}
 
 \begin{itemize}
-    \item UC-34 : accéder au tableau de bord de modération (Administrateur) ;
-    \item UC-35 : valider ou rejeter une vérification d'identité (Administrateur) ;
-    \item UC-36 : gérer les signalements (Administrateur) ;
-    \item UC-37 : suspendre un compte utilisateur (Administrateur) ;
-    \item UC-38 : configurer le système (Administrateur) ;
-    \item UC-39 : consulter les statistiques avancées (Administrateur).
+	\item UC-34 : accéder au tableau de bord de modération (Administrateur) ;
+	\item UC-35 : valider ou rejeter une vérification d'identité (Administrateur) ;
+	\item UC-36 : gérer les signalements (Administrateur) ;
+	\item UC-37 : suspendre un compte utilisateur (Administrateur) ;
+	\item UC-38 : configurer le système (Administrateur) ;
+	\item UC-39 : consulter les statistiques avancées (Administrateur).
 \end{itemize}
 
-\subsubsection{Relation entre les cas d'utilisation (Use case)}
+\subsubsection{Relation entre les cas d'utilisation}
 
 Les relations entre cas d'utilisation permettent de structurer et de clarifier les dépendances entre les fonctionnalités du système \cite{roques_uml}. Deux types de relations sont utilisés.
 
-La relation \textbf{$\langle\langle$include$\rangle\rangle$} indique qu'un cas d'utilisation est toujours exécuté dans le cadre d'un autre. Par exemple, UC-01 (s'inscrire) inclut systématiquement UC-02 (valider le code OTP), car on ne peut pas s'inscrire sans valider le code. De même, UC-21 (accepter un devis) inclut UC-23 (payer via Mobile Money), car l'acceptation du devis déclenche toujours le paiement.
+La relation \textbf{$\langle\langle$include$\rangle\rangle$} indique qu'un cas d'utilisation est toujours exécuté dans le cadre d'un autre. Par exemple, UC-01 (s'inscrire) inclut systématiquement UC-02 (valider le code OTP), car on ne peut pas créer de compte sans valider le code reçu par SMS. De même, UC-21 (accepter un devis) inclut UC-23 (payer via Mobile Money), car l'acceptation d'un devis déclenche toujours le processus de paiement.
 
-La relation \textbf{$\langle\langle$extend$\rangle\rangle$} indique qu'un cas d'utilisation est exécuté de façon optionnelle dans certaines conditions. Par exemple, UC-11 (publier une mission) peut optionnellement étendre vers UC-12 (utiliser l'assistant IA), selon le choix du demandeur. De même, UC-26 (valider la mission) peut étendre vers UC-27 (scanner le code QR), uniquement pour les missions physiques.
+La relation \textbf{$\langle\langle$extend$\rangle\rangle$} indique qu'un cas d'utilisation est exécuté de façon optionnelle dans certaines conditions. Par exemple, UC-11 (publier une mission) peut optionnellement étendre vers UC-12 (utiliser l'assistant IA), selon le choix du demandeur. De même, UC-26 (valider la mission) peut étendre vers UC-27 (scanner le code QR), uniquement pour les missions réalisées en présentiel.
 
-La figure~\ref{fig:use_case} présente le diagramme de cas d'utilisation global de «~SALISA~».
+La figure~\ref{fig:cu_global} présente le diagramme de cas d'utilisation global de «~SALISA~», organisé autour des neuf familles fonctionnelles.
 
 \begin{figure}[H]
-    \centering
-    \includegraphics[width=0.95\textwidth]{diagramme_cas_utilisation.png}
-    \caption{Diagramme de cas d'utilisation de «~SALISA~»}
-    \label{fig:use_case}
+	\centering
+	\includegraphics[width=0.95\textwidth]{diagramme_cu_global.png}
+	\caption{Diagramme de cas d'utilisation global de «~SALISA~»}
+	\label{fig:cu_global}
+\end{figure}
+
+Pour une meilleure lisibilité, chaque famille est ensuite détaillée dans un diagramme dédié, présentant les cas d'utilisation et leurs relations avec précision. Les figures~\ref{fig:cu_f1} à~\ref{fig:cu_f9} illustrent ces neuf diagrammes.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.85\textwidth]{diagramme_cu_f1.png}
+	\caption{Diagramme de cas d'utilisation - F1 : Authentification}
+	\label{fig:cu_f1}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.85\textwidth]{diagramme_cu_f2.png}
+	\caption{Diagramme de cas d'utilisation - F2 : Profil prestataire}
+	\label{fig:cu_f2}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.85\textwidth]{diagramme_cu_f3.png}
+	\caption{Diagramme de cas d'utilisation - F3 : Gestion des missions}
+	\label{fig:cu_f3}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.85\textwidth]{diagramme_cu_f4.png}
+	\caption{Diagramme de cas d'utilisation - F4 : Recherche et matching}
+	\label{fig:cu_f4}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.85\textwidth]{diagramme_cu_f5.png}
+	\caption{Diagramme de cas d'utilisation - F5 : Messagerie et devis}
+	\label{fig:cu_f5}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.85\textwidth]{diagramme_cu_f6.png}
+	\caption{Diagramme de cas d'utilisation - F6 : Paiement et escrow}
+	\label{fig:cu_f6}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.85\textwidth]{diagramme_cu_f7.png}
+	\caption{Diagramme de cas d'utilisation - F7 : Notation et réputation}
+	\label{fig:cu_f7}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.85\textwidth]{diagramme_cu_f8.png}
+	\caption{Diagramme de cas d'utilisation - F8 : Notifications}
+	\label{fig:cu_f8}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.85\textwidth]{diagramme_cu_f9.png}
+	\caption{Diagramme de cas d'utilisation - F9 : Administration}
+	\label{fig:cu_f9}
 \end{figure}
 
 \subsubsection{Classification des cas d'utilisation (priorités, risques et itérations)}
@@ -208,53 +273,53 @@ La figure~\ref{fig:use_case} présente le diagramme de cas d'utilisation global 
 Le tableau~\ref{tab:classification_cu} présente la classification des principaux cas d'utilisation selon leur priorité fonctionnelle, leur niveau de risque technique et l'itération de développement dans laquelle ils s'inscrivent. L'itération 1 regroupe les fonctionnalités essentielles au fonctionnement minimal du système. L'itération 2 contient les fonctionnalités importantes mais non bloquantes. L'itération 3 rassemble les fonctionnalités souhaitables à plus long terme.
 
 \begin{table}[H]
-\centering
-\begin{tabular}{|c|p{4.5cm}|c|c|c|}
-\hline
-\rowcolor{vertCongo}
-\textcolor{white}{\textbf{UC}} &
-\textcolor{white}{\textbf{Libellé}} &
-\textcolor{white}{\textbf{Priorité}} &
-\textcolor{white}{\textbf{Risque}} &
-\textcolor{white}{\textbf{Itération}} \\
-\hline
-UC-01 & s'inscrire & Élevée & Élevé & 1 \\
-\hline
-UC-02 & valider le code OTP & Élevée & Élevé & 1 \\
-\hline
-UC-03 & choisir son rôle & Élevée & Faible & 1 \\
-\hline
-UC-06 & compléter son profil & Élevée & Moyen & 1 \\
-\hline
-UC-11 & publier une mission & Élevée & Moyen & 1 \\
-\hline
-UC-14 & rechercher un prestataire & Élevée & Moyen & 1 \\
-\hline
-UC-19 & envoyer un message & Élevée & Moyen & 1 \\
-\hline
-UC-20 & envoyer un devis & Élevée & Moyen & 1 \\
-\hline
-UC-23 & payer via Mobile Money & Élevée & Élevé & 1 \\
-\hline
-UC-26 & valider la mission & Élevée & Élevé & 1 \\
-\hline
-UC-30 & laisser un avis & Élevée & Faible & 1 \\
-\hline
-UC-32 & recevoir des notifications & Élevée & Moyen & 1 \\
-\hline
-UC-34 & tableau de bord admin & Élevée & Moyen & 1 \\
-\hline
-UC-12 & utiliser l'assistant IA & Moyenne & Élevé & 2 \\
-\hline
-UC-16 & score de matching & Moyenne & Élevé & 2 \\
-\hline
-UC-28 & ouvrir un litige & Moyenne & Moyen & 2 \\
-\hline
-UC-38 & configurer le système & Basse & Faible & 3 \\
-\hline
-\end{tabular}
-\caption{Classification des principaux cas d'utilisation de «~SALISA~»}
-\label{tab:classification_cu}
+	\centering
+	\begin{tabular}{|c|p{4.5cm}|c|c|c|}
+		\hline
+		\rowcolor{vertCongo}
+		\textcolor{white}{\textbf{UC}} &
+		\textcolor{white}{\textbf{Libellé}} &
+		\textcolor{white}{\textbf{Priorité}} &
+		\textcolor{white}{\textbf{Risque}} &
+		\textcolor{white}{\textbf{Itération}} \\
+		\hline
+		UC-01 & s'inscrire & Élevée & Élevé & 1 \\
+		\hline
+		UC-02 & valider le code OTP & Élevée & Élevé & 1 \\
+		\hline
+		UC-03 & choisir son rôle & Élevée & Faible & 1 \\
+		\hline
+		UC-06 & compléter son profil & Élevée & Moyen & 1 \\
+		\hline
+		UC-11 & publier une mission & Élevée & Moyen & 1 \\
+		\hline
+		UC-14 & rechercher un prestataire & Élevée & Moyen & 1 \\
+		\hline
+		UC-19 & envoyer un message & Élevée & Moyen & 1 \\
+		\hline
+		UC-20 & envoyer un devis & Élevée & Moyen & 1 \\
+		\hline
+		UC-23 & payer via Mobile Money & Élevée & Élevé & 1 \\
+		\hline
+		UC-26 & valider la mission & Élevée & Élevé & 1 \\
+		\hline
+		UC-30 & laisser un avis & Élevée & Faible & 1 \\
+		\hline
+		UC-32 & recevoir des notifications & Élevée & Moyen & 1 \\
+		\hline
+		UC-34 & tableau de bord admin & Élevée & Moyen & 1 \\
+		\hline
+		UC-12 & utiliser l'assistant IA & Moyenne & Élevé & 2 \\
+		\hline
+		UC-16 & score de matching & Moyenne & Élevé & 2 \\
+		\hline
+		UC-28 & ouvrir un litige & Moyenne & Moyen & 2 \\
+		\hline
+		UC-38 & configurer le système & Basse & Faible & 3 \\
+		\hline
+	\end{tabular}
+	\caption{Classification des principaux cas d'utilisation de «~SALISA~»}
+	\label{tab:classification_cu}
 \end{table}
 
 \subsection{Spécification détaillée}
@@ -265,39 +330,40 @@ UC-38 & configurer le système & Basse & Faible & 3 \\
 
 \vspace{0.2cm}
 \begin{table}[H]
-\centering
-\begin{tabular}{|p{3.5cm}|p{10cm}|}
-\hline
-\rowcolor{vertClair}
-\textbf{Cas d'utilisation} & UC-01 : s'inscrire via numéro de téléphone \\
-\hline
-\textbf{Acteur principal} & Visiteur \\
-\hline
-\textbf{Précondition} & l'utilisateur n'a pas encore de compte sur «~SALISA~» \\
-\hline
-\textbf{Déclencheur} & l'utilisateur clique sur le bouton « S'inscrire » \\
-\hline
-\textbf{Scénario nominal} &
-\begin{enumerate}
-    \item L'utilisateur saisit son numéro de téléphone au format +242 XXXXXXXXX.
-    \item Le système valide le format et envoie un code OTP par SMS.
-    \item L'utilisateur saisit le code OTP reçu.
-    \item Le système vérifie le code (durée de validité : 5 minutes).
-    \item Le compte est créé et l'utilisateur est redirigé vers le choix de rôle (UC-03).
-\end{enumerate} \\
-\hline
-\textbf{Scénarios alternatifs} &
-\begin{itemize}
-    \item Code OTP expiré : l'utilisateur peut en demander un nouveau.
-    \item 3 tentatives échouées : blocage de 10 minutes.
-    \item Numéro déjà existant : redirection vers la page de connexion.
-\end{itemize} \\
-\hline
-\textbf{Postcondition} & le compte est créé et l'utilisateur peut accéder à la plateforme \\
-\hline
-\end{tabular}
-\caption{Description textuelle de UC-01 : s'inscrire via numéro de téléphone}
-\label{tab:uc01}
+	\centering
+	\begin{tabular}{|p{3.5cm}|p{10cm}|}
+		\hline
+		\rowcolor{vertClair}
+		\textbf{Cas d'utilisation} & UC-01 : s'inscrire via numéro de téléphone \\
+		\hline
+		\textbf{Acteur principal} & Visiteur \\
+		\hline
+		\textbf{Précondition} & le visiteur n'a pas encore de compte sur «~SALISA~» \\
+		\hline
+		\textbf{Déclencheur} & le visiteur clique sur le bouton «~S'inscrire~» \\
+		\hline
+		\textbf{Scénario nominal} &
+		\begin{enumerate}
+			\item Le visiteur saisit son numéro de téléphone au format +242 XXXXXXXXX.
+			\item Le système valide le format et envoie un code OTP par SMS (UC-02).
+			\item Le visiteur saisit le code OTP reçu.
+			\item Le système vérifie le code (durée de validité : 5 minutes).
+			\item Le visiteur choisit son rôle : prestataire, demandeur, ou les deux (UC-03).
+			\item Le compte est créé et le visiteur devient un utilisateur connecté.
+		\end{enumerate} \\
+		\hline
+		\textbf{Scénarios alternatifs} &
+		\begin{itemize}
+			\item Code OTP expiré : le visiteur peut en demander un nouveau.
+			\item 3 tentatives échouées : blocage temporaire de 10 minutes.
+			\item Numéro déjà existant : redirection vers la page de connexion.
+		\end{itemize} \\
+		\hline
+		\textbf{Postcondition} & le compte est créé ; le visiteur est devenu un utilisateur et peut accéder à toutes les fonctionnalités selon son rôle \\
+		\hline
+	\end{tabular}
+	\caption{Description textuelle de UC-01 : s'inscrire via numéro de téléphone}
+	\label{tab:uc01}
 \end{table}
 
 \vspace{0.5cm}
@@ -305,39 +371,39 @@ UC-38 & configurer le système & Basse & Faible & 3 \\
 
 \vspace{0.2cm}
 \begin{table}[H]
-\centering
-\begin{tabular}{|p{3.5cm}|p{10cm}|}
-\hline
-\rowcolor{vertClair}
-\textbf{Cas d'utilisation} & UC-11 : publier une mission \\
-\hline
-\textbf{Acteur principal} & Demandeur \\
-\hline
-\textbf{Précondition} & l'utilisateur est connecté en tant que demandeur \\
-\hline
-\textbf{Déclencheur} & le demandeur clique sur « Publier une mission » \\
-\hline
-\textbf{Scénario nominal} &
-\begin{enumerate}
-    \item Le demandeur saisit le titre de la mission.
-    \item Il renseigne la description de son besoin (ou utilise l'assistant IA - UC-12).
-    \item Il sélectionne la catégorie et l'arrondissement.
-    \item Il indique le budget et le délai souhaité.
-    \item Il confirme et publie la mission.
-    \item Le système lance l'algorithme de matching et notifie les prestataires correspondants.
-\end{enumerate} \\
-\hline
-\textbf{Scénarios alternatifs} &
-\begin{itemize}
-    \item Le demandeur n'est pas connecté : redirection vers la connexion.
-    \item Aucun prestataire ne correspond : message « Aucun résultat proche ».
-\end{itemize} \\
-\hline
-\textbf{Postcondition} & la mission est publiée et les prestataires correspondants sont notifiés \\
-\hline
-\end{tabular}
-\caption{Description textuelle de UC-11 : publier une mission}
-\label{tab:uc11}
+	\centering
+	\begin{tabular}{|p{3.5cm}|p{10cm}|}
+		\hline
+		\rowcolor{vertClair}
+		\textbf{Cas d'utilisation} & UC-11 : publier une mission \\
+		\hline
+		\textbf{Acteur principal} & Demandeur \\
+		\hline
+		\textbf{Précondition} & l'utilisateur est connecté en tant que demandeur \\
+		\hline
+		\textbf{Déclencheur} & le demandeur clique sur «~Publier une mission~» \\
+		\hline
+		\textbf{Scénario nominal} &
+		\begin{enumerate}
+			\item Le demandeur saisit le titre de la mission.
+			\item Il renseigne la description de son besoin (ou utilise l'assistant IA - UC-12).
+			\item Il sélectionne la catégorie et l'arrondissement.
+			\item Il indique le budget et le délai souhaité.
+			\item Il confirme et publie la mission.
+			\item Le système lance l'algorithme de matching et notifie les prestataires correspondants.
+		\end{enumerate} \\
+		\hline
+		\textbf{Scénarios alternatifs} &
+		\begin{itemize}
+			\item Le demandeur n'est pas connecté : redirection vers la page de connexion.
+			\item Aucun prestataire ne correspond : message «~Aucun résultat proche~».
+		\end{itemize} \\
+		\hline
+		\textbf{Postcondition} & la mission est publiée et les prestataires correspondants sont notifiés \\
+		\hline
+	\end{tabular}
+	\caption{Description textuelle de UC-11 : publier une mission}
+	\label{tab:uc11}
 \end{table}
 
 \subsubsection{Diagramme de séquence (au plus 2)}
@@ -345,19 +411,19 @@ UC-38 & configurer le système & Basse & Faible & 3 \\
 La figure~\ref{fig:seq_inscription} illustre le diagramme de séquence du cas d'utilisation UC-01 (s'inscrire via numéro de téléphone).
 
 \begin{figure}[H]
-    \centering
-    \includegraphics[width=0.95\textwidth]{diagramme_sequence_inscription.png}
-    \caption{Diagramme de séquence - inscription via numéro de téléphone (UC-01)}
-    \label{fig:seq_inscription}
+	\centering
+	\includegraphics[width=0.95\textwidth]{diagramme_sequence_inscription.png}
+	\caption{Diagramme de séquence - inscription via numéro de téléphone (UC-01)}
+	\label{fig:seq_inscription}
 \end{figure}
 
 La figure~\ref{fig:seq_paiement} illustre le diagramme de séquence du scénario de paiement et de libération des fonds (UC-23 et UC-26).
 
 \begin{figure}[H]
-    \centering
-    \includegraphics[width=0.95\textwidth]{diagramme_sequence_paiement.png}
-    \caption{Diagramme de séquence - paiement et libération des fonds (UC-23 et UC-26)}
-    \label{fig:seq_paiement}
+	\centering
+	\includegraphics[width=0.95\textwidth]{diagramme_sequence_paiement.png}
+	\caption{Diagramme de séquence - paiement et libération des fonds (UC-23 et UC-26)}
+	\label{fig:seq_paiement}
 \end{figure}
 
 \subsubsection{Diagramme d'activités (au plus 2)}
@@ -365,19 +431,19 @@ La figure~\ref{fig:seq_paiement} illustre le diagramme de séquence du scénario
 La figure~\ref{fig:act_publication} présente le diagramme d'activités du processus de publication d'une mission.
 
 \begin{figure}[H]
-    \centering
-    \includegraphics[width=0.95\textwidth]{diagramme_activites_mission.png}
-    \caption{Diagramme d'activités - publication de mission et sélection du prestataire}
-    \label{fig:act_publication}
+	\centering
+	\includegraphics[width=0.95\textwidth]{diagramme_activites_mission.png}
+	\caption{Diagramme d'activités - publication de mission et sélection du prestataire}
+	\label{fig:act_publication}
 \end{figure}
 
 La figure~\ref{fig:act_paiement} illustre le diagramme d'activités du processus de paiement sécurisé par escrow.
 
 \begin{figure}[H]
-    \centering
-    \includegraphics[width=0.95\textwidth]{diagramme_activites_paiement.png}
-    \caption{Diagramme d'activités - paiement sécurisé par escrow}
-    \label{fig:act_paiement}
+	\centering
+	\includegraphics[width=0.95\textwidth]{diagramme_activites_paiement.png}
+	\caption{Diagramme d'activités - paiement sécurisé par escrow}
+	\label{fig:act_paiement}
 \end{figure}
 
 \subsection{Réalisation des cas d'utilisation}
@@ -390,36 +456,36 @@ Les règles de gestion définissent le comportement du système «~SALISA~» dan
 \noindent\textbf{Gestion des comptes}
 
 \begin{itemize}
-    \item RG-001 : un numéro de téléphone ne peut être associé qu'à un seul compte ;
-    \item RG-002 : un même compte peut avoir simultanément les rôles de prestataire et de demandeur ;
-    \item RG-003 : un compte est suspendu automatiquement après trois signalements validés par un administrateur ;
-    \item RG-004 : lors de la suppression d'un compte, les données sont conservées 30 jours avant effacement définitif.
+	\item RG-001 : un numéro de téléphone ne peut être associé qu'à un seul compte ;
+	\item RG-002 : un même compte peut avoir simultanément les rôles de prestataire et de demandeur ;
+	\item RG-003 : un compte est suspendu automatiquement après trois signalements validés par un administrateur ;
+	\item RG-004 : lors de la suppression d'un compte, les données sont conservées 30 jours avant effacement définitif.
 \end{itemize}
 
 \noindent\textbf{Gestion des missions et des prestataires}
 
 \begin{itemize}
-    \item RG-010 : un profil prestataire n'est visible dans la recherche qu'à partir de 70\% de complétion ;
-    \item RG-011 : un prestataire avec un compte gratuit ne peut postuler qu'à 3 missions par mois ;
-    \item RG-012 : une mission sans activité depuis 30 jours est archivée automatiquement ;
-    \item RG-013 : au maximum 10 prestataires sont notifiés par mission (les 10 meilleurs scores de matching).
+	\item RG-010 : un profil prestataire n'est visible dans la recherche qu'à partir de 70\% de complétion ;
+	\item RG-011 : un prestataire avec un compte gratuit ne peut postuler qu'à 3 missions par mois ;
+	\item RG-012 : une mission sans activité depuis 30 jours est archivée automatiquement ;
+	\item RG-013 : au maximum 10 prestataires sont notifiés par mission (les 10 meilleurs scores de matching).
 \end{itemize}
 
 \noindent\textbf{Gestion des paiements}
 
 \begin{itemize}
-    \item RG-020 : la commission de «~SALISA~» est de 8\% du montant total de chaque transaction ;
-    \item RG-021 : le montant minimum d'une transaction est de 2 000 FCFA ;
-    \item RG-022 : si le demandeur ne valide pas la mission dans les 7 jours suivant la livraison, les fonds sont libérés automatiquement au prestataire ;
-    \item RG-023 : un litige doit être ouvert dans les 48 heures suivant la date de livraison prévue.
+	\item RG-020 : la commission de «~SALISA~» est de 8\% du montant total de chaque transaction ;
+	\item RG-021 : le montant minimum d'une transaction est de 2 000 FCFA ;
+	\item RG-022 : si le demandeur ne valide pas la mission dans les 7 jours suivant la livraison, les fonds sont libérés automatiquement au prestataire ;
+	\item RG-023 : un litige doit être ouvert dans les 48 heures suivant la date de livraison prévue.
 \end{itemize}
 
 \noindent\textbf{Gestion des avis}
 
 \begin{itemize}
-    \item RG-030 : un avis ne peut être laissé qu'après une mission avec transaction validée ;
-    \item RG-031 : le délai pour laisser un avis est de 14 jours après la validation de la mission ;
-    \item RG-032 : les avis sont définitifs et ne peuvent jamais être supprimés par le prestataire ou le demandeur.
+	\item RG-030 : un avis ne peut être laissé qu'après une mission avec transaction validée ;
+	\item RG-031 : le délai pour laisser un avis est de 14 jours après la validation de la mission ;
+	\item RG-032 : les avis sont définitifs et ne peuvent jamais être supprimés par le prestataire ou le demandeur.
 \end{itemize}
 
 \subsubsection{Modèle du domaine (Diagramme de classe du système)}
@@ -427,21 +493,21 @@ Les règles de gestion définissent le comportement du système «~SALISA~» dan
 La figure~\ref{fig:diag_classes} présente le diagramme de classes de «~SALISA~», qui représente les entités principales du système, leurs attributs, leurs méthodes et les relations qui les unissent \cite{booch_uml}.
 
 \begin{figure}[H]
-    \centering
-    \includegraphics[width=0.95\textwidth]{diagramme_classes.png}
-    \caption{Diagramme de classes du système «~SALISA~»}
-    \label{fig:diag_classes}
+	\centering
+	\includegraphics[width=0.95\textwidth]{diagramme_classes.png}
+	\caption{Diagramme de classes du système «~SALISA~»}
+	\label{fig:diag_classes}
 \end{figure}
 
 \subsubsection{Diagramme d'Objets}
 
-La figure~\ref{fig:diag_objets} illustre un exemple d'instanciation du système «~SALISA~», correspondant au scénario où un demandeur publie une mission et un prestataire y répond avec un devis.
+La figure~\ref{fig:diag_objets} illustre un exemple d'instanciation du système «~SALISA~», correspondant au scénario où un demandeur publie une mission, un prestataire y répond avec un devis, et le paiement est sécurisé par escrow.
 
 \begin{figure}[H]
-    \centering
-    \includegraphics[width=0.95\textwidth]{diagramme_objets.png}
-    \caption{Diagramme d'objets - scénario de publication et réponse à une mission}
-    \label{fig:diag_objets}
+	\centering
+	\includegraphics[width=0.95\textwidth]{diagramme_objets.png}
+	\caption{Diagramme d'objets - scénario de publication et réponse à une mission}
+	\label{fig:diag_objets}
 \end{figure}
 
 \subsection{Conception architecturale}
@@ -465,8 +531,8 @@ Le \textbf{service de notifications} est un worker asynchrone qui envoie les ale
 La figure~\ref{fig:diag_deploiement} présente le diagramme de déploiement de «~SALISA~», qui montre la répartition des composants sur les équipements matériels et les services en ligne.
 
 \begin{figure}[H]
-    \centering
-    \includegraphics[width=0.95\textwidth]{diagramme_deploiement.png}
-    \caption{Diagramme de déploiement de «~SALISA~»}
-    \label{fig:diag_deploiement}
+	\centering
+	\includegraphics[width=0.95\textwidth]{diagramme_deploiement.png}
+	\caption{Diagramme de déploiement de «~SALISA~»}
+	\label{fig:diag_deploiement}
 \end{figure}

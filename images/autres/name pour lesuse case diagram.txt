@@ -1,0 +1,12 @@
+Noms des fichiers PNG à placer dans /images :
+
+diagramme_cu_global.png
+diagramme_cu_f1.png
+diagramme_cu_f2.png
+diagramme_cu_f3.png
+diagramme_cu_f4.png
+diagramme_cu_f5.png
+diagramme_cu_f6.png
+diagramme_cu_f7.png
+diagramme_cu_f8.png
+diagramme_cu_f9.png
