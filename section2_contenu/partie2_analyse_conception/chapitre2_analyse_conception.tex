@@ -16,7 +16,7 @@ Les besoins fonctionnels représentent l'ensemble des fonctionnalités que « SA
 \begin{itemize}
 	\item inscription via un numéro de téléphone, avec validation par code OTP ;
 	\item connexion et déconnexion sécurisées ;
-	\item choix du rôle lors de l'inscription (prestataire, demandeur ou les deux) ;
+	\item choix du rôle lors de l'inscription (prestataire ou demandeur) ;
 	\item création et gestion du profil prestataire (informations, portfolio, tarifs, disponibilité, catégories de services) ;
 	\item vérification d'identité et obtention de badges de certification ;
 	\item publication de missions par le demandeur ;
@@ -25,11 +25,9 @@ Les besoins fonctionnels représentent l'ensemble des fonctionnalités que « SA
 	\item messagerie directe entre demandeur et prestataire ;
 	\item envoi et acceptation de devis structurés ;
 	\item paiement sécurisé via Mobile Money (MTN MoMo et Airtel Money) \cite{mtn_momo} ;
-	\item sécurisation des fonds par escrow jusqu'à la validation de la mission ;
-	\item validation de la mission terminée et libération des fonds ;
-	\item gestion des litiges entre prestataires et demandeurs ;
+	\item validation de la mission terminée et confirmation du paiement au prestataire ;
 	\item notation et dépôt d'avis après chaque mission réalisée ;
-	\item notifications multi-canaux (push PWA, WhatsApp, SMS) ;
+	\item notifications multi-canaux (push PWA, e-mail, SMS) ;
 	\item tableau de bord de modération pour les administrateurs.
 \end{itemize}
 
@@ -67,21 +65,21 @@ Un acteur représente toute entité externe qui interagit avec le système « SA
 Nous avons identifié quatre principaux acteurs humains :
 
 \begin{itemize}
-	\item \textbf{Visiteur :} utilisateur non encore enregistré sur la plateforme. Son unique interaction avec « SALISA » est l'inscription, qui lui permet de créer un compte et de devenir un utilisateur à part entière ;
+	\item \textbf{Visiteur :} utilisateur non encore enregistré sur la plateforme. Son unique interaction avec « SALISA » est l'inscription, qui lui permet de créer un compte et de choisir son rôle ;
 	\item \textbf{Demandeur :} utilisateur connecté qui cherche et embauche des prestataires. Il publie des missions, contacte des prestataires, paie et note les prestations ;
 	\item \textbf{Prestataire :} utilisateur connecté qui propose ses services. Il crée son profil, répond aux missions et envoie des devis ;
-	\item \textbf{Administrateur :} utilisateur connecté chargé d'administrer la plateforme, de vérifier les identités, de gérer les litiges et de configurer le système.
+	\item \textbf{Administrateur :} utilisateur connecté chargé d'administrer la plateforme, de vérifier les identités, de gérer les signalements et de configurer le système.
 \end{itemize}
 
 \vspace{0.3cm}
 \noindent\textbf{b- Acteurs systèmes}
 
 \vspace{0.2cm}
-En modélisation UML, on désigne par acteur système tout composant logiciel extérieur au système étudié qui interagit avec lui par l'échange de données ou de services. Nous en avons identifié deux pour « SALISA » :
+En modélisation UML, on désigne par acteur système tout composant logiciel extérieur au système étudié qui interagit avec lui par l'échange de données ou de services. Ces acteurs sont représentés avec le stéréotype \textit{$\langle\langle$system$\rangle\rangle$} pour les distinguer des acteurs humains. Nous en avons identifié deux pour « SALISA » :
 
 \begin{itemize}
 	\item \textbf{Service de paiement :} regroupe les APIs de MTN MoMo et d'Airtel Money. « SALISA » leur envoie des requêtes de paiement et en reçoit des confirmations de transaction \cite{mtn_momo} ;
-	\item \textbf{Service de notifications :} regroupe Twilio SMS et WhatsApp Business API. « SALISA » lui envoie des instructions pour délivrer les codes OTP, les alertes et les messages aux utilisateurs.
+	\item \textbf{Service de notifications :} regroupe le service d'e-mail transactionnel et l'API SMS. « SALISA » lui envoie des instructions pour délivrer les codes OTP, les alertes et les messages aux utilisateurs.
 \end{itemize}
 
 \subsubsection{Diagramme de contexte statique}
@@ -95,11 +93,11 @@ Le diagramme de contexte statique présente « SALISA » au centre et montre tou
 	\label{fig:contexte_statique}
 \end{figure}
 
-Au centre se trouve le système « SALISA » représenté par un rectangle. Autour, les quatre acteurs humains (symbole stickman UML) interagissent avec lui : le Visiteur s'inscrit sur la plateforme ; le Demandeur publie des missions, paie et note ; le Prestataire crée son profil, répond et envoie des devis ; l'Administrateur administre et configure. Les deux acteurs systèmes (rectangles avec stéréotype \textit{$\langle\langle$système$\rangle\rangle$}) sont : le Service de paiement pour les transactions, et le Service de notifications pour les alertes SMS et WhatsApp.
+Au centre se trouve le système « SALISA » représenté par un rectangle avec le stéréotype \textit{$\langle\langle$system$\rangle\rangle$}. Autour, les quatre acteurs humains (symbole stickman UML) interagissent avec lui : le Visiteur consulte et s'inscrit sur la plateforme ; le Demandeur publie des missions et paie ; le Prestataire crée son profil, répond et envoie des devis ; l'Administrateur modère et configure. Les deux acteurs systèmes (rectangles avec stéréotype \textit{$\langle\langle$system$\rangle\rangle$}) sont : le Service de paiement, qui gère les transactions Mobile Money, et le Service de notifications, qui délivre les alertes e-mail et SMS aux utilisateurs.
 
 \subsubsection{Identification des cas d'utilisation}
 
-Un cas d'utilisation décrit une interaction entre un acteur et le système pour accomplir un objectif précis. Pour « SALISA », nous avons recensé 39 cas d'utilisation. Compte tenu de leur nombre et de la diversité des domaines qu'ils couvrent, les regrouper dans un seul diagramme de cas d'utilisation aurait rendu ce dernier illisible et peu exploitable. Nous avons donc opté pour une organisation en neuf packages fonctionnels cohérents, conformément aux recommandations de la norme UML 2 pour les systèmes de taille significative \cite{roques_uml}. Chaque package regroupe les cas d'utilisation qui relèvent d'un même domaine métier. Cette structure sera détaillée dans la section suivante au moyen d'un diagramme de packages, puis chaque package sera ensuite développé dans son propre diagramme de cas d'utilisation. Les tableaux~\ref{tab:cu_p1} à~\ref{tab:cu_p9} présentent le détail de chacun de ces packages.
+Un cas d'utilisation décrit une interaction entre un acteur et le système pour accomplir un objectif précis. Pour « SALISA », nous avons recensé 35 cas d'utilisation. Compte tenu de leur nombre et de la diversité des domaines qu'ils couvrent, les regrouper dans un seul diagramme de cas d'utilisation aurait rendu ce dernier illisible et peu exploitable. Nous avons donc opté pour une organisation en neuf packages fonctionnels cohérents, conformément aux recommandations de la norme UML 2 pour les systèmes de taille significative \cite{roques_uml}. Chaque package regroupe les cas d'utilisation qui relèvent d'un même domaine métier. Les tableaux~\ref{tab:cu_p1} à~\ref{tab:cu_p9} présentent le détail de chacun de ces packages.
 
 \begin{table}[H]
 	\centering
@@ -127,15 +125,11 @@ Un cas d'utilisation décrit une interaction entre un acteur et le système pour
 
 % ---------------------------------------------------------------
 % NOTE SUR P2 - PROFIL PRESTATAIRE
-% ---------------------------------------------------------------
 % Dans SALISA, la notion de profil est propre au rôle de prestataire.
-% Un profil prestataire est une vitrine professionnelle publique : il comprend
-% un portfolio, des tarifs, des zones d'intervention, des compétences et des
-% badges de certification. Ces éléments n'ont de sens que pour celui qui propose
-% des services et cherche à convaincre des clients potentiels. Un demandeur
-% n'a pas besoin de se présenter professionnellement : son seul engagement est
-% de publier une mission et de payer. C'est pourquoi ce package porte le nom
-% de « Profil prestataire » et non « Gestion de profil » au sens générique.
+% Un profil prestataire est une vitrine professionnelle publique : portfolio,
+% tarifs, zones d'intervention, compétences et badges de certification.
+% Ces éléments n'ont de sens que pour celui qui propose des services.
+% Le demandeur n'a pas de profil public : il publie des missions et paie.
 % ---------------------------------------------------------------
 
 \begin{table}[H]
@@ -155,7 +149,7 @@ Un cas d'utilisation décrit une interaction entre un acteur et le système pour
 		\hline
 		\textbf{UC-09} & gérer ses catégories et compétences (Prestataire) \\
 		\hline
-		\textbf{UC-10} & soumettre une demande de vérification d'identité pour obtenir le badge Vérifié (Prestataire, Administrateur) \\
+		\textbf{UC-10} & soumettre une demande de vérification d'identité (Prestataire, Administrateur) \\
 		\hline
 	\end{tabular}
 	\caption{Cas d'utilisation du package P2 : Profil prestataire}
@@ -232,7 +226,7 @@ Un cas d'utilisation décrit une interaction entre un acteur et le système pour
 	\centering
 	\begin{tabular}{|p{3cm}|p{10.5cm}|}
 		\hline
-		\multicolumn{2}{|c|}{\cellcolor{vertCongo}\textcolor{white}{\textbf{Package P6 : Paiement et escrow}}} \\
+		\multicolumn{2}{|c|}{\cellcolor{vertCongo}\textcolor{white}{\textbf{Package P6 : Paiement}}} \\
 		\hline
 		\rowcolor{vertCongo}
 		\textcolor{white}{\textbf{Cas d'utilisation}} & \textcolor{white}{\textbf{Définition}} \\
@@ -245,14 +239,10 @@ Un cas d'utilisation décrit une interaction entre un acteur et le système pour
 		\hline
 		\textbf{UC-26} & valider la mission terminée (Demandeur) \\
 		\hline
-		\textbf{UC-27} & scanner le code QR de validation sur place (Prestataire) \\
-		\hline
-		\textbf{UC-28} & ouvrir un litige (Demandeur, Prestataire) \\
-		\hline
-		\textbf{UC-29} & demander un retrait Mobile Money (Prestataire) \\
+		\textbf{UC-27} & demander un retrait Mobile Money (Prestataire) \\
 		\hline
 	\end{tabular}
-	\caption{Cas d'utilisation du package P6 : Paiement et escrow}
+	\caption{Cas d'utilisation du package P6 : Paiement}
 	\label{tab:cu_p6}
 \end{table}
 
@@ -265,9 +255,9 @@ Un cas d'utilisation décrit une interaction entre un acteur et le système pour
 		\rowcolor{vertCongo}
 		\textcolor{white}{\textbf{Cas d'utilisation}} & \textcolor{white}{\textbf{Définition}} \\
 		\hline
-		\textbf{UC-30} & laisser un avis après mission (Demandeur, Prestataire) \\
+		\textbf{UC-28} & laisser un avis après mission (Demandeur, Prestataire) \\
 		\hline
-		\textbf{UC-31} & signaler un avis abusif (Demandeur, Prestataire) \\
+		\textbf{UC-29} & signaler un avis abusif (Demandeur, Prestataire) \\
 		\hline
 	\end{tabular}
 	\caption{Cas d'utilisation du package P7 : Notation et réputation}
@@ -283,9 +273,9 @@ Un cas d'utilisation décrit une interaction entre un acteur et le système pour
 		\rowcolor{vertCongo}
 		\textcolor{white}{\textbf{Cas d'utilisation}} & \textcolor{white}{\textbf{Définition}} \\
 		\hline
-		\textbf{UC-32} & recevoir des notifications multi-canaux (Demandeur, Prestataire, Service de notifications) \\
+		\textbf{UC-30} & recevoir des notifications multi-canaux (Demandeur, Prestataire, Service de notifications) \\
 		\hline
-		\textbf{UC-33} & configurer ses préférences de notification (Demandeur, Prestataire) \\
+		\textbf{UC-31} & configurer ses préférences de notification (Demandeur, Prestataire) \\
 		\hline
 	\end{tabular}
 	\caption{Cas d'utilisation du package P8 : Notifications}
@@ -301,17 +291,13 @@ Un cas d'utilisation décrit une interaction entre un acteur et le système pour
 		\rowcolor{vertCongo}
 		\textcolor{white}{\textbf{Cas d'utilisation}} & \textcolor{white}{\textbf{Définition}} \\
 		\hline
-		\textbf{UC-34} & accéder au tableau de bord de modération (Administrateur) \\
+		\textbf{UC-32} & accéder au tableau de bord de modération (Administrateur) \\
 		\hline
-		\textbf{UC-35} & valider ou rejeter une vérification d'identité (Administrateur) \\
+		\textbf{UC-33} & valider ou rejeter une vérification d'identité (Administrateur) \\
 		\hline
-		\textbf{UC-36} & gérer les signalements (Administrateur) \\
+		\textbf{UC-34} & gérer les signalements (Administrateur) \\
 		\hline
-		\textbf{UC-37} & suspendre un compte utilisateur (Administrateur) \\
-		\hline
-		\textbf{UC-38} & configurer le système (Administrateur) \\
-		\hline
-		\textbf{UC-39} & consulter les statistiques avancées (Administrateur) \\
+		\textbf{UC-35} & suspendre un compte utilisateur (Administrateur) \\
 		\hline
 	\end{tabular}
 	\caption{Cas d'utilisation du package P9 : Administration}
@@ -320,19 +306,10 @@ Un cas d'utilisation décrit une interaction entre un acteur et le système pour
 
 \subsubsection{Relation entre les cas d'utilisation}
 
-Les relations entre cas d'utilisation permettent de structurer et de clarifier les dépendances entre les fonctionnalités du système \cite{roques_uml}. On en distingue deux types principaux. La relation \textbf{$\langle\langle$include$\rangle\rangle$} indique qu'un cas d'utilisation est toujours exécuté dans le cadre d'un autre : par exemple, UC-01 (s'inscrire) inclut systématiquement UC-02 (valider le code OTP), car on ne peut pas créer de compte sans valider le code reçu par SMS ; de même, UC-21 (accepter un devis) inclut UC-23 (payer via Mobile Money), car l'acceptation d'un devis déclenche toujours le processus de paiement. La relation \textbf{$\langle\langle$extend$\rangle\rangle$}, quant à elle, indique qu'un cas d'utilisation est exécuté de façon optionnelle dans certaines conditions : par exemple, UC-11 (publier une mission) peut optionnellement étendre vers UC-12 (utiliser l'assistant IA pour la description de la mission), selon le choix du demandeur, et UC-26 (valider la mission) peut étendre vers UC-27 (scanner le code QR), uniquement pour les missions réalisées en présentiel.
+Les relations entre cas d'utilisation permettent de structurer et de clarifier les dépendances entre les fonctionnalités du système \cite{roques_uml}. On en distingue deux types principaux. La relation \textbf{$\langle\langle$include$\rangle\rangle$} indique qu'un cas d'utilisation est toujours exécuté dans le cadre d'un autre : par exemple, UC-01 (s'inscrire) inclut systématiquement UC-02 (valider le code OTP), car on ne peut pas créer de compte sans valider le code reçu par SMS ; de même, UC-21 (accepter un devis) inclut UC-23 (payer via Mobile Money), car l'acceptation d'un devis déclenche toujours le processus de paiement. La relation \textbf{$\langle\langle$extend$\rangle\rangle$}, quant à elle, indique qu'un cas d'utilisation est exécuté de façon optionnelle dans certaines conditions : par exemple, UC-11 (publier une mission) peut optionnellement étendre vers UC-12 (utiliser l'assistant IA pour la description de la mission), selon le choix du demandeur.
 
 \vspace{0.4cm}
-Avant de détailler chaque domaine fonctionnel, il est utile de disposer d'une vue d'ensemble du système. Cependant, représenter les 39 cas d'utilisation dans un seul diagramme produirait un résultat illisible. Nous avons donc choisi de présenter d'abord un diagramme de packages, qui montre les neuf domaines fonctionnels de « SALISA » et leurs relations avec les acteurs. Ce diagramme met notamment en évidence une dépendance commune à l'ensemble des packages : tous requièrent que l'utilisateur soit préalablement authentifié (P1 - Authentification), ce qui est représenté par des relations $\langle\langle$include$\rangle\rangle$ convergeant vers P1. La figure~\ref{fig:diag_packages} illustre ce diagramme.
-
-\begin{figure}[H]
-	\centering
-	\includegraphics[width=0.95\textwidth]{diagramme_packages.png}
-	\caption{Diagramme de packages de « SALISA »}
-	\label{fig:diag_packages}
-\end{figure}
-
-Pour une meilleure lisibilité, chaque package est ensuite détaillé dans un diagramme de cas d'utilisation dédié, présentant les cas d'utilisation et leurs relations avec précision. Les figures~\ref{fig:cu_p1} à~\ref{fig:cu_p9} illustrent ces neuf diagrammes.
+Pour illustrer ces dépendances avec précision, nous avons d'abord représenté chaque package dans son propre diagramme de cas d'utilisation. Ces neuf diagrammes détaillés permettent de visualiser clairement, pour chaque domaine fonctionnel, les acteurs impliqués et les relations entre les cas d'utilisation. Les figures~\ref{fig:cu_p1} à~\ref{fig:cu_p9} illustrent ces neuf diagrammes.
 
 \begin{figure}[H]
 	\centering
@@ -372,7 +349,7 @@ Pour une meilleure lisibilité, chaque package est ensuite détaillé dans un di
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.85\textwidth]{diagramme_cu_p6.png}
-	\caption{Diagramme de cas d'utilisation - P6 : Paiement et escrow}
+	\caption{Diagramme de cas d'utilisation - P6 : Paiement}
 	\label{fig:cu_p6}
 \end{figure}
 
@@ -397,9 +374,19 @@ Pour une meilleure lisibilité, chaque package est ensuite détaillé dans un di
 	\label{fig:cu_p9}
 \end{figure}
 
+\vspace{0.4cm}
+Une fois les neuf packages détaillés individuellement, il est utile de disposer d'une vue d'ensemble du système. C'est le rôle du diagramme de packages présenté à la figure~\ref{fig:diag_packages}. Ce diagramme montre les neuf domaines fonctionnels de « SALISA » et leurs relations avec les acteurs. Il met notamment en évidence une dépendance commune à tous les packages : chacun d'entre eux requiert que l'utilisateur soit préalablement authentifié, ce qui est représenté par des relations $\langle\langle$include$\rangle\rangle$ convergeant vers P1 - Authentification.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.95\textwidth]{diagramme_packages.png}
+	\caption{Diagramme de packages de « SALISA »}
+	\label{fig:diag_packages}
+\end{figure}
+
 \subsubsection{Classification des cas d'utilisation (priorités, risques et itérations)}
 
-Le tableau~\ref{tab:classification_cu} présente la classification des principaux cas d'utilisation selon leur priorité fonctionnelle, leur niveau de risque technique et l'itération de développement dans laquelle ils s'inscrivent. L'itération 1 regroupe les fonctionnalités essentielles au fonctionnement minimal du système. L'itération 2 contient les fonctionnalités importantes mais non bloquantes. L'itération 3 rassemble les fonctionnalités souhaitables à plus long terme.
+Le tableau~\ref{tab:classification_cu} présente la classification des principaux cas d'utilisation selon leur priorité fonctionnelle, leur niveau de risque technique et l'itération de développement dans laquelle ils s'inscrivent. L'itération 1 regroupe les fonctionnalités essentielles au fonctionnement minimal du système. L'itération 2 contient les fonctionnalités importantes mais non bloquantes. L'itération 3 rassemble les fonctionnalités souhaitables à plus long terme, dont le développement dépend des ressources disponibles après la livraison des deux premières itérations.
 
 \begin{table}[H]
 	\centering
@@ -432,19 +419,19 @@ Le tableau~\ref{tab:classification_cu} présente la classification des principau
 		\hline
 		UC-26 & valider la mission & Élevée & Élevé & 1 \\
 		\hline
-		UC-30 & laisser un avis & Élevée & Faible & 1 \\
+		UC-28 & laisser un avis & Élevée & Faible & 1 \\
 		\hline
-		UC-32 & recevoir des notifications & Élevée & Moyen & 1 \\
+		UC-30 & recevoir des notifications & Élevée & Moyen & 1 \\
 		\hline
-		UC-34 & tableau de bord admin & Élevée & Moyen & 1 \\
+		UC-32 & tableau de bord admin & Élevée & Moyen & 1 \\
 		\hline
 		UC-12 & utiliser l'assistant IA & Moyenne & Élevé & 2 \\
 		\hline
 		UC-16 & score de matching & Moyenne & Élevé & 2 \\
 		\hline
-		UC-28 & ouvrir un litige & Moyenne & Moyen & 2 \\
+		UC-17 & suggestions proactives & Moyenne & Moyen & 2 \\
 		\hline
-		UC-38 & configurer le système & Basse & Faible & 3 \\
+		UC-27 & demander un retrait & Basse & Faible & 3 \\
 		\hline
 	\end{tabular}
 	\caption{Classification des principaux cas d'utilisation de « SALISA »}
@@ -477,7 +464,7 @@ Le tableau~\ref{tab:classification_cu} présente la classification des principau
 			\item Le système valide le format et envoie un code OTP par SMS (UC-02).
 			\item Le visiteur saisit le code OTP reçu.
 			\item Le système vérifie le code (durée de validité : 5 minutes).
-			\item Le visiteur choisit son rôle : prestataire, demandeur, ou les deux (UC-03).
+			\item Le visiteur choisit son rôle : prestataire ou demandeur (UC-03).
 			\item Le compte est créé et le visiteur devient un utilisateur connecté.
 		\end{enumerate} \\
 		\hline
@@ -537,7 +524,7 @@ Le tableau~\ref{tab:classification_cu} présente la classification des principau
 
 \subsubsection{Diagramme de séquence (au plus 2)}
 
-La figure~\ref{fig:seq_inscription} illustre le diagramme de séquence du cas d'utilisation UC-01 (s'inscrire via numéro de téléphone).
+La figure~\ref{fig:seq_inscription} illustre le diagramme de séquence du cas d'utilisation UC-01 (s'inscrire via numéro de téléphone). Le système « SALISA » est représenté comme une boîte noire unique, conformément au niveau d'abstraction de l'analyse.
 
 \begin{figure}[H]
 	\centering
@@ -546,18 +533,18 @@ La figure~\ref{fig:seq_inscription} illustre le diagramme de séquence du cas d'
 	\label{fig:seq_inscription}
 \end{figure}
 
-La figure~\ref{fig:seq_paiement} illustre le diagramme de séquence du scénario de paiement et de libération des fonds (UC-23 et UC-26).
+La figure~\ref{fig:seq_paiement} illustre le diagramme de séquence du processus de paiement d'une mission (UC-20, UC-21, UC-23 et UC-26). Ce scénario débute par l'envoi d'un devis par le prestataire, qui en constitue le véritable déclencheur.
 
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.95\textwidth]{diagramme_sequence_paiement.png}
-	\caption{Diagramme de séquence - paiement et libération des fonds (UC-23 et UC-26)}
+	\caption{Diagramme de séquence - envoi de devis, paiement et validation de mission}
 	\label{fig:seq_paiement}
 \end{figure}
 
 \subsubsection{Diagramme d'activités (au plus 2)}
 
-La figure~\ref{fig:act_publication} présente le diagramme d'activités du processus de publication d'une mission.
+La figure~\ref{fig:act_publication} présente le diagramme d'activités du processus de publication d'une mission et de sélection d'un prestataire, impliquant le Demandeur, le Système SALISA et le Prestataire.
 
 \begin{figure}[H]
 	\centering
@@ -566,12 +553,12 @@ La figure~\ref{fig:act_publication} présente le diagramme d'activités du proce
 	\label{fig:act_publication}
 \end{figure}
 
-La figure~\ref{fig:act_paiement} illustre le diagramme d'activités du processus de paiement sécurisé par escrow.
+La figure~\ref{fig:act_paiement} illustre le diagramme d'activités du processus de paiement via Mobile Money.
 
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.95\textwidth]{diagramme_activites_paiement.png}
-	\caption{Diagramme d'activités - paiement sécurisé par escrow}
+	\caption{Diagramme d'activités - processus de paiement via Mobile Money}
 	\label{fig:act_paiement}
 \end{figure}
 
@@ -586,7 +573,7 @@ Les règles de gestion définissent le comportement du système « SALISA » dan
 
 \begin{itemize}
 	\item RG-001 : un numéro de téléphone ne peut être associé qu'à un seul compte ;
-	\item RG-002 : un même compte peut avoir simultanément les rôles de prestataire et de demandeur ;
+	\item RG-002 : un compte est associé à un seul rôle, soit Prestataire, soit Demandeur ;
 	\item RG-003 : un compte est suspendu automatiquement après trois signalements validés par un administrateur ;
 	\item RG-004 : lors de la suppression d'un compte, les données sont conservées 30 jours avant effacement définitif.
 \end{itemize}
@@ -594,27 +581,27 @@ Les règles de gestion définissent le comportement du système « SALISA » dan
 \noindent\textbf{Gestion des missions et des prestataires}
 
 \begin{itemize}
-	\item RG-010 : un profil prestataire n'est visible dans la recherche qu'à partir de 70\% de complétion ;
-	\item RG-011 : un prestataire avec un compte gratuit ne peut postuler qu'à 3 missions par mois ;
-	\item RG-012 : une mission sans activité depuis 30 jours est archivée automatiquement ;
-	\item RG-013 : au maximum 10 prestataires sont notifiés par mission (les 10 meilleurs scores de matching).
+	\item RG-005 : un profil prestataire n'est visible dans la recherche qu'à partir de 70\% de complétion ;
+	\item RG-006 : un prestataire avec un compte gratuit ne peut postuler qu'à 3 missions par mois ;
+	\item RG-007 : une mission sans activité depuis 30 jours est archivée automatiquement ;
+	\item RG-008 : au maximum 10 prestataires sont notifiés par mission (les 10 meilleurs scores de matching).
 \end{itemize}
 
 \noindent\textbf{Gestion des paiements}
 
 \begin{itemize}
-	\item RG-020 : la commission de « SALISA » est de 8\% du montant total de chaque transaction ;
-	\item RG-021 : le montant minimum d'une transaction est de 2 000 FCFA ;
-	\item RG-022 : si le demandeur ne valide pas la mission dans les 7 jours suivant la livraison, les fonds sont libérés automatiquement au prestataire ;
-	\item RG-023 : un litige doit être ouvert dans les 48 heures suivant la date de livraison prévue.
+	\item RG-009 : la commission de « SALISA » est de 3\% du montant total de chaque transaction ;
+	\item RG-010 : le montant minimum d'une transaction est de 2 000 FCFA ;
+	\item RG-011 : le paiement est déclenché uniquement après acceptation du devis par le demandeur ;
+	\item RG-012 : les fonds sont transférés au prestataire après validation de la mission par le demandeur.
 \end{itemize}
 
 \noindent\textbf{Gestion des avis}
 
 \begin{itemize}
-	\item RG-030 : un avis ne peut être laissé qu'après une mission avec transaction validée ;
-	\item RG-031 : le délai pour laisser un avis est de 14 jours après la validation de la mission ;
-	\item RG-032 : les avis sont définitifs et ne peuvent jamais être supprimés par le prestataire ou le demandeur.
+	\item RG-013 : un avis ne peut être laissé qu'après une mission avec transaction validée ;
+	\item RG-014 : le délai pour laisser un avis est de 14 jours après la validation de la mission ;
+	\item RG-015 : les avis sont définitifs et ne peuvent jamais être supprimés par le prestataire ou le demandeur.
 \end{itemize}
 
 \subsubsection{Modèle du domaine (Diagramme de classe du système)}
@@ -630,7 +617,7 @@ La figure~\ref{fig:diag_classes} présente le diagramme de classes de « SALISA 
 
 \subsubsection{Diagramme d'Objets}
 
-La figure~\ref{fig:diag_objets} illustre un exemple d'instanciation du système « SALISA », correspondant au scénario où un demandeur publie une mission, un prestataire y répond avec un devis, et le paiement est sécurisé par escrow.
+La figure~\ref{fig:diag_objets} illustre un exemple d'instanciation du système « SALISA », correspondant au scénario où un demandeur publie une mission, un prestataire y répond avec un devis, et le paiement est effectué via Mobile Money.
 
 \begin{figure}[H]
 	\centering
@@ -651,9 +638,9 @@ Le \textbf{back-end} est développé en Node.js avec Express.js. Il expose une A
 
 La \textbf{base de données} principale est PostgreSQL \cite{postgresql}, qui stocke toutes les données persistantes (utilisateurs, missions, transactions, avis). Redis est utilisé comme cache pour les sessions et les résultats de recherche fréquents.
 
-Le \textbf{service de matching} est un microservice Python développé avec FastAPI. Il calcule les scores de compatibilité entre les missions et les prestataires sur la base de huit critères pondérés : localisation, disponibilité, compétences, budget, note, fiabilité, temps de réponse et niveau de badge.
+Le \textbf{Service de matching} est un microservice Python développé avec FastAPI. Il calcule les scores de compatibilité entre les missions et les prestataires sur la base de huit critères pondérés : localisation, disponibilité, compétences, budget, note, fiabilité, temps de réponse et niveau de badge.
 
-Le \textbf{service de notifications} est un worker asynchrone qui envoie les alertes via trois canaux : les notifications push PWA, les messages WhatsApp et les SMS.
+Le \textbf{Service de notifications} est un worker asynchrone qui envoie les alertes via trois canaux : les notifications push PWA, les e-mails et les SMS.
 
 \subsubsection{Architecture globale de la solution (Diagramme de déploiement)}
 

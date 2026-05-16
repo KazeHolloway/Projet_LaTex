@@ -60,7 +60,7 @@ Il s'agit de concevoir un portail web permettant aux prestataires de publier un 
 \noindent\textbf{b- Solution 2 : développement d'une application web cross-plateforme (PWA) avec matching intelligent et paiement sécurisé}
 
 \vspace{0.3cm}
-Il s'agit de développer une application web progressive (PWA), accessible depuis tous les terminaux sans installation obligatoire. Elle intègre des fonctionnalités complètes, à savoir la gestion des profils, la publication de missions, la messagerie, la mise en correspondance intelligente entre prestataires et clients, le paiement sécurisé par Mobile Money et le système de notation. C'est la solution que nous avons retenue pour «~SALISA~».
+Il s'agit de développer une application web progressive (PWA), accessible depuis tous les terminaux sans installation obligatoire. Elle intègre des fonctionnalités complètes, à savoir la gestion des profils, la publication de missions, la messagerie, la mise en correspondance intelligente entre prestataires et clients, le paiement sécurisé par Mobile Money et le système de notation. C'est la solution que nous avons retenue pour « SALISA ».
 
 \vspace{0.2cm}
 \textit{Avantages :}
@@ -70,7 +70,7 @@ Il s'agit de développer une application web progressive (PWA), accessible depui
 	\item fonctionne correctement même sur des connexions internet lentes (2G/3G), grâce à son architecture mobile-first ;
 	\item intègre le paiement par Mobile Money (MTN MoMo, Airtel Money), adapté au contexte local ;
 	\item algorithme de mise en correspondance pour aider les clients à trouver le bon prestataire rapidement ;
-	\item système d'escrow pour sécuriser les transactions et protéger les deux parties.
+	\item système de notification multi-canaux pour tenir les utilisateurs informés en temps réel.
 \end{itemize}
 
 \vspace{0.1cm}
@@ -89,7 +89,7 @@ Il s'agit de développer une application mobile native, conçue spécifiquement 
 \vspace{0.2cm}
 \textit{Avantages :}
 \begin{itemize}
-	\item expérience utilisateur optimale sur chaque système, grâce à l'accès complet aux fonctionnalités natives du terminal, telles que l'appareil photo, le GPS, les notifications et les contacts ;
+	\item expérience utilisateur optimale sur chaque système, grâce à l'accès complet aux fonctionnalités natives du terminal ;
 	\item performances élevées, même pour les animations et les interactions complexes ;
 	\item notifications push natives, très efficaces pour alerter les utilisateurs en temps réel ;
 	\item fonctionnement hors ligne poussé, grâce au stockage local des données sur le terminal.
@@ -106,13 +106,12 @@ Il s'agit de développer une application mobile native, conçue spécifiquement 
 \subsection{Choix de la solution}
 
 Notre choix se porte sur la \textbf{solution 2 : développement d'une application web cross-plateforme (PWA)} ; c'est cette solution qui a donné naissance à « SALISA ».
-% essaie slmt de remplacer les «~SALISA~» par « SALISA » stp
 
 % ============================================================
 \section{Méthode}
 % ============================================================
 
-En génie logiciel, une \textbf{méthode} désigne l'association d'un langage de modélisation et d'un processus de développement. Le langage de modélisation sert à représenter le système de façon graphique et structurée, tandis que le processus de développement organise les étapes à suivre pour le concevoir et le réaliser. Pour «~SALISA~», nous avons couplé \textbf{UML} à un processus unifié \cite{roques_uml}. Parmi les processus unifiés qui existent, comme le RUP (\textit{Rational Unified Process}) ou l'OpenUP (\textit{Open Unified Process}), notre choix s'est porté sur le \textbf{2TUP} (\textit{Two Tracks Unified Process}), qui est le mieux adapté à la complexité et aux contraintes de notre projet.
+En génie logiciel, une \textbf{méthode} désigne l'association d'un langage de modélisation et d'un processus de développement. Le langage de modélisation sert à représenter le système de façon graphique et structurée, tandis que le processus de développement organise les étapes à suivre pour le concevoir et le réaliser. Pour « SALISA », nous avons couplé \textbf{UML} à un processus unifié \cite{roques_uml}. Parmi les processus unifiés qui existent, comme le RUP (\textit{Rational Unified Process}) ou l'OpenUP (\textit{Open Unified Process}), notre choix s'est porté sur le \textbf{2TUP} (\textit{Two Tracks Unified Process}), qui est le mieux adapté à la complexité et aux contraintes de notre projet.
 
 % ============================================================
 \subsection{Le langage de modélisation}
@@ -124,7 +123,7 @@ En génie logiciel, une \textbf{méthode} désigne l'association d'un langage de
 
 L'objectif d'UML est de fournir un langage visuel commun qui permet aux équipes de travail, qu'ils soient analystes, concepteurs, développeurs ou clients, de communiquer clairement sur la structure et le comportement d'un système. Il peut s'intégrer à toute démarche de développement, itérative ou non.
 
-Pour «~SALISA~», UML présente plusieurs atouts : ses notations sont reconnues et documentées dans le monde entier, facilitant la compréhension et la maintenance du système ; il permet de représenter aussi bien la vue statique que la vue dynamique du système \cite{fowler_uml} ; il est intégralement utilisé par le processus 2TUP pour produire ses livrables de modélisation ; et ses diagrammes servent de lien clair entre les besoins exprimés et le travail réalisé par les développeurs.
+Pour « SALISA », UML présente plusieurs atouts : ses notations sont reconnues et documentées dans le monde entier, facilitant la compréhension et la maintenance du système ; il permet de représenter aussi bien la vue statique que la vue dynamique du système \cite{fowler_uml} ; il est intégralement utilisé par le processus 2TUP pour produire ses livrables de modélisation ; et ses diagrammes servent de lien clair entre les besoins exprimés et le travail réalisé par les développeurs.
 
 \subsubsection{Les types de diagrammes UML}
 
@@ -134,35 +133,15 @@ La version 2.x d'UML propose \textbf{quatorze types de diagrammes}, répartis en
 \noindent\textbf{a- Diagrammes structurels (vue statique)}
 
 \vspace{0.2cm}
-Ces diagrammes décrivent la structure permanente du système. On y trouve notamment :
-
-\begin{itemize}
-	\item \textbf{le diagramme de classes :} représente les classes du système, leurs attributs, leurs méthodes et les relations qui les unissent. C'est le diagramme central de la conception orientée objet ;
-	\item \textbf{le diagramme d'objets :} montre des instances concrètes des classes à un moment précis du système ;
-	\item \textbf{le diagramme de composants :} décrit l'architecture physique du logiciel en termes de modules et d'interfaces ;
-	\item \textbf{le diagramme de déploiement :} représente la répartition des composants sur les équipements matériels ;
-	\item \textbf{le diagramme de paquetages :} organise les éléments du modèle en groupes logiques ;
-	\item \textbf{le diagramme de structure composite :} décrit la structure interne d'un élément et ses collaborations ;
-	\item \textbf{le diagramme de profils :} permet d'adapter UML à un domaine particulier.
-\end{itemize}
+Ces diagrammes décrivent la structure permanente du système. On y trouve notamment le diagramme de classes, qui représente les classes du système, leurs attributs, leurs méthodes et les relations qui les unissent ; le diagramme d'objets, qui montre des instances concrètes des classes à un moment précis ; le diagramme de composants, qui décrit l'architecture physique du logiciel ; le diagramme de déploiement, qui représente la répartition des composants sur les équipements matériels ; le diagramme de paquetages, qui organise les éléments du modèle en groupes logiques ; le diagramme de structure composite ; et le diagramme de profils.
 
 \vspace{0.3cm}
 \noindent\textbf{b- Diagrammes comportementaux (vue dynamique)}
 
 \vspace{0.2cm}
-Ces diagrammes décrivent le comportement du système dans le temps. Parmi eux, on trouve entre autres :
+Ces diagrammes décrivent le comportement du système dans le temps. Parmi eux, on trouve entre autres le diagramme de cas d'utilisation, qui identifie les acteurs et les fonctionnalités qu'ils peuvent utiliser ; le diagramme de séquence, qui montre les échanges entre objets dans le temps ; le diagramme de communication ; le diagramme d'activités, qui représente un enchaînement d'actions et de décisions dans un processus ; le diagramme d'états-transitions ; le diagramme de vue d'ensemble des interactions ; et le diagramme de temps.
 
-\begin{itemize}
-	\item \textbf{le diagramme de cas d'utilisation :} identifie les acteurs du système et les fonctionnalités qu'ils peuvent utiliser. C'est le point de départ de l'analyse des besoins ;
-	\item \textbf{le diagramme de séquence :} montre les échanges entre objets dans le temps, selon un scénario précis ;
-	\item \textbf{le diagramme de communication :} similaire au diagramme de séquence, mais met l'accent sur les liens entre les objets ;
-	\item \textbf{le diagramme d'activités :} représente un enchaînement d'actions et de décisions dans un processus ;
-	\item \textbf{le diagramme d'états-transitions :} décrit les états par lesquels passe un objet au cours de sa vie ;
-	\item \textbf{le diagramme de vue d'ensemble des interactions :} résume plusieurs interactions sous forme de fragments ;
-	\item \textbf{le diagramme de temps :} représente l'évolution des états d'un objet dans le temps.
-\end{itemize}
-
-Pour «~SALISA~», nous utiliserons principalement le \textbf{diagramme de contexte statique}, le \textbf{diagramme de cas d'utilisation}, le \textbf{diagramme de séquence}, le \textbf{diagramme d'activités}, le \textbf{diagramme de classes} et le \textbf{diagramme de déploiement}.
+Pour « SALISA », nous utiliserons principalement le \textbf{diagramme de contexte statique}, le \textbf{diagramme de cas d'utilisation}, le \textbf{diagramme de séquence}, le \textbf{diagramme d'activités}, le \textbf{diagramme de classes} et le \textbf{diagramme de déploiement}.
 
 % ============================================================
 \subsection{Le processus de développement}
@@ -170,21 +149,19 @@ Pour «~SALISA~», nous utiliserons principalement le \textbf{diagramme de conte
 
 \subsubsection{Présentation du Processus Unifié (UP)}
 
-Le \textbf{Processus Unifié} (\textit{Unified Process}, abrégé \textbf{UP}) est un cadre de développement logiciel itératif et incrémental, formalisé par Ivar Jacobson, Grady Booch et James Rumbaugh, les trois créateurs d'UML, à la fin des années 1990 \cite{jacobson_up}. Sa version commerciale la plus connue est le \textit{Rational Unified Process} (RUP).
+Le \textbf{Processus Unifié} (\textit{Unified Process}, abrégé \textbf{UP}) est un cadre de développement logiciel itératif et incrémental, formalisé par Ivar Jacobson, Grady Booch et James Rumbaugh à la fin des années 1990 \cite{jacobson_up}. Sa version commerciale la plus connue est le \textit{Rational Unified Process} (RUP).
 
-L'UP repose sur quatre principes fondamentaux : il est itératif et incrémental, ce qui signifie que le développement est découpé en cycles courts appelés itérations, chacun produisant une partie fonctionnelle du logiciel ; il est centré sur l'architecture, une base solide étant définie dès le début pour guider tout le développement ; il est piloté par les cas d'utilisation, les fonctionnalités attendues guidant toutes les activités du processus ; et il est orienté risques, les éléments les plus délicats étant traités en priorité.
-
-L'UP s'organise en quatre phases : l'Inception (Lancement) pour définir le périmètre du travail et évaluer la faisabilité ; l'Élaboration pour capturer les besoins et concevoir l'architecture de référence ; la Construction pour développer les fonctionnalités et produire un produit fonctionnel ; et la Transition pour déployer le produit et corriger les dernières anomalies.
+L'UP repose sur quatre principes fondamentaux : il est itératif et incrémental, centré sur l'architecture, piloté par les cas d'utilisation, et orienté vers la réduction des risques. Il s'organise en quatre phases : l'Inception pour définir le périmètre du travail ; l'Élaboration pour capturer les besoins et concevoir l'architecture ; la Construction pour développer les fonctionnalités ; et la Transition pour déployer le produit.
 
 \subsubsection{Présentation du processus 2TUP}
 
-Le \textbf{2TUP} (\textit{Two Tracks Unified Process}) est une adaptation du Processus Unifié, proposée par Pascal Roques et Franck Vallée dans leur ouvrage \textit{UML en action} \cite{roques_uml}. Il a été conçu pour répondre à une réalité fréquente dans les projets informatiques : les exigences changent souvent et les contraintes techniques sont parfois imposées avant même que les besoins fonctionnels soient complètement définis. Sa particularité est son organisation en deux branches parallèles qui se rejoignent en phase de réalisation.
+Le \textbf{2TUP} (\textit{Two Tracks Unified Process}) est une adaptation du Processus Unifié, proposée par Pascal Roques et Franck Vallée dans leur ouvrage \textit{UML en action} \cite{roques_uml}. Sa particularité est son organisation en deux branches parallèles qui se rejoignent en phase de réalisation.
 
 \vspace{0.4cm}
 \noindent\textbf{a- Branche fonctionnelle (What)}
 
 \vspace{0.2cm}
-Elle recueille et formalise ce que les utilisateurs attendent du système. On y trouve entre autres la capture des besoins fonctionnels, la modélisation des cas d'utilisation, la description textuelle et les diagrammes de séquence des cas d'utilisation prioritaires, ainsi que la modélisation du domaine métier à travers le diagramme de classes métier.
+Elle recueille et formalise ce que les utilisateurs attendent du système. On y trouve entre autres la capture des besoins fonctionnels, la modélisation des cas d'utilisation, la description textuelle et les diagrammes de séquence des cas d'utilisation prioritaires, ainsi que la modélisation du domaine métier à travers le diagramme de classes.
 
 \vspace{0.4cm}
 \noindent\textbf{b- Branche technique (How)}
@@ -211,13 +188,14 @@ La figure~\ref{fig:2tup_schema} illustre la structure en forme de « Y » caract
 
 Le processus 2TUP et le langage UML fonctionnent ensemble : 2TUP utilise UML comme unique langage de modélisation tout au long de ses phases, et chaque livrable produit est un diagramme UML \cite{roques_uml}. Cette cohérence garantit une bonne traçabilité entre les besoins exprimés et les composants réalisés.
 
-Le tableau~\ref{tab:2tup_uml} ci-dessous résume la correspondance entre les phases du 2TUP et les diagrammes UML mobilisés pour «~SALISA~».
+Le tableau~\ref{tab:2tup_uml} ci-dessous résume la correspondance entre les phases du 2TUP et les diagrammes UML mobilisés pour « SALISA ».
 
 \begin{table}[H]
 	\centering
 	\begin{tabular}{|p{4cm}|p{3.5cm}|p{6cm}|}
 		\hline
-		\textbf{Phase 2TUP} & \textbf{Branche} & \textbf{Diagrammes UML utilisés} \\
+		\rowcolor{vertCongo}
+		\textcolor{white}{\textbf{Phase 2TUP}} & \textcolor{white}{\textbf{Branche}} & \textcolor{white}{\textbf{Diagrammes UML utilisés}} \\
 		\hline
 		Capture des besoins fonctionnels & Fonctionnelle & Diagramme de contexte statique, Diagramme de cas d'utilisation \\
 		\hline
@@ -234,4 +212,4 @@ Le tableau~\ref{tab:2tup_uml} ci-dessous résume la correspondance entre les pha
 	\label{tab:2tup_uml}
 \end{table}
 
-«~SALISA~» combine des besoins fonctionnels nombreux, comme l'inscription des utilisateurs, la mise en correspondance, le paiement ou la messagerie, et des contraintes techniques fortes liées au contexte local, telles que le Mobile Money \cite{mtn_momo}, une connexion parfois limitée ou une architecture distribuée. Le 2TUP permet de traiter ces deux dimensions en parallèle, de façon rigoureuse et coordonnée, ce qui en fait le processus idéal pour notre projet.
+« SALISA » combine des besoins fonctionnels nombreux, comme l'inscription des utilisateurs, la mise en correspondance, le paiement ou la messagerie, et des contraintes techniques fortes liées au contexte local, telles que le Mobile Money \cite{mtn_momo}, une connexion parfois limitée ou une architecture distribuée. Le 2TUP permet de traiter ces deux dimensions en parallèle, de façon rigoureuse et coordonnée, ce qui en fait le processus idéal pour notre projet.
