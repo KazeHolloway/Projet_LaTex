@@ -60,7 +60,7 @@ Il s'agit de concevoir un portail web permettant aux prestataires de publier un 
 \noindent\textbf{b- Solution 2 : développement d'une application web cross-plateforme (PWA) avec matching intelligent et paiement sécurisé}
 
 \vspace{0.3cm}
-Il s'agit de développer une application web progressive (PWA), accessible depuis tous les terminaux sans installation obligatoire. Elle intègre des fonctionnalités complètes, à savoir la gestion des profils, la publication de missions, la messagerie, la mise en correspondance intelligente entre prestataires et clients, le paiement sécurisé par Mobile Money et le système de notation. C'est la solution que nous avons retenue pour « SALISA ».
+Il s'agit de développer une application web progressive (PWA), accessible depuis tous les terminaux sans installation obligatoire. Elle intègre des fonctionnalités complètes, à savoir la gestion des profils, la publication de missions, la messagerie, la mise en correspondance intelligente entre prestataires et clients, le règlement des missions via MTN MoMo ou Airtel Money, et le système de notation. C'est la solution que nous avons retenue pour « SALISA ».
 
 \vspace{0.2cm}
 \textit{Avantages :}
@@ -68,7 +68,7 @@ Il s'agit de développer une application web progressive (PWA), accessible depui
 	\item une seule base de code compatible avec tous les terminaux, ce qui réduit les coûts et les délais de développement ;
 	\item aucun téléchargement nécessaire, l'application est accessible directement via un navigateur ;
 	\item fonctionne correctement même sur des connexions internet lentes (2G/3G), grâce à son architecture mobile-first ;
-	\item intègre le paiement par Mobile Money (MTN MoMo, Airtel Money), adapté au contexte local ;
+	\item intègre le paiement mobile via MTN MoMo et Airtel Money, adapté au contexte local \cite{mtn_momo} ;
 	\item algorithme de mise en correspondance pour aider les clients à trouver le bon prestataire rapidement ;
 	\item système de notification multi-canaux pour tenir les utilisateurs informés en temps réel.
 \end{itemize}
@@ -212,4 +212,4 @@ Le tableau~\ref{tab:2tup_uml} ci-dessous résume la correspondance entre les pha
 	\label{tab:2tup_uml}
 \end{table}
 
-« SALISA » combine des besoins fonctionnels nombreux, comme l'inscription des utilisateurs, la mise en correspondance, le paiement ou la messagerie, et des contraintes techniques fortes liées au contexte local, telles que le Mobile Money \cite{mtn_momo}, une connexion parfois limitée ou une architecture distribuée. Le 2TUP permet de traiter ces deux dimensions en parallèle, de façon rigoureuse et coordonnée, ce qui en fait le processus idéal pour notre projet.
+« SALISA » combine des besoins fonctionnels nombreux, comme l'inscription des utilisateurs, la mise en correspondance, le paiement ou la messagerie, et des contraintes techniques fortes liées au contexte local, telles que le paiement mobile via MTN MoMo et Airtel Money \cite{mtn_momo}, une connexion parfois limitée ou une architecture distribuée. Le 2TUP permet de traiter ces deux dimensions en parallèle, de façon rigoureuse et coordonnée, ce qui en fait le processus idéal pour notre projet.

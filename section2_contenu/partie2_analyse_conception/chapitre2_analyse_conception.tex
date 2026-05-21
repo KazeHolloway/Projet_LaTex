@@ -24,7 +24,7 @@ Les besoins fonctionnels représentent l'ensemble des fonctionnalités que « SA
 	\item mise en correspondance intelligente (matching) entre missions et prestataires ;
 	\item messagerie directe entre demandeur et prestataire ;
 	\item envoi et acceptation de devis structurés ;
-	\item paiement sécurisé via Mobile Money (MTN MoMo et Airtel Money) \cite{mtn_momo} ;
+	\item paiement sécurisé via MTN MoMo et Airtel Money \cite{mtn_momo} ;
 	\item validation de la mission terminée et confirmation du paiement au prestataire ;
 	\item notation et dépôt d'avis après chaque mission réalisée ;
 	\item notifications multi-canaux (push PWA, e-mail, SMS) ;
@@ -42,7 +42,7 @@ Les besoins techniques désignent l'ensemble des contraintes non fonctionnelles 
 	\item sécurité des échanges par protocoles HTTPS et WSS, authentification par JWT et OTP ;
 	\item performance : temps de réponse des API inférieur à 2 secondes pour 95\% des requêtes ;
 	\item disponibilité cible de 99,5\% ;
-	\item intégration des API de paiement Mobile Money (MTN MoMo et Airtel Money) \cite{mtn_momo} ;
+	\item intégration des API de paiement mobile : MTN MoMo et Airtel Money \cite{mtn_momo} ;
 	\item base de données relationnelle (PostgreSQL) \cite{postgresql} avec cache Redis pour les sessions et les résultats fréquents ;
 	\item messagerie en temps réel via WebSocket ;
 	\item stockage des fichiers (photos de profil, pièces jointes) sur un service cloud externe.
@@ -93,7 +93,7 @@ Le diagramme de contexte statique présente « SALISA » au centre et montre tou
 	\label{fig:contexte_statique}
 \end{figure}
 
-Au centre se trouve le système « SALISA » représenté par un rectangle avec le stéréotype \textit{$\langle\langle$system$\rangle\rangle$}. Autour, les quatre acteurs humains (symbole stickman UML) interagissent avec lui : le Visiteur consulte et s'inscrit sur la plateforme ; le Demandeur publie des missions et paie ; le Prestataire crée son profil, répond et envoie des devis ; l'Administrateur modère et configure. Les deux acteurs systèmes (rectangles avec stéréotype \textit{$\langle\langle$system$\rangle\rangle$}) sont : le Service de paiement, qui gère les transactions Mobile Money, et le Service de notifications, qui délivre les alertes e-mail et SMS aux utilisateurs.
+Au centre se trouve le système « SALISA » représenté par un rectangle avec le stéréotype \textit{$\langle\langle$system$\rangle\rangle$}. Autour, les quatre acteurs humains (symbole stickman UML) interagissent avec lui : le Visiteur consulte et s'inscrit sur la plateforme ; le Demandeur publie des missions et paie ; le Prestataire crée son profil, répond et envoie des devis ; l'Administrateur modère et configure. Les deux acteurs systèmes (rectangles avec stéréotype \textit{$\langle\langle$system$\rangle\rangle$}) sont : le Service de paiement, qui gère les transactions de paiement mobile (MTN MoMo et Airtel Money), et le Service de notifications, qui délivre les alertes e-mail et SMS aux utilisateurs.
 
 \subsubsection{Identification des cas d'utilisation}
 
@@ -231,7 +231,7 @@ Un cas d'utilisation décrit une interaction entre un acteur et le système pour
 		\rowcolor{vertCongo}
 		\textcolor{white}{\textbf{Cas d'utilisation}} & \textcolor{white}{\textbf{Définition}} \\
 		\hline
-		\textbf{UC-23} & payer une mission via Mobile Money (Demandeur, Service de paiement) \\
+		\textbf{UC-23} & régler une mission via MTN MoMo ou Airtel Money (Demandeur, Service de paiement) \\
 		\hline
 		\textbf{UC-24} & choisir MTN MoMo comme moyen de paiement (Demandeur) \\
 		\hline
@@ -239,7 +239,7 @@ Un cas d'utilisation décrit une interaction entre un acteur et le système pour
 		\hline
 		\textbf{UC-26} & valider la mission terminée (Demandeur) \\
 		\hline
-		\textbf{UC-27} & demander un retrait Mobile Money (Prestataire) \\
+		\textbf{UC-27} & demander un retrait (Prestataire) \\
 		\hline
 	\end{tabular}
 	\caption{Cas d'utilisation du package P6 : Paiement}
@@ -306,7 +306,7 @@ Un cas d'utilisation décrit une interaction entre un acteur et le système pour
 
 \subsubsection{Relation entre les cas d'utilisation}
 
-Les relations entre cas d'utilisation permettent de structurer et de clarifier les dépendances entre les fonctionnalités du système \cite{roques_uml}. On en distingue deux types principaux. La relation \textbf{$\langle\langle$include$\rangle\rangle$} indique qu'un cas d'utilisation est toujours exécuté dans le cadre d'un autre : par exemple, UC-01 (s'inscrire) inclut systématiquement UC-02 (valider le code OTP), car on ne peut pas créer de compte sans valider le code reçu par SMS ; de même, UC-21 (accepter un devis) inclut UC-23 (payer via Mobile Money), car l'acceptation d'un devis déclenche toujours le processus de paiement. La relation \textbf{$\langle\langle$extend$\rangle\rangle$}, quant à elle, indique qu'un cas d'utilisation est exécuté de façon optionnelle dans certaines conditions : par exemple, UC-11 (publier une mission) peut optionnellement étendre vers UC-12 (utiliser l'assistant IA pour la description de la mission), selon le choix du demandeur.
+Les relations entre cas d'utilisation permettent de structurer et de clarifier les dépendances entre les fonctionnalités du système \cite{roques_uml}. On en distingue deux types principaux. La relation \textbf{$\langle\langle$include$\rangle\rangle$} indique qu'un cas d'utilisation est toujours exécuté dans le cadre d'un autre : par exemple, UC-01 (s'inscrire) inclut systématiquement UC-02 (valider le code OTP), car on ne peut pas créer de compte sans valider le code reçu par SMS ; de même, UC-21 (accepter un devis) inclut UC-23 (régler une mission via MTN MoMo ou Airtel Money), car l'acceptation d'un devis déclenche toujours le processus de paiement. La relation \textbf{$\langle\langle$extend$\rangle\rangle$}, quant à elle, indique qu'un cas d'utilisation est exécuté de façon optionnelle dans certaines conditions : par exemple, UC-11 (publier une mission) peut optionnellement étendre vers UC-12 (utiliser l'assistant IA pour la description de la mission), selon le choix du demandeur.
 
 \vspace{0.4cm}
 Pour illustrer ces dépendances avec précision, nous avons d'abord représenté chaque package dans son propre diagramme de cas d'utilisation. Ces neuf diagrammes détaillés permettent de visualiser clairement, pour chaque domaine fonctionnel, les acteurs impliqués et les relations entre les cas d'utilisation. Les figures~\ref{fig:cu_p1} à~\ref{fig:cu_p9} illustrent ces neuf diagrammes.
@@ -415,7 +415,7 @@ Le tableau~\ref{tab:classification_cu} présente la classification des principau
 		\hline
 		UC-20 & envoyer un devis & Élevée & Moyen & 1 \\
 		\hline
-		UC-23 & payer via Mobile Money & Élevée & Élevé & 1 \\
+		UC-23 & régler via MTN MoMo ou Airtel Money & Élevée & Élevé & 1 \\
 		\hline
 		UC-26 & valider la mission & Élevée & Élevé & 1 \\
 		\hline
@@ -558,7 +558,7 @@ La figure~\ref{fig:act_paiement} illustre le diagramme d'activités du processus
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.95\textwidth]{diagramme_activites_paiement.png}
-	\caption{Diagramme d'activités - processus de paiement via Mobile Money}
+	\caption{Diagramme d'activités - processus de paiement via paiement mobile}
 	\label{fig:act_paiement}
 \end{figure}
 
@@ -617,7 +617,7 @@ La figure~\ref{fig:diag_classes} présente le diagramme de classes de « SALISA 
 
 \subsubsection{Diagramme d'Objets}
 
-La figure~\ref{fig:diag_objets} illustre un exemple d'instanciation du système « SALISA », correspondant au scénario où un demandeur publie une mission, un prestataire y répond avec un devis, et le paiement est effectué via Mobile Money.
+La figure~\ref{fig:diag_objets} illustre un exemple d'instanciation du système « SALISA », correspondant au scénario où un demandeur publie une mission, un prestataire y répond avec un devis, et le paiement est effectué via paiement mobile.
 
 \begin{figure}[H]
 	\centering
