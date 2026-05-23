@@ -47,48 +47,57 @@ les présente avec leur fonction et leur rôle dans le projet.
 \section{Planification des tâches}
 % ============================================================
 
-La réalisation de « SALISA » a été découpée en plusieurs phases, couvrant la période allant
-du 5 janvier 2026, date d'affichage officiel des binômes et de leurs thèmes, jusqu'à la soutenance
-prévue le samedi 20 juin 2026. Le tableau~\ref{tab:planification} présente les grandes étapes
-de ce planning.
+La réalisation de « SALISA » a été découpée en plusieurs phases successives et parfois parallèles,
+couvrant la période allant du 5 janvier 2026, date d'affichage officiel des binômes et de leurs
+thèmes, jusqu'à la soutenance prévue le samedi 20 juin 2026. Le tableau~\ref{tab:planification}
+présente l'ensemble des tâches réalisées avec leurs dates de début et de fin.
 
 \begin{table}[H]
 	\centering
-	\begin{tabular}{|p{7cm}|p{2.8cm}|p{2.8cm}|}
+	\begin{tabular}{|c|p{6.2cm}|p{2.4cm}|p{2.4cm}|}
 		\hline
 		\rowcolor{vertCongo}
+		\textcolor{white}{\textbf{N°}} &
 		\textcolor{white}{\textbf{Tâche}} &
 		\textcolor{white}{\textbf{Début}} &
 		\textcolor{white}{\textbf{Fin}} \\
 		\hline
-		Cadrage du projet et du thème & 05/01/2026 & 14/02/2026 \\
+		1 & Cadrage du projet et du thème & 05/01/2026 & 14/02/2026 \\
 		\hline
-		Étude de l'existant et analyse des besoins & 14/02/2026 & 15/03/2026 \\
+		2 & Prise de contact et collecte des informations sur la structure d'accueil & 05/01/2026 & 14/02/2026 \\
 		\hline
-		Maquette et prototype de l'interface & 20/02/2026 & 20/03/2026 \\
+		3 & Étude de l'existant et analyse des besoins & 14/02/2026 & 28/02/2026 \\
 		\hline
-		Modélisation UML (diagrammes) & 15/03/2026 & 30/04/2026 \\
+		4 & Rédaction du rapport de soutenance & 14/02/2026 & 30/05/2026 \\
 		\hline
-		Modélisation de la base de données & 01/04/2026 & 15/04/2026 \\
+		5 & Modélisation UML - diagrammes de cas d'utilisation & 01/03/2026 & 31/03/2026 \\
 		\hline
-		Rédaction du rapport de soutenance & 20/02/2026 & 05/06/2026 \\
+		6 & Maquette et prototype de l'interface (UI/UX) & 01/03/2026 & 25/03/2026 \\
 		\hline
-		Développement back-end & \multicolumn{2}{c|}{\textit{à renseigner}} \\
+		7 & Modélisation UML - diagrammes de séquence et d'activités & 01/04/2026 & 20/04/2026 \\
 		\hline
-		Développement front-end & \multicolumn{2}{c|}{\textit{à renseigner}} \\
+		8 & Modélisation UML - diagrammes de classes et d'objets & 01/04/2026 & 20/04/2026 \\
 		\hline
-		Intégration et déploiement & \multicolumn{2}{c|}{\textit{à renseigner}} \\
+		9 & Modélisation de la base de données & 15/04/2026 & 30/04/2026 \\
 		\hline
-		Tests et corrections & \multicolumn{2}{c|}{\textit{à renseigner}} \\
+		10 & Développement back-end (API REST, WebSocket, authentification) & 01/04/2026 & 20/05/2026 \\
 		\hline
-		Préparation de la présentation & 05/06/2026 & 15/06/2026 \\
+		11 & Développement front-end (PWA, interfaces utilisateur) & 15/04/2026 & 30/05/2026 \\
 		\hline
-		Révision finale et dépôt du dossier & \multicolumn{2}{c|}{avant le 02/06/2026} \\
+		12 & Intégration des API de paiement mobile (MTN MoMo, Airtel Money) & 01/05/2026 & 20/05/2026 \\
 		\hline
-		Préparation et répétitions de soutenance & 10/06/2026 & 19/06/2026 \\
+		13 & Intégration et déploiement sur serveur VPS & 20/05/2026 & 31/05/2026 \\
+		\hline
+		14 & Tests et corrections & 25/05/2026 & 05/06/2026 \\
+		\hline
+		15 & Révision finale et dépôt du dossier & 25/05/2026 & 02/06/2026 \\
+		\hline
+		16 & Préparation de la présentation & 05/06/2026 & 15/06/2026 \\
+		\hline
+		17 & Préparation et répétitions de soutenance & 10/06/2026 & 19/06/2026 \\
 		\hline
 		\rowcolor{vertClair}
-		\textbf{Soutenance} & \textbf{20/06/2026} & \textbf{20/06/2026} \\
+		\textbf{18} & \textbf{Soutenance} & \textbf{20/06/2026} & \textbf{20/06/2026} \\
 		\hline
 	\end{tabular}
 	\caption{Planification des tâches du projet « SALISA »}
@@ -99,7 +108,18 @@ de ce planning.
 \section{Diagramme de Gantt}
 % ============================================================
 
-\textit{[À insérer : diagramme de Gantt représentant le planning détaillé du projet, réalisé avec MS Project]}
+Le diagramme de Gantt, réalisé avec MS Project, offre une représentation visuelle du
+déroulement chronologique du projet. Il met en évidence les chevauchements entre les tâches
+menées en parallèle, notamment la rédaction du rapport et le développement de l'application,
+ainsi que les dépendances entre certaines phases, comme la nécessité de finaliser la modélisation
+UML avant d'entamer le développement back-end. La figure~\ref{fig:gantt} illustre ce planning.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.98\textwidth]{diagramme_gantt.png}
+	\caption{Diagramme de Gantt du projet « SALISA »}
+	\label{fig:gantt}
+\end{figure}
 
 % ============================================================
 \section{Estimation des charges}
@@ -116,14 +136,6 @@ et les équipements matériels. Les montants sont exprimés en Francs CFA.
 		\rowcolor{vertCongo}
 		\textcolor{white}{\textbf{Ressources}} &
 		\textcolor{white}{\textbf{Quantité / Mois}} &
-		
-		% les colonnes Prix unitaire et total simplement centrées
-		
-		%\multicolumn{1}{p{4.5cm}}{\centering\arraybackslash\textcolor{white}{\textbf{Prix unitaire\newline (en FCFA)}}} &
-		%\multicolumn{1}{p{3.2cm}}{\centering\arraybackslash\textcolor{white}{\textbf{Prix total\newline (en FCFA)}}} \\
-		
-		% les colonnes Prix unitaire et total parfaitement centrées		
-		
 		\multicolumn{1}{p{4.5cm}}{
 			\centering
 			\begin{tabular}{@{}c@{}}
@@ -138,7 +150,6 @@ et les équipements matériels. Les montants sont exprimés en Francs CFA.
 				\textcolor{white}{\textbf{(en FCFA)}}
 			\end{tabular}
 		} \\
-		
 		\hline
 		\rowcolor{grisclair}
 		\multicolumn{4}{|l|}{\textbf{Ressources humaines}} \\
