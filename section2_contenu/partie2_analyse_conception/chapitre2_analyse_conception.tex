@@ -68,7 +68,7 @@ Nous avons identifié quatre principaux acteurs humains :
 	\item \textbf{Visiteur :} utilisateur non encore enregistré sur la plateforme. Son unique interaction avec « SALISA » est l'inscription, qui lui permet de créer un compte et de choisir son rôle ;
 	\item \textbf{Demandeur :} utilisateur connecté qui cherche et embauche des prestataires. Il publie des missions, contacte des prestataires, paie et note les prestations ;
 	\item \textbf{Prestataire :} utilisateur connecté qui propose ses services. Il crée son profil, répond aux missions et envoie des devis ;
-	\item \textbf{Administrateur :} utilisateur connecté chargé d'administrer la plateforme, de vérifier les identités, de gérer les signalements et de configurer le système.
+	\item \textbf{Administrateur :} utilisateur chargé d'administrer la plateforme, de vérifier les identités, de gérer les signalements et de configurer le système.
 \end{itemize}
 
 \vspace{0.3cm}
@@ -93,7 +93,7 @@ Le diagramme de contexte statique présente « SALISA » au centre et montre tou
 	\label{fig:contexte_statique}
 \end{figure}
 
-Au centre se trouve le système « SALISA » représenté par un rectangle avec le stéréotype \textit{$\langle\langle$system$\rangle\rangle$}. Autour, les quatre acteurs humains (symbole stickman UML) interagissent avec lui : le Visiteur consulte et s'inscrit sur la plateforme ; le Demandeur publie des missions et paie ; le Prestataire crée son profil, répond et envoie des devis ; l'Administrateur modère et configure. Les deux acteurs systèmes (rectangles avec stéréotype \textit{$\langle\langle$system$\rangle\rangle$}) sont : le Service de paiement, qui gère les transactions de paiement mobile (MTN MoMo et Airtel Money), et le Service de notifications, qui délivre les alertes e-mail et SMS aux utilisateurs.
+Au centre se trouve le système « SALISA » représenté par un rectangle avec le stéréotype \textit{$\langle\langle$system$\rangle\rangle$}. Autour, les quatre acteurs humains (symbole stickman UML) interagissent avec lui : le Visiteur consulte et s'inscrit sur la plateforme ; le Demandeur publie des missions et paie ; le Prestataire crée son profil, répond et envoie des devis ; l'Administrateur modère et configure la plateforme. Les deux acteurs systèmes (rectangles avec stéréotype \textit{$\langle\langle$system$\rangle\rangle$}) sont : le Service de paiement, qui gère les transactions de paiement mobile (MTN MoMo et Airtel Money), et le Service de notifications, qui délivre les alertes e-mail et SMS aux utilisateurs.
 
 \subsubsection{Identification des cas d'utilisation}
 
@@ -403,7 +403,7 @@ Le tableau~\ref{tab:classification_cu} présente la classification des principau
 		\hline
 		UC-02 & valider le code OTP & Élevée & Élevé & 1 \\
 		\hline
-		UC-03 & choisir son rôle & Élevée & Faible & 1 \\
+		UC-03 & choisir son rôle & Élevée & Moyen & 1 \\
 		\hline
 		UC-06 & compléter son profil & Élevée & Moyen & 1 \\
 		\hline
@@ -417,9 +417,9 @@ Le tableau~\ref{tab:classification_cu} présente la classification des principau
 		\hline
 		UC-23 & régler via MTN MoMo ou Airtel Money & Élevée & Élevé & 1 \\
 		\hline
-		UC-26 & valider la mission & Élevée & Élevé & 1 \\
+		UC-26 & valider la mission & Élevée & Moyen & 1 \\
 		\hline
-		UC-28 & laisser un avis & Élevée & Faible & 1 \\
+		UC-28 & laisser un avis & Élevée & Moyen & 1 \\
 		\hline
 		UC-30 & recevoir des notifications & Élevée & Moyen & 1 \\
 		\hline
@@ -431,7 +431,7 @@ Le tableau~\ref{tab:classification_cu} présente la classification des principau
 		\hline
 		UC-17 & suggestions proactives & Moyenne & Moyen & 2 \\
 		\hline
-		UC-27 & demander un retrait & Basse & Faible & 3 \\
+		UC-27 & demander un retrait & Basse & Moyen & 3 \\
 		\hline
 	\end{tabular}
 	\caption{Classification des principaux cas d'utilisation de « SALISA »}
@@ -452,9 +452,19 @@ Le tableau~\ref{tab:classification_cu} présente la classification des principau
 		\rowcolor{vertClair}
 		\textbf{Cas d'utilisation} & UC-01 : s'inscrire via numéro de téléphone \\
 		\hline
+		\textbf{Objectif} & détaille les étapes permettant à un Visiteur de s'inscrire afin de devenir Utilisateur \\
+		\hline
 		\textbf{Acteur principal} & Visiteur \\
 		\hline
-		\textbf{Précondition} & le visiteur n'a pas encore de compte sur « SALISA » \\
+		\textbf{Acteurs secondaires} & Système SALISA, Service de notifications \\
+		\hline
+		\textbf{Date} & le 23/04/2026 \\
+		\hline
+		\textbf{Responsables} & Christophe MASSAMBA \& Deo BATA \\
+		\hline
+		\textbf{Version} & 1.0 \\
+		\hline
+		\textbf{Précondition} & le visiteur n'a pas encore de compte sur SALISA \\
 		\hline
 		\textbf{Déclencheur} & le visiteur clique sur le bouton « S'inscrire » \\
 		\hline
@@ -493,7 +503,17 @@ Le tableau~\ref{tab:classification_cu} présente la classification des principau
 		\rowcolor{vertClair}
 		\textbf{Cas d'utilisation} & UC-11 : publier une mission \\
 		\hline
+		\textbf{Objectif} & détaille les étapes permettant à un Demandeur de publier une mission \\
+		\hline
 		\textbf{Acteur principal} & Demandeur \\
+		\hline
+		\textbf{Acteurs secondaires} & Système SALISA, Service de notifications \\
+		\hline
+		\textbf{Date} & le 23/04/2026 \\
+		\hline
+		\textbf{Responsables} & Christophe MASSAMBA \& Deo BATA \\
+		\hline
+		\textbf{Version} & 1.0 \\
 		\hline
 		\textbf{Précondition} & l'utilisateur est connecté en tant que demandeur \\
 		\hline
@@ -524,7 +544,7 @@ Le tableau~\ref{tab:classification_cu} présente la classification des principau
 
 \subsubsection{Diagramme de séquence (au plus 2)}
 
-La figure~\ref{fig:seq_inscription} illustre le diagramme de séquence du cas d'utilisation UC-01 (s'inscrire via numéro de téléphone). Le système « SALISA » est représenté comme une boîte noire unique, conformément au niveau d'abstraction de l'analyse.
+La figure~\ref{fig:seq_inscription} illustre le diagramme de séquence du cas d'utilisation UC-01 (s'inscrire via numéro de téléphone).
 
 \begin{figure}[H]
 	\centering
@@ -553,12 +573,12 @@ La figure~\ref{fig:act_publication} présente le diagramme d'activités du proce
 	\label{fig:act_publication}
 \end{figure}
 
-La figure~\ref{fig:act_paiement} illustre le diagramme d'activités du processus de paiement via Mobile Money.
+La figure~\ref{fig:act_paiement} illustre le diagramme d'activités du processus de paiement mobile.
 
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.95\textwidth]{diagramme_activites_paiement.png}
-	\caption{Diagramme d'activités - processus de paiement via paiement mobile}
+	\caption{Diagramme d'activités - processus de paiement mobile}
 	\label{fig:act_paiement}
 \end{figure}
 
@@ -617,7 +637,7 @@ La figure~\ref{fig:diag_classes} présente le diagramme de classes de « SALISA 
 
 \subsubsection{Diagramme d'Objets}
 
-La figure~\ref{fig:diag_objets} illustre un exemple d'instanciation du système « SALISA », correspondant au scénario où un demandeur publie une mission, un prestataire y répond avec un devis, et le paiement est effectué via paiement mobile.
+La figure~\ref{fig:diag_objets} illustre un exemple d'instanciation du système « SALISA », correspondant au scénario où un demandeur publie une mission, un prestataire y répond avec un devis, et le paiement est effectué via MTN MoMo.
 
 \begin{figure}[H]
 	\centering

@@ -2,13 +2,9 @@
 
 % ============================================================
 % ENCODAGE & LANGUE
-% Compilateur requis : XeLaTeX (pas pdflatex)
-% Dans TeXstudio : Options > Configurer > Compilation >
-%   Compilateur par défaut = XeLaTeX
-% Calibri doit être installé sur le système (Windows avec Office)
 % ============================================================
 \usepackage{fontspec}
-\setmainfont{Calibri}         % Police principale : Calibri (exigée)
+\setmainfont{Calibri}
 \usepackage{polyglossia}
 \setmainlanguage{french}
 
@@ -21,10 +17,10 @@
 % ============================================================
 \usepackage{geometry}
 \geometry{
-    top=3cm,
-    bottom=3.5cm,
-    left=2.5cm,
-    right=2.5cm
+	top=3cm,
+	bottom=3.5cm,
+	left=2.5cm,
+	right=2.5cm
 }
 
 % ============================================================
@@ -41,7 +37,6 @@
 \usepackage{float}
 \usepackage{tikz}
 \usepackage{mdframed}
-\usepackage{hyperref}
 \usepackage{microtype}
 \usepackage{array}
 \usepackage{booktabs}
@@ -51,7 +46,7 @@
 \usepackage{chngcntr}
 
 % ============================================================
-% LÉGENDES : Figure X : et Tableau X :
+% LÉGENDES
 % ============================================================
 \usepackage{caption}
 \captionsetup[figure]{name=Figure, labelsep=colon}
@@ -71,7 +66,7 @@
 \graphicspath{{images/}}
 
 % ============================================================
-% COULEURS DU PROJET
+% COULEURS
 % ============================================================
 \definecolor{vertCongo}{RGB}{0, 104, 56}
 \definecolor{vertFonce}{RGB}{0, 70, 35}
@@ -81,12 +76,12 @@
 \definecolor{grisclair}{RGB}{245, 245, 245}
 
 % ============================================================
-% INTERLIGNE : 1,5 (exigé)
+% INTERLIGNE
 % ============================================================
 \onehalfspacing
 
 % ============================================================
-% PROFONDEUR DE NUMEROTATION
+% PROFONDEUR DE NUMÉROTATION
 % ============================================================
 \setcounter{secnumdepth}{3}
 \setcounter{tocdepth}{3}
@@ -98,253 +93,301 @@
 \titlespacing*{\part}{0pt}{0pt}{0pt}
 
 % ============================================================
-% FORMAT DES CHAPITRES : taille 14 pt (exigée)
+% FORMAT DES CHAPITRES
 % ============================================================
 \renewcommand{\thechapter}{\Roman{chapter}}
-
 \renewcommand{\thesection}{\arabic{chapter}.\arabic{section}}
 \renewcommand{\thesubsection}{\arabic{chapter}.\arabic{section}.\arabic{subsection}}
 \renewcommand{\thesubsubsection}{\arabic{chapter}.\arabic{section}.\arabic{subsection}.\arabic{subsubsection}}
 
-% Titre de chapitre : Calibri 14pt gras
 \titleformat{\chapter}[block]
-    {\normalfont\fontsize{14}{17}\selectfont\bfseries}
-    {Chapitre~\thechapter~:}
-    {1em}
-    {}
+{\normalfont\fontsize{14}{17}\selectfont\bfseries}
+{Chapitre~\thechapter~:}
+{1em}
+{}
 
-% Sections et sous-sections : 12pt gras
 \titleformat{\section}
-    {\normalfont\fontsize{12}{15}\selectfont\bfseries}
-    {\thesection}
-    {1em}
-    {}
+{\normalfont\fontsize{12}{15}\selectfont\bfseries}
+{\thesection}
+{1em}
+{}
 
 \titleformat{\subsection}
-    {\normalfont\fontsize{12}{15}\selectfont\bfseries}
-    {\thesubsection}
-    {1em}
-    {}
+{\normalfont\fontsize{12}{15}\selectfont\bfseries}
+{\thesubsection}
+{1em}
+{}
 
 \titleformat{\subsubsection}
-    {\normalfont\fontsize{12}{15}\selectfont\bfseries}
-    {\thesubsubsection}
-    {1em}
-    {}
+{\normalfont\fontsize{12}{15}\selectfont\bfseries}
+{\thesubsubsection}
+{1em}
+{}
 
 % ============================================================
-% EN-TETE ET PIED DE PAGE
+% TABLE DES MATIÈRES — personnalisation
+% ============================================================
+
+% SECTIONS : 16pt gras (plus grand que les Parties)
+% Injectées via \addtocontents, pas via \part
+
+% PARTIES : 14pt gras — style de l'entrée "part" dans la TDM
+\renewcommand{\cftpartfont}{\fontsize{13}{16}\selectfont\bfseries}
+\renewcommand{\cftpartpagefont}{\fontsize{13}{16}\selectfont\bfseries}
+\setlength{\cftbeforepartskip}{8pt}
+\setlength{\cftpartindent}{1cm}        % légère indentation sous la Section
+
+% CHAPITRES : 12pt gras, indentés sous les Parties
+\renewcommand{\cftchappresnum}{Chapitre~}
+\setlength{\cftchapnumwidth}{5em}
+\setlength{\cftchapindent}{2cm}        % indentés sous les Parties
+\renewcommand{\cftchapfont}{\fontsize{12}{15}\selectfont\bfseries}
+\renewcommand{\cftchappagefont}{\fontsize{12}{15}\selectfont\bfseries}
+\setlength{\cftbeforechapskip}{3pt}
+
+% SECTIONS (1.1, 1.2...) : indentées sous les chapitres
+\setlength{\cftsecindent}{3.5cm}
+\renewcommand{\cftsecfont}{\fontsize{12}{15}\selectfont}
+\renewcommand{\cftsecpagefont}{\fontsize{12}{15}\selectfont}
+\setlength{\cftbeforesecskip}{1pt}
+
+% SOUS-SECTIONS (1.1.1...)
+\setlength{\cftsubsecindent}{4.5cm}
+\renewcommand{\cftsubsecfont}{\fontsize{12}{15}\selectfont}
+\renewcommand{\cftsubsecpagefont}{\fontsize{12}{15}\selectfont}
+
+% SOUS-SOUS-SECTIONS (1.1.1.1...)
+\setlength{\cftsubsubsecindent}{5.5cm}
+\renewcommand{\cftsubsubsecfont}{\fontsize{12}{15}\selectfont}
+\renewcommand{\cftsubsubsecpagefont}{\fontsize{12}{15}\selectfont}
+
+% ============================================================
+% EN-TÊTE ET PIED DE PAGE
 % ============================================================
 \setlength{\headheight}{40pt}
 \setlength{\footskip}{40pt}
 
 \newcommand{\enteteContenu}{%
-    \small\bfseries
-    Conception et réalisation d'une application cross-plateforme de mise en relation entre prestataires et clients pour services professionnels à Akieni
+	\small\bfseries
+	Conception et réalisation d'une application cross-plateforme de mise en relation entre prestataires et clients pour services professionnels à Akieni
 }
 \newcommand{\piedContenu}{%
-    \small
-    Grâce Deo BATA \& Christophe Darly MASSAMBA BOUESSO\\
-    LP-GL \textbar{} 2025-2026
+	\small
+	Grâce Deo BATA \& Christophe Darly MASSAMBA BOUESSO\\
+	LP-GL \textbar{} 2025-2026
 }
 
 \fancypagestyle{styleGlobal}{
-    \fancyhf{}
-    \fancyhead[C]{\enteteContenu}
-    \fancyfoot[L]{\piedContenu}
-    \fancyfoot[R]{\small\thepage}
-    \renewcommand{\headrulewidth}{0.4pt}
-    \renewcommand{\footrulewidth}{0.4pt}
+	\fancyhf{}
+	\fancyhead[C]{\enteteContenu}
+	\fancyfoot[L]{\piedContenu}
+	\fancyfoot[R]{\small\thepage}
+	\renewcommand{\headrulewidth}{0.4pt}
+	\renewcommand{\footrulewidth}{0.4pt}
 }
 
 \fancypagestyle{plain}{
-    \fancyhf{}
-    \fancyhead[C]{\enteteContenu}
-    \fancyfoot[L]{\piedContenu}
-    \fancyfoot[R]{\small\thepage}
-    \renewcommand{\headrulewidth}{0.4pt}
-    \renewcommand{\footrulewidth}{0.4pt}
+	\fancyhf{}
+	\fancyhead[C]{\enteteContenu}
+	\fancyfoot[L]{\piedContenu}
+	\fancyfoot[R]{\small\thepage}
+	\renewcommand{\headrulewidth}{0.4pt}
+	\renewcommand{\footrulewidth}{0.4pt}
 }
 
 \fancypagestyle{styleSansPagination}{
-    \fancyhf{}
-    \fancyhead[C]{\enteteContenu}
-    \fancyfoot[L]{\piedContenu}
-    \renewcommand{\headrulewidth}{0.4pt}
-    \renewcommand{\footrulewidth}{0.4pt}
+	\fancyhf{}
+	\fancyhead[C]{\enteteContenu}
+	\fancyfoot[L]{\piedContenu}
+	\renewcommand{\headrulewidth}{0.4pt}
+	\renewcommand{\footrulewidth}{0.4pt}
 }
 
 % ============================================================
 % PAGE D'ANNONCE DE SECTION
 % ============================================================
 \newcommand{\pageSectionAnnonce}[1]{%
-    \clearpage
-    \thispagestyle{styleSansPagination}
-    \vspace*{\fill}
-    \begin{center}
-        \begin{tikzpicture}
-            \node[
-                fill=vertCongo,
-                text=blancPur,
-                font=\Huge\bfseries,
-                minimum width=14cm,
-                minimum height=3.5cm,
-                rounded corners=8pt,
-                inner sep=16pt,
-                align=center
-            ] {#1};
-        \end{tikzpicture}
-    \end{center}
-    \vspace*{\fill}
-    \clearpage
+	\clearpage
+	\thispagestyle{styleSansPagination}
+	\vspace*{\fill}
+	\begin{center}
+		\begin{tikzpicture}
+			\node[
+			fill=vertCongo,
+			text=blancPur,
+			font=\Huge\bfseries,
+			minimum width=14cm,
+			minimum height=3.5cm,
+			rounded corners=8pt,
+			inner sep=16pt,
+			align=center
+			] {#1};
+		\end{tikzpicture}
+	\end{center}
+	\vspace*{\fill}
+	\clearpage
 }
 
 % ============================================================
-% PAGE D'ANNONCE DE PARTIE (taille 16 pt, exigée)
+% PAGE D'ANNONCE DE PARTIE (taille 16pt)
 % ============================================================
 \newcommand{\pagePartieAnnonce}[3]{%
-    \clearpage
-    \phantomsection
-    \addcontentsline{toc}{part}{#3}%
-    \vspace*{4cm}
-    \begin{center}
-        \begin{tikzpicture}
-            \node[
-                fill=vertCongo,
-                text=blancPur,
-                font=\fontsize{16}{20}\selectfont\bfseries,
-                minimum width=13cm,
-                minimum height=2.8cm,
-                rounded corners=6pt,
-                inner sep=14pt,
-                align=center
-            ] {#1\\[4pt]\normalsize\mdseries #2};
-        \end{tikzpicture}
-    \end{center}
-    \vspace*{3cm}
-    \clearpage
+	\clearpage
+	\phantomsection
+	\addcontentsline{toc}{part}{#3}%
+	\vspace*{4cm}
+	\begin{center}
+		\begin{tikzpicture}
+			\node[
+			fill=vertCongo,
+			text=blancPur,
+			font=\fontsize{16}{20}\selectfont\bfseries,
+			minimum width=13cm,
+			minimum height=2.8cm,
+			rounded corners=6pt,
+			inner sep=14pt,
+			align=center
+			] {#1\\[4pt]\normalsize\mdseries #2};
+		\end{tikzpicture}
+	\end{center}
+	\vspace*{3cm}
+	\clearpage
 }
 
 % ============================================================
-% HYPERREF
+% HYPERREF — toujours en dernier
 % ============================================================
+\usepackage{hyperref}
 \hypersetup{
-    colorlinks=false,
-    pdfborder={0 0 0},
-    pdftitle={Rapport SALISA - LP Génie Logiciel},
-    pdfauthor={Grâce Deo BATA, Christophe Darly MASSAMBA BOUESSO}
+	colorlinks=false,
+	pdfborder={0 0 0},
+	pdftitle={Rapport SALISA - LP Génie Logiciel},
+	pdfauthor={Grâce Deo BATA, Christophe Darly MASSAMBA BOUESSO}
 }
 
-% ---- Gestion des coupures de mots ----
-\usepackage[none]{hyphenat}      % désactive toute césure automatique
-\sloppy                          % préfère allonger l'espacement plutôt que couper
-\setlength{\emergencystretch}{3em} % marge de tolérance pour éviter les débordements
+% ============================================================
+% GESTION DES COUPURES DE MOTS
+% ============================================================
+\usepackage[none]{hyphenat}
+\sloppy
+\setlength{\emergencystretch}{3em}
 
 % ============================================================
 %                        DOCUMENT
 % ============================================================
-
 \begin{document}
-
-\renewcommand{\listfigurename}{Liste des figures}
-\renewcommand{\listtablename}{Liste des tableaux}
-
-\pagestyle{styleGlobal}
-
-% ============================================================
-% SECTION I
-% ============================================================
-\pageSectionAnnonce{SECTION I}
-\pagenumbering{Roman}
-\addtocontents{toc}{\vspace{0.8em}\noindent\textbf{SECTION I}\vspace{0.4em}\par}
-
-\input{section1_preliminaires/dedicace}
-\newpage
-
-\input{section1_preliminaires/remerciements}
-\newpage
-
-\phantomsection
-\label{sec:figures}
-\addcontentsline{toc}{chapter}{Liste des figures}
-\listoffigures
-\newpage
-
-\phantomsection
-\label{sec:tableaux}
-\addcontentsline{toc}{chapter}{Liste des tableaux}
-\listoftables
-\newpage
-
-\input{section1_preliminaires/abreviations_sigles}
-\newpage
-
-\input{section1_preliminaires/sommaire}
-\newpage
-
-% ============================================================
-% SECTION II
-% ============================================================
-\pageSectionAnnonce{SECTION II}
-\pagenumbering{arabic}
-\addtocontents{toc}{\vspace{0.8em}\noindent\textbf{SECTION II}\vspace{0.4em}\par}
-
-\input{section2_contenu/introduction}
-\newpage
-
-% ---- PREMIERE PARTIE ----
-\pagePartieAnnonce%
-    {Première Partie}%
-    {PRÉSENTATION GÉNÉRALE}%
-    {Première Partie : Présentation Générale}
-\setcounter{chapter}{0}
-
-\input{section2_contenu/partie1_presentation/chapitre1_structure_sujet}
-
-% ---- DEUXIEME PARTIE ----
-\pagePartieAnnonce%
-    {Deuxième Partie}%
-    {ANALYSE ET CONCEPTION}%
-    {Deuxième Partie : Analyse et Conception}
-\setcounter{chapter}{0}
-
-\input{section2_contenu/partie2_analyse_conception/chapitre1_etude_preliminaire}
-\input{section2_contenu/partie2_analyse_conception/chapitre2_analyse_conception}
-
-% ---- TROISIEME PARTIE ----
-\pagePartieAnnonce%
-    {Troisième Partie}%
-    {ÉVALUATION ET RÉALISATION DU PROJET}%
-    {Troisième Partie : Évaluation et Réalisation du Projet}
-\setcounter{chapter}{0}
-
-\input{section2_contenu/partie3_realisation/chapitre1_evaluation}
-\input{section2_contenu/partie3_realisation/chapitre2_outils_techniques}
-
-\input{section2_contenu/conclusion}
-
-% ============================================================
-% SECTION III
-% ============================================================
-\pageSectionAnnonce{SECTION III}
-\pagenumbering{alph}
-\addtocontents{toc}{\vspace{0.8em}\noindent\textbf{SECTION III}\vspace{0.4em}\par}
-
-\phantomsection
-\label{sec:tabledesmatieres}
-\addcontentsline{toc}{chapter}{Table des matières}
-\tableofcontents
-\newpage
-
-\phantomsection
-\label{sec:bibliographie}
-\addcontentsline{toc}{chapter}{Bibliographie}
-\bibliographystyle{plain}
-\nocite{*}
-\bibliography{biblio}
-\newpage
-
-\appendix
-\input{section3_fin/annexes}
-
+	
+	\renewcommand{\listfigurename}{Liste des figures}
+	\renewcommand{\listtablename}{Liste des tableaux}
+	
+	\pagestyle{styleGlobal}
+	
+	% ============================================================
+	% SECTION I
+	% ============================================================
+	\pageSectionAnnonce{SECTION I}
+	\pagenumbering{Roman}
+	\addtocontents{toc}{%
+		\vspace{6pt}%
+		\noindent{\fontsize{16}{20}\selectfont\bfseries SECTION I}\par%
+		\vspace{3pt}%
+	}
+	
+	\input{section1_preliminaires/dedicace}
+	\newpage
+	
+	\input{section1_preliminaires/remerciements}
+	\newpage
+	
+	\phantomsection
+	\label{sec:figures}
+	\addcontentsline{toc}{chapter}{Liste des figures}
+	\listoffigures
+	\newpage
+	
+	\phantomsection
+	\label{sec:tableaux}
+	\addcontentsline{toc}{chapter}{Liste des tableaux}
+	\listoftables
+	\newpage
+	
+	\input{section1_preliminaires/abreviations_sigles}
+	\newpage
+	
+	\input{section1_preliminaires/sommaire}
+	\newpage
+	
+	% ============================================================
+	% SECTION II
+	% ============================================================
+	\pageSectionAnnonce{SECTION II}
+	\pagenumbering{arabic}
+	\addtocontents{toc}{%
+		\vspace{10pt}%
+		\noindent{\fontsize{16}{20}\selectfont\bfseries SECTION II}\par%
+		\vspace{3pt}%
+	}
+	
+	\input{section2_contenu/introduction}
+	\newpage
+	
+	% ---- PREMIERE PARTIE ----
+	\pagePartieAnnonce%
+	{Première Partie}%
+	{PRÉSENTATION GÉNÉRALE}%
+	{Première Partie : Présentation Générale}
+	\setcounter{chapter}{0}
+	
+	\input{section2_contenu/partie1_presentation/chapitre1_structure_sujet}
+	
+	% ---- DEUXIEME PARTIE ----
+	\pagePartieAnnonce%
+	{Deuxième Partie}%
+	{ANALYSE ET CONCEPTION}%
+	{Deuxième Partie : Analyse et Conception}
+	\setcounter{chapter}{0}
+	
+	\input{section2_contenu/partie2_analyse_conception/chapitre1_etude_preliminaire}
+	\input{section2_contenu/partie2_analyse_conception/chapitre2_analyse_conception}
+	
+	% ---- TROISIEME PARTIE ----
+	\pagePartieAnnonce%
+	{Troisième Partie}%
+	{ÉVALUATION ET RÉALISATION DU PROJET}%
+	{Troisième Partie : Évaluation et Réalisation du Projet}
+	\setcounter{chapter}{0}
+	
+	\input{section2_contenu/partie3_realisation/chapitre1_evaluation}
+	\input{section2_contenu/partie3_realisation/chapitre2_outils_techniques}
+	
+	\input{section2_contenu/conclusion}
+	
+	% ============================================================
+	% SECTION III
+	% ============================================================
+	\pageSectionAnnonce{SECTION III}
+	\pagenumbering{alph}
+	\addtocontents{toc}{%
+		\vspace{10pt}%
+		\noindent{\fontsize{16}{20}\selectfont\bfseries SECTION III}\par%
+		\vspace{3pt}%
+	}
+	
+	\phantomsection
+	\label{sec:tabledesmatieres}
+	\addcontentsline{toc}{chapter}{Table des matières}
+	\tableofcontents
+	\newpage
+	
+	\phantomsection
+	\label{sec:bibliographie}
+	\addcontentsline{toc}{chapter}{Bibliographie}
+	\bibliographystyle{plain}
+	\nocite{*}
+	\bibliography{biblio}
+	\newpage
+	
+	\appendix
+	\input{section3_fin/annexes}
+	
 \end{document}

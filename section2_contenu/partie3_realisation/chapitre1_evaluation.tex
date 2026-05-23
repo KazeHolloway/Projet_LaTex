@@ -14,10 +14,7 @@ en Génie Logiciel à l'École Supérieure de Gestion et d'Administration des En
 de Brazzaville. Il s'agit d'un projet de fin d'études mené en binôme, sous la supervision d'un
 Directeur de Projet (DP).
 
-La conduite du projet repose sur des séances de travail hebdomadaires avec le Directeur de
-Projet, tenues chaque samedi. Ces séances permettent de faire le point sur l'avancement, de
-valider les livrables et d'orienter les prochaines étapes. La méthode de développement adoptée
-est le \textbf{2TUP}, combinée au langage de modélisation \textbf{UML}.
+La conduite du projet repose sur des séances de travail hebdomadaires avec le Directeur de Projet, tenues le plus souvent les samedis à l'école, ou en ligne via Meet les jours ordinaires. Ces séances permettent de faire le point sur l'avancement, de valider les livrables et d'orienter les prochaines étapes. La méthode de développement adoptée est le \textbf{2TUP}, couplée au langage de modélisation \textbf{UML}.
 
 % ============================================================
 \section{Intervenants}
@@ -35,9 +32,9 @@ les présente avec leur fonction et leur rôle dans le projet.
 		\textcolor{white}{\textbf{Fonction}} &
 		\textcolor{white}{\textbf{Titre / Rôle}} \\
 		\hline
-		M. Christophe Darly MASSAMBA BOUESSO & Étudiant en LPGL & Concepteur et développeur \\
+		M. Christophe Darly MASSAMBA BOUESSO & Étudiant en LPGL & Concepteur et\newline développeur \\
 		\hline
-		M. Grâce Deo BATA & Étudiant en LPGL & Concepteur et développeur \\
+		M. Grâce Deo BATA & Étudiant en LPGL & Concepteur et\newline développeur \\
 		\hline
 		M. Ornel Djenifer KIGOMA & Ingénieur informaticien & Directeur de projet, enseignant à l'ESGAE \\
 		\hline
@@ -110,7 +107,7 @@ de ce planning.
 
 L'estimation des charges regroupe l'ensemble des ressources nécessaires à la réalisation de
 « SALISA ». Elle prend en compte les ressources humaines, les services en ligne, les logiciels
-et les équipements matériels. Les montants sont exprimés en francs CFA.
+et les équipements matériels. Les montants sont exprimés en Francs CFA.
 
 \begin{table}[H]
 	\centering
@@ -119,8 +116,29 @@ et les équipements matériels. Les montants sont exprimés en francs CFA.
 		\rowcolor{vertCongo}
 		\textcolor{white}{\textbf{Ressources}} &
 		\textcolor{white}{\textbf{Quantité / Mois}} &
-		\textcolor{white}{\textbf{Prix unitaire (en FCFA)}} &
-		\textcolor{white}{\textbf{Prix total (en FCFA)}} \\
+		
+		% les colonnes Prix unitaire et total simplement centrées
+		
+		%\multicolumn{1}{p{4.5cm}}{\centering\arraybackslash\textcolor{white}{\textbf{Prix unitaire\newline (en FCFA)}}} &
+		%\multicolumn{1}{p{3.2cm}}{\centering\arraybackslash\textcolor{white}{\textbf{Prix total\newline (en FCFA)}}} \\
+		
+		% les colonnes Prix unitaire et total parfaitement centrées		
+		
+		\multicolumn{1}{p{4.5cm}}{
+			\centering
+			\begin{tabular}{@{}c@{}}
+				\textcolor{white}{\textbf{Prix unitaire}} \\
+				\textcolor{white}{\textbf{(en FCFA)}}
+			\end{tabular}
+		} &
+		\multicolumn{1}{p{3.2cm}}{
+			\centering
+			\begin{tabular}{@{}c@{}}
+				\textcolor{white}{\textbf{Prix total}} \\
+				\textcolor{white}{\textbf{(en FCFA)}}
+			\end{tabular}
+		} \\
+		
 		\hline
 		\rowcolor{grisclair}
 		\multicolumn{4}{|l|}{\textbf{Ressources humaines}} \\
@@ -132,7 +150,7 @@ et les équipements matériels. Les montants sont exprimés en francs CFA.
 		\hline
 		Connexion internet & 12 & \raggedleft 25 000 & \raggedleft 300 000 \tabularnewline
 		\hline
-		Serveur VPS (hébergement) & 12 & \raggedleft 15 000 & \raggedleft 180 000 \tabularnewline
+		Serveur VPS\newline (hébergement) & 12 & \raggedleft 15 000 & \raggedleft 180 000 \tabularnewline
 		\hline
 		\rowcolor{grisclair}
 		\multicolumn{4}{|l|}{\textbf{Ressources logicielles}} \\
