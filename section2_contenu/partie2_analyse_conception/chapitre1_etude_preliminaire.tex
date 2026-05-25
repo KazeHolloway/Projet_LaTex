@@ -40,7 +40,7 @@ Face aux limites identifiées, il est apparu nécessaire d'explorer différentes
 Il s'agit de concevoir un portail web permettant aux prestataires de publier un profil détaillé regroupant leurs compétences, leurs tarifs et leur zone d'intervention, et aux clients de les rechercher et de les contacter directement via un système de messagerie intégré. Cette approche repose sur des technologies web éprouvées, telles que PHP côté serveur, MySQL pour la base de données et Bootstrap pour l'interface. Elle vise avant tout à offrir une visibilité numérique simple aux prestataires qui n'en ont aucune aujourd'hui.
 
 \vspace{0.2cm}
-\textit{Avantages :}
+\textit{\textbf{Avantages :}}
 \begin{itemize}
 	\item accessible depuis tous les terminaux (smartphone, tablette, ordinateur) via un navigateur, sans téléchargement ;
 	\item mise en place rapide et coût de développement modéré, grâce à des technologies simples et bien documentées ;
@@ -49,7 +49,7 @@ Il s'agit de concevoir un portail web permettant aux prestataires de publier un 
 \end{itemize}
 
 \vspace{0.1cm}
-\textit{Inconvénients :}
+\textit{\textbf{Inconvénients :}}
 \begin{itemize}
 	\item pas de gestion intégrée des paiements ni de mécanisme de sécurisation des fonds ;
 	\item pas de système de mise en correspondance automatique entre prestataires et clients ;
@@ -57,13 +57,13 @@ Il s'agit de concevoir un portail web permettant aux prestataires de publier un 
 \end{itemize}
 
 \vspace{0.4cm}
-\noindent\textbf{b- Solution 2 : développement d'une application web cross-plateforme (PWA) avec matching intelligent et paiement sécurisé}
+\noindent\textbf{b- Solution 2 : développement d'une application web cross-plateforme (PWA-like) avec matching intelligent et paiement sécurisé}
 
 \vspace{0.3cm}
-Il s'agit de développer une application web progressive (PWA), accessible depuis tous les terminaux sans installation obligatoire. Elle intègre des fonctionnalités complètes, à savoir la gestion des profils, la publication de missions, la messagerie, la mise en correspondance intelligente entre prestataires et clients, le règlement des missions via MTN MoMo ou Airtel Money, et le système de notation. C'est la solution que nous avons retenue pour « SALISA ».
+Il s'agit de développer une application web, accessible depuis tous les terminaux sans installation obligatoire. Elle intègre des fonctionnalités complètes, à savoir la gestion des profils, la publication de missions, la messagerie, la mise en correspondance intelligente entre prestataires et clients, le règlement des missions via MTN MoMo ou Airtel Money, et le système de notation. C'est la solution que nous avons retenue pour « SALISA ».
 
 \vspace{0.2cm}
-\textit{Avantages :}
+\textit{\textbf{Avantages :}}
 \begin{itemize}
 	\item une seule base de code compatible avec tous les terminaux, ce qui réduit les coûts et les délais de développement ;
 	\item aucun téléchargement nécessaire, l'application est accessible directement via un navigateur ;
@@ -74,7 +74,7 @@ Il s'agit de développer une application web progressive (PWA), accessible depui
 \end{itemize}
 
 \vspace{0.1cm}
-\textit{Inconvénients :}
+\textit{\textbf{Inconvénients :}}
 \begin{itemize}
 	\item nécessite une connexion internet pour bénéficier de toutes les fonctionnalités ;
 	\item certaines fonctionnalités natives des terminaux peuvent être légèrement plus limitées que dans une application mobile native.
@@ -87,7 +87,7 @@ Il s'agit de développer une application web progressive (PWA), accessible depui
 Il s'agit de développer une application mobile native, conçue spécifiquement pour les systèmes Android et iOS, en s'appuyant sur le framework React Native qui permet de partager une grande partie du code entre les deux plateformes tout en accédant aux fonctionnalités propres à chaque terminal. Cette application intègrerait toutes les fonctionnalités de mise en relation, de paiement et de notification, en tirant pleinement parti des capacités matérielles des smartphones, notamment le GPS, l'appareil photo et les notifications système.
 
 \vspace{0.2cm}
-\textit{Avantages :}
+\textit{\textbf{Avantages :}}
 \begin{itemize}
 	\item expérience utilisateur optimale sur chaque système, grâce à l'accès complet aux fonctionnalités natives du terminal ;
 	\item performances élevées, même pour les animations et les interactions complexes ;
@@ -96,7 +96,7 @@ Il s'agit de développer une application mobile native, conçue spécifiquement 
 \end{itemize}
 
 \vspace{0.1cm}
-\textit{Inconvénients :}
+\textit{\textbf{Inconvénients :}}
 \begin{itemize}
 	\item coût de développement plus élevé car il faut maintenir deux versions distinctes, l'une pour Android et l'autre pour iOS, même avec React Native ;
 	\item l'utilisateur doit télécharger l'application depuis un store, ce qui constitue une barrière à l'adoption ;
@@ -105,7 +105,7 @@ Il s'agit de développer une application mobile native, conçue spécifiquement 
 
 \subsection{Choix de la solution}
 
-Notre choix se porte sur la \textbf{solution 2 : développement d'une application web cross-plateforme (PWA)}.
+Notre choix se porte sur la \textbf{solution 2}.
 
 % ============================================================
 \section{Méthode}
