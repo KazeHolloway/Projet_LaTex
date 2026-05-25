@@ -5,17 +5,91 @@
 \pagestyle{styleGlobal}
 \label{chap:outils}
 
+Pour concevoir et réaliser « SALISA », nous avons mobilisé un ensemble de techniques et d'outils modernes, choisis pour leur adéquation avec les besoins du projet et le contexte de développement. Ce chapitre présente les approches techniques retenues ainsi que les outils concrets utilisés tout au long du projet.
+
 % ============================================================
 \section{Présentation des techniques}
 % ============================================================
 
-\textit{[À compléter : techniques de développement employées - architecture REST, WebSocket, PWA, escrow, OTP, etc.]}
+\subsection*{Architecture REST}
+
+L'architecture REST (\textit{Representational State Transfer}) est un style de conception d'API qui repose sur le protocole HTTP. Dans « SALISA », le back-end expose une API REST permettant aux différentes parties de l'application de communiquer de façon structurée : le front-end envoie des requêtes HTTP (GET, POST, PUT, DELETE) et reçoit des réponses au format JSON. Cette architecture facilite la séparation claire entre l'interface utilisateur et la logique métier, et rend le système plus facile à faire évoluer.
+
+\subsection*{WebSocket}
+
+Le WebSocket est un protocole de communication qui permet d'établir une connexion permanente et bidirectionnelle entre le navigateur de l'utilisateur et le serveur. Contrairement à HTTP qui fonctionne en mode requête-réponse, le WebSocket permet au serveur d'envoyer des données au client en temps réel, sans que ce dernier n'ait besoin de les demander. Dans « SALISA », cette technologie est utilisée pour la messagerie instantanée entre demandeurs et prestataires, grâce à la bibliothèque Socket.io.
+
+\subsection*{OTP (One-Time Password)}
+
+L'OTP est un code à usage unique, valable pendant une courte durée, envoyé à l'utilisateur par SMS lors de son inscription ou de sa connexion. Il remplace le mot de passe classique et renforce la sécurité en s'assurant que la personne qui s'inscrit possède bien le numéro de téléphone qu'elle a renseigné. Dans « SALISA », ce mécanisme est utilisé pour valider les comptes lors de l'inscription (UC-01 et UC-02).
+
+\subsection*{JWT (JSON Web Token)}
+
+Le JWT est un format de jeton d'authentification sécurisé. Une fois connecté, l'utilisateur reçoit un JWT que son navigateur joint à chaque requête envoyée au serveur. Cela permet au serveur de vérifier l'identité de l'utilisateur sans avoir à consulter la base de données à chaque appel. Dans « SALISA », le JWT est utilisé pour sécuriser toutes les routes de l'API qui nécessitent d'être authentifié.
+
+\subsection*{Paiement mobile via API}
+
+Le paiement mobile repose sur l'intégration des API officielles de MTN MoMo et d'Airtel Money. Lorsqu'un demandeur confirme un paiement, « SALISA » envoie une requête à l'API de l'opérateur concerné, qui déclenche une notification sur le téléphone du demandeur pour qu'il confirme la transaction. Une fois la confirmation reçue, les fonds sont transférés et le prestataire est notifié que la mission est financée.
+
+\subsection*{Matching par score}
+
+Le matching est le mécanisme qui permet à « SALISA » de proposer automatiquement les prestataires les plus adaptés à une mission publiée. Il s'appuie sur un microservice Python développé avec FastAPI, qui calcule pour chaque prestataire un score de compatibilité basé sur huit critères pondérés : la localisation, la disponibilité, les compétences, le budget, la note moyenne, le taux de fiabilité, le temps de réponse habituel et le niveau de badge. Les dix prestataires avec les meilleurs scores sont ensuite notifiés.
 
 % ============================================================
 \section{Présentation des outils}
 % ============================================================
 
-\textit{[À compléter : outils de développement utilisés - éditeurs, frameworks, bases de données, outils de modélisation, outils de collaboration...]}
+\subsection*{Next.js 14}
+
+Next.js est un framework JavaScript basé sur React, développé par Vercel. Il permet de créer des applications web avec rendu côté serveur (SSR) et génération de pages statiques (SSG), ce qui améliore les performances et le référencement. Dans « SALISA », Next.js constitue la couche front-end de l'application et prend en charge l'interface utilisateur accessible depuis tous les types de terminaux.
+
+\subsection*{Node.js et Express.js}
+
+Node.js est un environnement d'exécution JavaScript côté serveur, reconnu pour sa légèreté et ses performances sur les applications à forte concurrence. Express.js est un framework minimaliste qui simplifie la création d'API REST avec Node.js. Dans « SALISA », ces deux outils forment le socle du back-end et gèrent l'ensemble des requêtes provenant du front-end.
+
+\subsection*{PostgreSQL}
+
+PostgreSQL est un système de gestion de bases de données relationnelles open source, reconnu pour sa robustesse et sa conformité aux standards SQL. Il stocke dans « SALISA » toutes les données persistantes du système, telles que les comptes utilisateurs, les missions, les devis, les transactions et les avis.
+
+\subsection*{Redis}
+
+Redis est une base de données en mémoire utilisée principalement comme système de cache. Dans « SALISA », il est utilisé pour stocker les sessions utilisateurs et les résultats de recherche fréquents, ce qui réduit la charge sur PostgreSQL et accélère les temps de réponse de l'application.
+
+\subsection*{Python et FastAPI}
+
+Python est un langage de programmation polyvalent, particulièrement apprécié pour le traitement de données et l'intelligence artificielle. FastAPI est un framework Python moderne qui permet de créer des API performantes très rapidement. Dans « SALISA », Python et FastAPI constituent le microservice de matching, chargé de calculer les scores de compatibilité entre missions et prestataires.
+
+\subsection*{Visual Studio Code}
+
+Visual Studio Code (VS Code) est un éditeur de code gratuit, développé par Microsoft. Il est utilisé par les deux membres du binôme pour la rédaction du code de l'application, grâce à ses nombreuses extensions qui facilitent le développement JavaScript, Python et la gestion de projets.
+
+\subsection*{Git et GitHub}
+
+Git est un outil de gestion de versions qui permet de suivre l'historique des modifications apportées au code source. GitHub est la plateforme en ligne qui héberge le dépôt Git du projet. Ensemble, ils permettent au binôme de travailler en parallèle sur le code, de fusionner les contributions et de conserver une trace de chaque évolution du projet.
+
+\subsection*{Postman}
+
+Postman est un outil qui permet de tester les API REST de façon simple et visuelle. Il a été utilisé tout au long du développement de « SALISA » pour vérifier que chaque route de l'API répond correctement avant d'être connectée au front-end.
+
+\subsection*{Docker}
+
+Docker est un outil de conteneurisation qui permet d'empaqueter une application et toutes ses dépendances dans un conteneur portable. Il garantit que l'application fonctionne de la même façon sur tous les environnements, que ce soit en développement local ou en production sur le serveur VPS.
+
+\subsection*{Draw.io Desktop}
+
+Draw.io est un logiciel de création de diagrammes, disponible en version bureau. Il a été utilisé pour réaliser certains diagrammes UML du projet, notamment le diagramme de contexte statique et le diagramme de packages, qui nécessitaient un contrôle précis de la disposition visuelle des éléments.
+
+\subsection*{PlantUML}
+
+PlantUML est un outil open source qui permet de générer des diagrammes UML à partir de scripts texte. Il a été utilisé pour produire la majorité des diagrammes de modélisation du projet, tels que les diagrammes de cas d'utilisation, de séquence, d'activités, de classes et d'objets.
+
+\subsection*{LaTeX et TeXstudio}
+
+LaTeX est un système de composition de documents qui permet de produire des documents de haute qualité typographique. TeXstudio est l'éditeur utilisé pour rédiger et compiler ce rapport. Le choix de LaTeX a permis de gérer automatiquement la numérotation des figures et des tableaux, les références croisées et la mise en page générale du document.
+
+\subsection*{Microsoft Project}
+
+Microsoft Project (MS Project) est un logiciel de gestion de projet édité par Microsoft. Il a été utilisé pour planifier les tâches du projet, définir leurs dépendances et générer le diagramme de Gantt présenté au point 1.4 de ce chapitre.
 
 % ============================================================
 \section{Les captures d'écran}
