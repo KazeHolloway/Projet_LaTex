@@ -49,8 +49,9 @@
 % LÉGENDES
 % ============================================================
 \usepackage{caption}
-\captionsetup[figure]{name=Figure, labelsep=colon}
-\captionsetup[table]{name=Tableau, labelsep=colon}
+
+\captionsetup[figure]{name=Figure, labelsep=colon, labelfont={color=vertCongo, bf}, textfont=normalfont}
+\captionsetup[table]{name=Tableau, labelsep=colon, labelfont={color=vertCongo, bf}, textfont=normalfont}
 
 \counterwithout{figure}{chapter}
 \counterwithout{table}{chapter}
@@ -65,9 +66,6 @@
 % ============================================================
 
 % le principal folder
-\graphicspath{{images/}}
-
-% le sous dossier
 \graphicspath{{images/}{images/captures_appli/}}
 
 % ============================================================
@@ -106,27 +104,35 @@
 \renewcommand{\thesubsubsection}{\arabic{chapter}.\arabic{section}.\arabic{subsection}.\arabic{subsubsection}}
 
 \titleformat{\chapter}[block]
-{\normalfont\fontsize{14}{17}\selectfont\bfseries}
+{\normalfont\fontsize{14}{17}\selectfont\bfseries\color{vertCongo}}
 {Chapitre~\thechapter~:}
 {1em}
 {}
 
 \titleformat{\section}
-{\normalfont\fontsize{12}{15}\selectfont\bfseries}
+{\normalfont\fontsize{12}{15}\selectfont\bfseries\color{vertCongo}}
 {\thesection}
 {1em}
 {}
 
 \titleformat{\subsection}
-{\normalfont\fontsize{12}{15}\selectfont\bfseries}
+{\normalfont\fontsize{12}{15}\selectfont\bfseries\color{vertCongo}}
 {\thesubsection}
 {1em}
 {}
 
 \titleformat{\subsubsection}
-{\normalfont\fontsize{12}{15}\selectfont\bfseries}
+{\normalfont\fontsize{12}{15}\selectfont\bfseries\color{vertCongo}}
 {\thesubsubsection}
 {1em}
+{}
+
+
+% Titres des chapitres spéciaux (Dédicace, Remerciements, etc.) en vertCongo
+\titleformat{name=\chapter,numberless}[block]
+{\normalfont\fontsize{14}{17}\selectfont\bfseries\color{vertCongo}}
+{}
+{0em}
 {}
 
 % ============================================================
@@ -288,13 +294,19 @@
 % ============================================================
 \usepackage{enumitem}
 
+
+% ============================================================
+% GESTION DE COULEUR DE POLICE VERTCONGO
+% ============================================================
+\renewcommand{\contentsname}{\textcolor{vertCongo}{Table des matières}}
+\renewcommand{\listfigurename}{\textcolor{vertCongo}{Liste des figures}}
+\renewcommand{\listtablename}{\textcolor{vertCongo}{Liste des tableaux}}
+
+
 % ============================================================
 %                        DOCUMENT
 % ============================================================
 \begin{document}
-	
-	\renewcommand{\listfigurename}{Liste des figures}
-	\renewcommand{\listtablename}{Liste des tableaux}
 	
 	\pagestyle{styleGlobal}
 	

@@ -59,7 +59,7 @@ Les besoins techniques désignent l'ensemble des contraintes non fonctionnelles 
 Un acteur représente toute entité externe qui interagit avec le système « SALISA » \cite{jacobson_up}. Notre système comprend deux catégories d'acteurs : les acteurs humains et les acteurs systèmes.
 
 \vspace{0.3cm}
-\noindent\textbf{a- Acteurs humains}
+\noindent\textbf{\textcolor{vertCongo}{a- Acteurs humains}}
 
 \vspace{0.2cm}
 Nous avons identifié quatre principaux acteurs humains :
@@ -72,7 +72,7 @@ Nous avons identifié quatre principaux acteurs humains :
 \end{itemize}
 
 \vspace{0.3cm}
-\noindent\textbf{b- Acteurs systèmes}
+\noindent\textbf{\textcolor{vertCongo}{b- Acteurs systèmes}}
 
 \vspace{0.2cm}
 En modélisation UML, on désigne par acteur système tout composant logiciel extérieur au système étudié qui interagit avec lui par l'échange de données ou de services. Ces acteurs sont représentés avec le stéréotype \textit{$\langle\langle$system$\rangle\rangle$} pour les distinguer des acteurs humains. Nous en avons identifié deux pour « SALISA » :
@@ -442,7 +442,7 @@ Le tableau~\ref{tab:classification_cu} présente la classification des principau
 
 \subsubsection{Description textuelle des cas d'utilisation (au plus 2 cu)}
 
-\noindent\textbf{a- Description de UC-01 : s'inscrire via numéro de téléphone}
+\noindent\textbf{\textcolor{vertCongo}{a- Description de UC-01 : s'inscrire via numéro de téléphone}}
 
 \vspace{0.2cm}
 \begin{table}[H]
@@ -493,7 +493,7 @@ Le tableau~\ref{tab:classification_cu} présente la classification des principau
 \end{table}
 
 \vspace{0.5cm}
-\noindent\textbf{b- Description de UC-11 : publier une mission}
+\noindent\textbf{\textcolor{vertCongo}{b- Description de UC-11 : publier une mission}}
 
 \vspace{0.2cm}
 \begin{table}[H]
@@ -589,7 +589,7 @@ La figure~\ref{fig:act_paiement} illustre le diagramme d'activités du processus
 Les règles de gestion définissent le comportement du système « SALISA » dans des situations précises \cite{roques_uml}. Elles garantissent la cohérence des données et la fiabilité des transactions.
 
 \vspace{0.2cm}
-\noindent\textbf{Gestion des comptes}
+\noindent\textbf{\textcolor{vertCongo}{Gestion des comptes}}
 
 \begin{itemize}
 	\item RG-001 : un numéro de téléphone ne peut être associé qu'à un seul compte ;
@@ -598,7 +598,7 @@ Les règles de gestion définissent le comportement du système « SALISA » dan
 	\item RG-004 : lors de la suppression d'un compte, les données sont conservées 30 jours avant effacement définitif.
 \end{itemize}
 
-\noindent\textbf{Gestion des missions et des prestataires}
+\noindent\textbf{\textcolor{vertCongo}{Gestion des missions et des prestataires}}
 
 \begin{itemize}
 	\item RG-005 : un profil prestataire n'est visible dans la recherche qu'à partir de 70\% de complétion ;
@@ -607,7 +607,7 @@ Les règles de gestion définissent le comportement du système « SALISA » dan
 	\item RG-008 : au maximum 10 prestataires sont notifiés par mission (les 10 meilleurs scores de matching).
 \end{itemize}
 
-\noindent\textbf{Gestion des paiements}
+\noindent\textbf{\textcolor{vertCongo}{Gestion des paiements}}
 
 \begin{itemize}
 	\item RG-009 : la commission de « SALISA » est de 3\% du montant total de chaque transaction ;
@@ -616,7 +616,7 @@ Les règles de gestion définissent le comportement du système « SALISA » dan
 	\item RG-012 : les fonds sont transférés au prestataire après validation de la mission par le demandeur.
 \end{itemize}
 
-\noindent\textbf{Gestion des avis}
+\noindent\textbf{\textcolor{vertCongo}{Gestion des avis}}
 
 \begin{itemize}
 	\item RG-013 : un avis ne peut être laissé qu'après une mission avec transaction validée ;

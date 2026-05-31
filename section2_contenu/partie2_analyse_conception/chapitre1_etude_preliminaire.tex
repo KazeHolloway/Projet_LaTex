@@ -34,13 +34,13 @@ Ces limites montrent clairement que la situation actuelle nécessite une solutio
 Face aux limites identifiées, il est apparu nécessaire d'explorer différentes pistes pour y répondre. Après analyse et discussion au sein de notre équipe, trois solutions ont été envisagées, chacune présentant ses propres caractéristiques, ses avantages et ses inconvénients. Ces solutions sont présentées de façon équitable afin de permettre au lecteur de se faire une idée objective de chacune d'elles.
 
 \vspace{0.4cm}
-\noindent\textbf{a- Solution 1 : portail web de mise en relation avec annuaire de profils et messagerie intégrée (PHP, MySQL, Bootstrap)}
+\noindent\textbf{\textcolor{vertCongo}{a- Solution 1 : portail web de mise en relation avec annuaire de profils et messagerie intégrée (PHP, MySQL, Bootstrap)}}
 
 \vspace{0.3cm}
 Il s'agit de concevoir un portail web permettant aux prestataires de publier un profil détaillé regroupant leurs compétences, leurs tarifs et leur zone d'intervention, et aux clients de les rechercher et de les contacter directement via un système de messagerie intégré. Cette approche repose sur des technologies web éprouvées, telles que PHP côté serveur, MySQL pour la base de données et Bootstrap pour l'interface. Elle vise avant tout à offrir une visibilité numérique simple aux prestataires qui n'en ont aucune aujourd'hui.
 
 \vspace{0.2cm}
-\textit{\textbf{Avantages :}}
+\textit{\textbf{\textcolor{vertCongo}{Avantages :}}}
 \begin{itemize}
 	\item accessible depuis tous les terminaux (smartphone, tablette, ordinateur) via un navigateur, sans téléchargement ;
 	\item mise en place rapide et coût de développement modéré, grâce à des technologies simples et bien documentées ;
@@ -49,7 +49,7 @@ Il s'agit de concevoir un portail web permettant aux prestataires de publier un 
 \end{itemize}
 
 \vspace{0.1cm}
-\textit{\textbf{Inconvénients :}}
+\textit{\textbf{\textcolor{vertCongo}{Inconvénients :}}}
 \begin{itemize}
 	\item pas de gestion intégrée des paiements ni de mécanisme de sécurisation des fonds ;
 	\item pas de système de mise en correspondance automatique entre prestataires et clients ;
@@ -57,13 +57,13 @@ Il s'agit de concevoir un portail web permettant aux prestataires de publier un 
 \end{itemize}
 
 \vspace{0.4cm}
-\noindent\textbf{b- Solution 2 : développement d'une application web cross-plateforme (PWA-like) avec matching intelligent et paiement sécurisé}
+\noindent\textbf{\textcolor{vertCongo}{b- Solution 2 : développement d'une application web cross-plateforme (PWA-like) avec matching intelligent et paiement sécurisé}}
 
 \vspace{0.3cm}
 Il s'agit de développer une application web, accessible depuis tous les terminaux sans installation obligatoire. Elle intègre des fonctionnalités complètes, à savoir la gestion des profils, la publication de missions, la messagerie, la mise en correspondance intelligente entre prestataires et clients, le règlement des missions via MTN MoMo ou Airtel Money, et le système de notation.
 
 \vspace{0.2cm}
-\textit{\textbf{Avantages :}}
+\textit{\textbf{\textcolor{vertCongo}{Avantages :}}}
 \begin{itemize}
 	\item une seule base de code compatible avec tous les terminaux, ce qui réduit les coûts et les délais de développement ;
 	\item aucun téléchargement nécessaire, l'application est accessible directement via un navigateur ;
@@ -74,20 +74,20 @@ Il s'agit de développer une application web, accessible depuis tous les termina
 \end{itemize}
 
 \vspace{0.1cm}
-\textit{\textbf{Inconvénients :}}
+\textit{\textbf{\textcolor{vertCongo}{Inconvénients :}}}
 \begin{itemize}
 	\item nécessite une connexion internet pour bénéficier de toutes les fonctionnalités ;
 	\item certaines fonctionnalités natives des terminaux peuvent être légèrement plus limitées que dans une application mobile native.
 \end{itemize}
 
 \vspace{0.4cm}
-\noindent\textbf{c- Solution 3 : développement d'une application mobile native de mise en relation entre prestataires et clients (React Native)}
+\noindent\textbf{\textcolor{vertCongo}{c- Solution 3 : développement d'une application mobile native de mise en relation entre prestataires et clients (React Native)}}
 
 \vspace{0.3cm}
 Il s'agit de développer une application mobile native, conçue spécifiquement pour les systèmes Android et iOS, en s'appuyant sur le framework React Native qui permet de partager une grande partie du code entre les deux plateformes tout en accédant aux fonctionnalités propres à chaque terminal. Cette application intègrerait toutes les fonctionnalités de mise en relation, de paiement et de notification, en tirant pleinement parti des capacités matérielles des smartphones, notamment le GPS, l'appareil photo et les notifications système.
 
 \vspace{0.2cm}
-\textit{\textbf{Avantages :}}
+\textit{\textbf{\textcolor{vertCongo}{Avantages :}}}
 \begin{itemize}
 	\item expérience utilisateur optimale sur chaque système, grâce à l'accès complet aux fonctionnalités natives du terminal ;
 	\item performances élevées, même pour les animations et les interactions complexes ;
@@ -96,7 +96,7 @@ Il s'agit de développer une application mobile native, conçue spécifiquement 
 \end{itemize}
 
 \vspace{0.1cm}
-\textit{\textbf{Inconvénients :}}
+\textit{\textbf{\textcolor{vertCongo}{Inconvénients :}}}
 \begin{itemize}
 	\item coût de développement plus élevé car il faut maintenir deux versions distinctes, l'une pour Android et l'autre pour iOS, même avec React Native ;
 	\item l'utilisateur doit télécharger l'application depuis un store, ce qui constitue une barrière à l'adoption ;
@@ -144,13 +144,13 @@ Pour « SALISA », UML présente plusieurs atouts : ses notations sont reconnues
 La version 2.x d'UML propose \textbf{quatorze types de diagrammes}, répartis en deux grandes familles \cite{booch_uml}.
 
 \vspace{0.3cm}
-\noindent\textbf{a- Diagrammes structurels (vue statique)}
+\noindent\textbf{\textcolor{vertCongo}{a- Diagrammes structurels (vue statique)}}
 
 \vspace{0.2cm}
 Ces diagrammes décrivent la structure permanente du système. On y trouve notamment le diagramme de classes, qui représente les classes du système, leurs attributs, leurs méthodes et les relations qui les unissent ; le diagramme d'objets, qui montre des instances concrètes des classes à un moment précis ; le diagramme de composants, qui décrit l'architecture physique du logiciel ; le diagramme de déploiement, qui représente la répartition des composants sur les équipements matériels ; le diagramme de paquetages, qui organise les éléments du modèle en groupes logiques ; le diagramme de structure composite ; et le diagramme de profils.
 
 \vspace{0.3cm}
-\noindent\textbf{b- Diagrammes comportementaux (vue dynamique)}
+\noindent\textbf{\textcolor{vertCongo}{b- Diagrammes comportementaux (vue dynamique)}}
 
 \vspace{0.2cm}
 Ces diagrammes décrivent le comportement du système dans le temps. Parmi eux, on trouve entre autres le diagramme de cas d'utilisation, qui identifie les acteurs et les fonctionnalités qu'ils peuvent utiliser ; le diagramme de séquence, qui montre les échanges entre objets dans le temps ; le diagramme de communication ; le diagramme d'activités, qui représente un enchaînement d'actions et de décisions dans un processus ; le diagramme d'états-transitions ; le diagramme de vue d'ensemble des interactions ; et le diagramme de temps.
@@ -172,19 +172,19 @@ L'UP repose sur quatre principes fondamentaux : il est itératif et incrémental
 Le \textbf{2TUP} (\textit{Two Tracks Unified Process}) est une adaptation du Processus Unifié, proposée par Pascal Roques et Franck Vallée dans leur ouvrage \textit{UML en action} \cite{roques_uml}. Sa particularité est son organisation en deux branches parallèles qui se rejoignent en phase de réalisation.
 
 \vspace{0.4cm}
-\noindent\textbf{a- Branche fonctionnelle (What)}
+\noindent\textbf{\textcolor{vertCongo}{a- Branche fonctionnelle (What)}}
 
 \vspace{0.2cm}
 Elle recueille et formalise ce que les utilisateurs attendent du système. On y trouve entre autres la capture des besoins fonctionnels, la modélisation des cas d'utilisation, la description textuelle et les diagrammes de séquence des cas d'utilisation prioritaires, ainsi que la modélisation du domaine métier à travers le diagramme de classes.
 
 \vspace{0.4cm}
-\noindent\textbf{b- Branche technique (How)}
+\noindent\textbf{\textcolor{vertCongo}{b- Branche technique (How)}}
 
 \vspace{0.2cm}
 Elle prend en charge les contraintes d'infrastructure et d'architecture liées au contexte du projet. Elle couvre la capture des besoins techniques et des contraintes non fonctionnelles, la définition de l'architecture logicielle et matérielle, le choix des technologies et des outils, ainsi que le prototypage de l'architecture technique.
 
 \vspace{0.4cm}
-\noindent\textbf{c- Branche de réalisation (fusion)}
+\noindent\textbf{\textcolor{vertCongo}{c- Branche de réalisation (fusion)}}
 
 \vspace{0.2cm}
 Les deux branches précédentes se rejoignent pour produire le système final. Cette phase comprend la conception préliminaire qui intègre les modèles fonctionnels dans l'architecture technique, la conception détaillée qui spécifie précisément les composants et les interfaces, ainsi que le codage, les tests et l'intégration pour aboutir à la livraison du produit.
