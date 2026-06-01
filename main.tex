@@ -48,6 +48,14 @@
 \usepackage{chngcntr}
 
 % ============================================================
+% OUTILS POUR LES RÉFÉRENCES DE PAGE
+% ============================================================
+\usepackage{refcount} % permet de manipuler les numéros de page pour aider à paginer les Parties dans le Sommaire
+\newcommand{\pagerefmoinsun}[1]{%
+	\number\numexpr\getpagerefnumber{#1}-1\relax
+}
+
+% ============================================================
 % LÉGENDES
 % ============================================================
 \usepackage{caption}
@@ -60,14 +68,14 @@
 
 % Format dans la liste : "Figure 1 : " au lieu de "F1"
 \renewcommand{\cftfigpresnum}{Figure~}
-\renewcommand{\cftfignumwidth}{5.5em}
-\renewcommand{\cftfigaftersnum}{ :}
+\renewcommand{\cftfignumwidth}{6.5em}
+\renewcommand{\cftfigaftersnum}{~:~}
 \renewcommand{\cfttabpresnum}{Tableau~}
-\renewcommand{\cfttabnumwidth}{6em}
-\renewcommand{\cfttabaftersnum}{ :}
+\renewcommand{\cfttabnumwidth}{7em}
+\renewcommand{\cfttabaftersnum}{~:~}
 
 % Supprimer les sauts de ligne parasites dans LoF et LoT
-\setlength{\cftbeforefigskip}{2pt}
+\setlength{\cftbeforefigskip}{0pt}
 \setlength{\cftbeforetabskip}{2pt}
 
 
@@ -155,7 +163,7 @@
 \setlength{\cftbeforetoctitleskip}{-20pt}
 \setlength{\cftbeforeloftitleskip}{-20pt}
 \setlength{\cftbeforelottitleskip}{-20pt}
-\setlength{\cftaftertoctitleskip}{10pt}
+\setlength{\cftaftertoctitleskip}{6pt}
 \setlength{\cftafterloftitleskip}{10pt}
 \setlength{\cftafterlottitleskip}{10pt}
 
