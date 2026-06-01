@@ -9,13 +9,13 @@
 \section{Étude de l'existant}
 % ============================================================
 
-\subsection{Description des activités (situation actuelle)}
+\subsection{Description des activités}
 
 Akieni est une société spécialisée dans la transformation numérique et les solutions logicielles, basée à Brazzaville. Elle propose des formations aux métiers du numérique, de six à neuf mois, aux jeunes de 16 à 30 ans, dans des domaines comme le développement web, la science des données et la conception d'interfaces. Elle accompagne aussi des entreprises et des institutions dans leurs projets de transformation numérique, notamment en leur fournissant des outils digitaux adaptés à leurs besoins.
 
 Cependant, malgré ces activités, la mise en relation entre les prestataires de services professionnels et les clients se fait encore de manière informelle. Les prestataires se font connaître par le bouche-à-oreille, les contacts téléphoniques directs ou les recommandations de proches. Les clients, de leur côté, n'ont aucun outil pour comparer les offres, vérifier les compétences des prestataires ou sécuriser leurs paiements.
 
-\subsection{Critique de l'existant (limites)}
+\subsection{Critique de l'existant}
 
 Bien qu'Akieni soit un acteur important de la transformation numérique au Congo, il n'existe, à ce jour, aucune application ou plateforme dédiée à la mise en relation entre prestataires de services et clients au sein de la structure. Toute la gestion de cette mise en relation repose sur des échanges informels, ce qui engendre plusieurs limites importantes :
 
@@ -126,7 +126,7 @@ En génie logiciel, une \textbf{méthode} désigne l'association d'un langage de
 	\label{fig:uml_concepts}
 \end{figure}
 
-\textbf{UML} (\textit{Unified Modeling Language}, ou Langage de Modélisation Unifié) est un langage graphique standardisé par l'OMG (\textit{Object Management Group}) depuis 1997 \cite{booch_uml}. Il constitue aujourd'hui la référence mondiale pour la modélisation des systèmes logiciels orientés objet.
+\textbf{UML} (\textit{Unified Modeling Language}, ou Langage de Modélisation Unifié) est un langage graphique standardisé par l'OMG (\textit{Object Management Group}) depuis 1997 \cite{booch_uml}. UML est reconnu comme norme ISO/IEC 19505, il constitue aujourd'hui la référence mondiale pour la modélisation des systèmes logiciels orientés objet.
 
 L'objectif d'UML est de fournir un langage visuel commun qui permet aux équipes de travail, qu'ils soient analystes, concepteurs, développeurs ou clients, de communiquer clairement sur la structure et le comportement d'un système. Il peut s'intégrer à toute démarche de développement, itérative ou non.
 
@@ -141,7 +141,7 @@ Pour « SALISA », UML présente plusieurs atouts : ses notations sont reconnues
 	\label{fig:uml_types}
 \end{figure}
 
-La version 2.x d'UML propose \textbf{quatorze types de diagrammes}, répartis en deux grandes familles \cite{booch_uml}.
+Contrairement à la version 1.x d'UML (1997-2003) qui ne proposait qu'environ 9 types de diagrammes principaux (use case, classes, objets, séquence, collaboration, état, activité, composants, déploiement), la version 2.x propose \textbf{quatorze types de diagrammes}, répartis en deux grandes familles \cite{booch_uml}.
 
 \vspace{0.3cm}
 \noindent\textbf{\textcolor{vertCongo}{a- Diagrammes structurels (vue statique)}}
@@ -155,7 +155,7 @@ Ces diagrammes décrivent la structure permanente du système. On y trouve notam
 \vspace{0.2cm}
 Ces diagrammes décrivent le comportement du système dans le temps. Parmi eux, on trouve entre autres le diagramme de cas d'utilisation, qui identifie les acteurs et les fonctionnalités qu'ils peuvent utiliser ; le diagramme de séquence, qui montre les échanges entre objets dans le temps ; le diagramme de communication ; le diagramme d'activités, qui représente un enchaînement d'actions et de décisions dans un processus ; le diagramme d'états-transitions ; le diagramme de vue d'ensemble des interactions ; et le diagramme de temps.
 
-Pour « SALISA », nous utiliserons principalement le \textbf{diagramme de contexte statique}, le \textbf{diagramme de cas d'utilisation}, le \textbf{diagramme de séquence}, le \textbf{diagramme d'activités}, le \textbf{diagramme de classes} et le \textbf{diagramme de déploiement}.
+Pour « SALISA », nous utiliserons principalement le \textbf{diagramme de contexte statique}, le \textbf{diagramme de cas d'utilisation}, le \textbf{diagramme de packages}, le \textbf{diagramme de séquence}, le \textbf{diagramme d'activités}, le \textbf{diagramme de classes}, le \textbf{diagramme d'objets}, et le \textbf{diagramme de déploiement}.
 
 % ============================================================
 \subsection{Le processus de développement}
@@ -219,7 +219,7 @@ Le tableau~\ref{tab:2tup_uml} ci-dessous résume la correspondance entre les pha
 		\hline
 		Conception architecturale & Réalisation & Diagramme de composants, Diagramme de déploiement \\
 		\hline
-		Conception du domaine & Réalisation & Diagramme de classes, Diagramme d'objets \\
+		Conception du\newline domaine & Réalisation & Diagramme de classes, Diagramme d'objets \\
 		\hline
 	\end{tabular}
 	\caption{Correspondance entre les phases 2TUP et les diagrammes UML utilisés}

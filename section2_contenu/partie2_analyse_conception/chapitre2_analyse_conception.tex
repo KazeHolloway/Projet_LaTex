@@ -13,7 +13,7 @@
 
 Les besoins fonctionnels représentent l'ensemble des fonctionnalités que « SALISA » doit offrir à ses utilisateurs. Nous les avons identifiés à partir de l'analyse des problèmes rencontrés dans la mise en relation manuelle entre prestataires et clients. Ces besoins sont les suivants :
 
-\begin{itemize}
+\begin{itemize}[label=\textbf{-}]
 	\item inscription via un numéro de téléphone, avec validation par code OTP ;
 	\item connexion et déconnexion sécurisées ;
 	\item choix du rôle lors de l'inscription (prestataire ou demandeur) ;
@@ -35,7 +35,7 @@ Les besoins fonctionnels représentent l'ensemble des fonctionnalités que « SA
 
 Les besoins techniques désignent l'ensemble des contraintes non fonctionnelles auxquelles un système doit se conformer, qu'il s'agisse de performances, de sécurité, de disponibilité ou de compatibilité avec l'environnement d'exécution. Pour « SALISA », ces contraintes sont directement liées au contexte congolais, et se déclinent de la façon suivante :
 
-\begin{itemize}
+\begin{itemize}[label=\textbf{-}]
 	\item architecture Progressive Web Application (PWA) \cite{next_js}, mobile-first, utilisable depuis tous les terminaux sans installation ;
 	\item compatibilité avec les réseaux à faible débit (2G/3G) pour garantir l'accès dans les zones peu couvertes ;
 	\item fonctionnement hors ligne partiel pour la consultation des profils et des missions déjà chargés ;
@@ -440,7 +440,7 @@ Le tableau~\ref{tab:classification_cu} présente la classification des principau
 
 \subsection{Spécification détaillée}
 
-\subsubsection{Description textuelle des cas d'utilisation (au plus 2 cu)}
+\subsubsection{Description textuelle des cas d'utilisation}
 
 \noindent\textbf{\textcolor{vertCongo}{a- Description de UC-01 : s'inscrire via numéro de téléphone}}
 
@@ -542,7 +542,7 @@ Le tableau~\ref{tab:classification_cu} présente la classification des principau
 	\label{tab:uc11}
 \end{table}
 
-\subsubsection{Diagramme de séquence (au plus 2)}
+\subsubsection{Diagramme de séquence}
 
 La figure~\ref{fig:seq_inscription} illustre le diagramme de séquence du cas d'utilisation UC-01 (s'inscrire via numéro de téléphone).
 
@@ -562,7 +562,7 @@ La figure~\ref{fig:seq_paiement} illustre le diagramme de séquence du processus
 	\label{fig:seq_paiement}
 \end{figure}
 
-\subsubsection{Diagramme d'activités (au plus 2)}
+\subsubsection{Diagramme d'activités}
 
 La figure~\ref{fig:act_publication} présente le diagramme d'activités du processus de publication d'une mission et de sélection d'un prestataire, impliquant le Demandeur, le Système SALISA et le Prestataire.
 
@@ -669,6 +669,6 @@ La figure~\ref{fig:diag_deploiement} présente le diagramme de déploiement de �
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.95\textwidth]{diagramme_deploiement.png}
-	\caption{Diagramme de déploiement de « SALISA »}
+	\caption{Diagramme de déploiement de SALISA}
 	\label{fig:diag_deploiement}
 \end{figure}

@@ -1,3 +1,5 @@
+% Voici le fichier main.tex
+
 \documentclass[12pt,a4paper,oneside]{report}
 
 % ============================================================
@@ -56,10 +58,18 @@
 \counterwithout{figure}{chapter}
 \counterwithout{table}{chapter}
 
-\renewcommand{\cftfigpresnum}{F}
-\setlength{\cftfignumwidth}{2.8em}
-\renewcommand{\cfttabpresnum}{T}
-\setlength{\cfttabnumwidth}{2.8em}
+% Format dans la liste : "Figure 1 : " au lieu de "F1"
+\renewcommand{\cftfigpresnum}{Figure~}
+\renewcommand{\cftfignumwidth}{5.5em}
+\renewcommand{\cftfigaftersnum}{ :}
+\renewcommand{\cfttabpresnum}{Tableau~}
+\renewcommand{\cfttabnumwidth}{6em}
+\renewcommand{\cfttabaftersnum}{ :}
+
+% Supprimer les sauts de ligne parasites dans LoF et LoT
+\setlength{\cftbeforefigskip}{2pt}
+\setlength{\cftbeforetabskip}{2pt}
+
 
 % ============================================================
 % DOSSIER DES IMAGES
@@ -134,6 +144,28 @@
 {}
 {0em}
 {}
+
+% Forcer la taille 14pt sur les titres auto (Liste des figures, etc.)
+\patchcmd{\listoffigures}{\chapter*}{\chapter*}{}{}
+\renewcommand{\cftloftitlefont}{\normalfont\fontsize{14}{17}\selectfont\bfseries\color{vertCongo}}
+\renewcommand{\cftlottitlefont}{\normalfont\fontsize{14}{17}\selectfont\bfseries\color{vertCongo}}
+\renewcommand{\cfttoctitlefont}{\normalfont\fontsize{14}{17}\selectfont\bfseries\color{vertCongo}}
+
+% Réduire l'espace entre le titre et le contenu
+\setlength{\cftbeforetoctitleskip}{-20pt}
+\setlength{\cftbeforeloftitleskip}{-20pt}
+\setlength{\cftbeforelottitleskip}{-20pt}
+\setlength{\cftaftertoctitleskip}{10pt}
+\setlength{\cftafterloftitleskip}{10pt}
+\setlength{\cftafterlottitleskip}{10pt}
+
+% Pour mettre "Table des matières avec une taille de police pareille à Annexes et Bibliographie"
+\renewcommand{\cfttoctitlefont}{\normalfont\fontsize{14}{17}\selectfont\bfseries\color{vertCongo}}
+
+% Pour supprimer l'espace verticale avant LoT, LoF, et ToC
+\setlength{\cftbeforetoctitleskip}{-20pt}
+\setlength{\cftbeforeloftitleskip}{-20pt}
+\setlength{\cftbeforelottitleskip}{-20pt}
 
 % ============================================================
 % TABLE DES MATIÈRES — personnalisation
@@ -246,7 +278,8 @@
 	\clearpage
 	\phantomsection
 	\addcontentsline{toc}{part}{#3}%
-	\vspace*{4cm}
+	\thispagestyle{styleSansPagination}
+	\vspace*{\fill}
 	\begin{center}
 		\begin{tikzpicture}
 			\node[
@@ -261,7 +294,7 @@
 			] {#1\\[4pt]\normalsize\mdseries #2};
 		\end{tikzpicture}
 	\end{center}
-	\vspace*{3cm}
+	\vspace*{\fill}
 	\clearpage
 }
 
@@ -286,7 +319,7 @@
 % ============================================================
 % AJOUT DE LA MARGE (DÉCALAGE DANS LES REMERCIEMENTS)
 % ============================================================
-\usepackage{scrextend}
+%\usepackage{scrextend}
 
 
 % ============================================================
@@ -298,10 +331,8 @@
 % ============================================================
 % GESTION DE COULEUR DE POLICE VERTCONGO
 % ============================================================
-\renewcommand{\contentsname}{\textcolor{vertCongo}{Table des matières}}
-\renewcommand{\listfigurename}{\textcolor{vertCongo}{Liste des figures}}
-\renewcommand{\listtablename}{\textcolor{vertCongo}{Liste des tableaux}}
-
+\renewcommand{\listfigurename}{Liste des figures}
+\renewcommand{\listtablename}{Liste des tableaux}
 
 % ============================================================
 %                        DOCUMENT
@@ -317,7 +348,7 @@
 	\pagenumbering{Roman}
 	\addtocontents{toc}{%
 		\vspace{6pt}%
-		\noindent{\fontsize{16}{20}\selectfont\bfseries SECTION I}\par%
+		\noindent{\fontsize{13}{16}\selectfont\bfseries SECTION I}\par%
 		\vspace{3pt}%
 	}
 	
@@ -330,12 +361,14 @@
 	\phantomsection
 	\label{sec:figures}
 	\addcontentsline{toc}{chapter}{Liste des figures}
+	\renewcommand{\listfigurename}{\textcolor{vertCongo}{Liste des figures}}
 	\listoffigures
 	\newpage
 	
 	\phantomsection
 	\label{sec:tableaux}
 	\addcontentsline{toc}{chapter}{Liste des tableaux}
+	\renewcommand{\listtablename}{\textcolor{vertCongo}{Liste des tableaux}}
 	\listoftables
 	\newpage
 	
@@ -352,7 +385,7 @@
 	\pagenumbering{arabic}
 	\addtocontents{toc}{%
 		\vspace{10pt}%
-		\noindent{\fontsize{16}{20}\selectfont\bfseries SECTION II}\par%
+		\noindent{\fontsize{13}{16}\selectfont\bfseries SECTION II}\par%
 		\vspace{3pt}%
 	}
 	
@@ -397,13 +430,14 @@
 	\pagenumbering{alph}
 	\addtocontents{toc}{%
 		\vspace{10pt}%
-		\noindent{\fontsize{16}{20}\selectfont\bfseries SECTION III}\par%
+		\noindent{\fontsize{13}{16}\selectfont\bfseries SECTION III}\par%
 		\vspace{3pt}%
 	}
 	
 	\phantomsection
 	\label{sec:tabledesmatieres}
 	\addcontentsline{toc}{chapter}{Table des matières}
+	\renewcommand{\contentsname}{\textcolor{vertCongo}{Table des matières}}
 	\tableofcontents
 	\newpage
 	

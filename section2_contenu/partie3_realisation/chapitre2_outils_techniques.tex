@@ -55,10 +55,6 @@ PostgreSQL est un système de gestion de bases de données relationnelles open s
 
 Redis est une base de données en mémoire utilisée principalement comme système de cache. Dans « SALISA », il est utilisé pour stocker les sessions utilisateurs et les résultats de recherche fréquents, ce qui réduit la charge sur PostgreSQL et accélère les temps de réponse de l'application.
 
-\subsection*{\textcolor{vertCongo}{Python et FastAPI}}
-
-Python est un langage de programmation polyvalent, particulièrement apprécié pour le traitement de données et l'intelligence artificielle. FastAPI est un framework Python moderne qui permet de créer des API performantes très rapidement. Dans « SALISA », Python et FastAPI constituent le microservice de matching, chargé de calculer les scores de compatibilité entre missions et prestataires.
-
 \subsection*{\textcolor{vertCongo}{Visual Studio Code}}
 
 Visual Studio Code (VS Code) est un éditeur de code gratuit, développé par Microsoft. Il est utilisé par les deux membres du binôme pour la rédaction du code de l'application, grâce à ses nombreuses extensions qui facilitent le développement JavaScript, Python et la gestion de projets.
@@ -99,72 +95,171 @@ Les captures d'écran présentées dans cette section illustrent l'état de l'ap
 
 Il convient de préciser qu'en informatique, une application est un produit vivant, amené à évoluer en permanence. Entre la date de dépôt du document et le jour de la soutenance, des améliorations visuelles et fonctionnelles pourront être apportées à l'application. Les captures ci-dessous reflètent donc une version de travail, et non une version figée du produit final.
 
+\vspace{2cm}
+
+% Dimensions calculées pour 2 captures par page
+% Hauteur de page utile ≈ 24cm, entête+pied ≈ 4cm, 2 titres ≈ 1cm, espaces ≈ 1cm
+% => chaque capture : largeur 0.85\textwidth, hauteur forcée à 9.5cm
+
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.85\textwidth]{captures_appli/capture_accueil.png}
+	\includegraphics[width=0.85\textwidth, height=9.5cm, keepaspectratio=false]{captures_appli/capture_accueil.png}
 	\caption{Page d'accueil de l'application « SALISA »}
 	\label{fig:cap_accueil}
 \end{figure}
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.85\textwidth]{captures_appli/capture_inscription.png}
-	\caption{Écran d'inscription via numéro de téléphone}
-	\label{fig:cap_inscription}
+	\includegraphics[width=0.85\textwidth, height=9.5cm, keepaspectratio=false]{captures_appli/capture_landing.png}
+	\caption{Landing page de l'application « SALISA »}
+	\label{fig:cap_landing}
 \end{figure}
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.85\textwidth]{captures_appli/capture_otp.png}
-	\caption{Écran de validation du code OTP}
-	\label{fig:cap_otp}
-\end{figure}
-
-\begin{figure}[H]
-	\centering
-	\includegraphics[width=0.85\textwidth]{captures_appli/capture_choix_role.png}
+	\includegraphics[width=0.85\textwidth, height=9.5cm, keepaspectratio=false]{captures_appli/capture_choix_role.png}
 	\caption{Écran de choix du rôle lors de l'inscription}
 	\label{fig:cap_role}
 \end{figure}
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.85\textwidth]{captures_appli/capture_dashboard_demandeur.png}
-	\caption{Tableau de bord du demandeur}
-	\label{fig:cap_dashboard_demandeur}
+	\includegraphics[width=0.85\textwidth, height=9.5cm, keepaspectratio=false]{captures_appli/capture_inscription.png}
+	\caption{Écran d'inscription via numéro de téléphone}
+	\label{fig:cap_inscription}
 \end{figure}
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.85\textwidth]{captures_appli/capture_publication_mission.png}
+	\includegraphics[width=0.85\textwidth, height=9.5cm, keepaspectratio=false]{captures_appli/capture_otp.png}
+	\caption{Écran de validation du code OTP}
+	\label{fig:cap_otp}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.85\textwidth, height=9.5cm, keepaspectratio=false]{captures_appli/capture_profil_demandeur.png}
+	\caption{Profil du demandeur}
+	\label{fig:cap_profil_demandeur}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.85\textwidth, height=9.5cm, keepaspectratio=false]{captures_appli/capture_publication_mission.png}
 	\caption{Formulaire de publication d'une mission}
 	\label{fig:cap_publication}
 \end{figure}
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.85\textwidth]{captures_appli/capture_recherche_prestataires.png}
+	\includegraphics[width=0.85\textwidth, height=9.5cm, keepaspectratio=false]{captures_appli/capture_recherche_prestataires.png}
 	\caption{Résultats de recherche de prestataires}
 	\label{fig:cap_recherche}
 \end{figure}
 
-%\begin{figure}[H]
-%	\centering
-%	\includegraphics[width=0.85\textwidth]{captures_appli/capture_messagerie.png}
-%	\caption{Interface de messagerie entre demandeur et prestataire}
-%	\label{fig:cap_messagerie}
-%\end{figure}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.85\textwidth, height=9.5cm, keepaspectratio=false]{captures_appli/captures_gestion_parametres.png}
+	\caption{Gestion des paramètres}
+	\label{fig:cap_parametre}
+\end{figure}
+
 
 %\begin{figure}[H]
-%	\centering
-%	\includegraphics[width=0.85\textwidth]{captures_appli/capture_paiement.png}
-%	\caption{Écran de paiement via MTN MoMo ou Airtel Money}
-%	\label{fig:cap_paiement}
+%    \centering
+%    \includegraphics[width=0.85\textwidth, height=9.5cm, keepaspectratio=false]{captures_appli/capture_paiement.png}
+%    \caption{Écran de paiement via MTN MoMo ou Airtel Money}
+%    \label{fig:cap_paiement}
 %\end{figure}
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.85\textwidth]{captures_appli/capture_dashboard_prestataire.png}
-	\caption{Tableau de bord du prestataire}
-	\label{fig:cap_dashboard_prestataire}
+	\includegraphics[width=0.85\textwidth, height=9.5cm, keepaspectratio=false]{captures_appli/capture_profil_prestatire.png}
+	\caption{Profil du prestataire}
+	\label{fig:cap_profil_prestataire}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.85\textwidth, height=9.5cm, keepaspectratio=false]{captures_appli/capture_completion_profil.png}
+	\caption{Complétion du profil prestataire}
+	\label{fig:cap_complete_profil_prestataire}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.85\textwidth, height=9.5cm, keepaspectratio=false]{captures_appli/capture_choix_forfait.png}
+	\caption{Choix du forfait}
+	\label{fig:cap_choix_forfait}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.85\textwidth, height=9.5cm, keepaspectratio=false]{captures_appli/capture_liste_missions.png}
+	\caption{Liste des missions du prestataire}
+	\label{fig:cap_liste_missions}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.85\textwidth, height=9.5cm, keepaspectratio=false]{captures_appli/capture_conversation_avec_demandeur.png}
+	\caption{Discussion avec un demandeur}
+	\label{fig:cap_discussion_avec_demandeur}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.85\textwidth, height=9.5cm, keepaspectratio=false]{captures_appli/capture_gestion_user.png}
+	\caption{Gestion des utilisateurs}
+	\label{fig:cap_gestion_user}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.85\textwidth, height=9.5cm, keepaspectratio=false]{captures_appli/capture_detail_compte.png}
+	\caption{Détails d'un compte utilisateur}
+	\label{fig:cap_detail_user}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.85\textwidth, height=9.5cm, keepaspectratio=false]{captures_appli/capture_gestion_finance.png}
+	\caption{Gestion des finances}
+	\label{fig:cap_finance}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.85\textwidth, height=9.5cm, keepaspectratio=false]{captures_appli/capture_connexion_sur_mobile.png}
+	\caption{Page de connexion (vue mobile)}
+	\label{fig:cap_connexion_mobile}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.85\textwidth, height=9.5cm, keepaspectratio=false]{captures_appli/capture_completion_profil_prestataire_mobile.png}
+	\caption{Complétion profil prestataire (vue mobile)}
+	\label{fig:cap_complete_profil_mobile}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.85\textwidth, height=9.5cm, keepaspectratio=false]{captures_appli/capture_dashboard_demandeur_mobile.png}
+	\caption{Tableau de bord demandeur (vue mobile)}
+	\label{fig:cap_dashboard_demandeur_mobile}
+\end{figure}
+
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.85\textwidth, height=9.5cm, keepaspectratio=false]{captures_appli/capture_recherche_prestataire_mobile.png}
+	\caption{Recherche prestataire (vue mobile)}
+	\label{fig:cap_recherche_prestataire_mobile}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.85\textwidth, height=9.5cm, keepaspectratio=false]{captures_appli/capture_discute_avec_prestataire_mobile.png}
+	\caption{Discussion avec un prestataire (vue mobile)}
+	\label{fig:cap_discussion_avec_prestatire_mobile}
 \end{figure}
