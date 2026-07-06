@@ -114,6 +114,8 @@ Notre choix se porte sur la \textbf{solution 2}.
 En génie logiciel, une \textbf{méthode} désigne l'association d'un langage de modélisation et d'un processus de développement. Le langage de modélisation sert à représenter le système de façon graphique et structurée, tandis que le processus de développement organise les étapes à suivre pour le concevoir et le réaliser. Pour « SALISA », nous avons couplé \textbf{UML} à un processus unifié \cite{roques_uml}. Parmi les processus unifiés qui existent, comme le RUP (\textit{Rational Unified Process}) ou l'OpenUP (\textit{Open Unified Process}), notre choix s'est porté sur le \textbf{2TUP} (\textit{Two Tracks Unified Process}), qui est le mieux adapté à la complexité et aux contraintes de notre projet.
 
 % ============================================================
+%directive 
+\needspace{6\baselineskip}
 \subsection{Le langage de modélisation}
 % ============================================================
 
@@ -205,6 +207,8 @@ Le processus 2TUP et le langage UML fonctionnent ensemble : 2TUP utilise UML com
 Le tableau~\ref{tab:2tup_uml} ci-dessous résume la correspondance entre les phases du 2TUP et les diagrammes UML mobilisés pour « SALISA ».
 
 \begin{table}[H]
+	\caption{Correspondance entre les phases 2TUP et les diagrammes UML utilisés}
+	\label{tab:2tup_uml}
 	\centering
 	\begin{tabular}{|p{4cm}|p{3.5cm}|p{6cm}|}
 		\hline
@@ -222,8 +226,6 @@ Le tableau~\ref{tab:2tup_uml} ci-dessous résume la correspondance entre les pha
 		Conception du\newline domaine & Réalisation & Diagramme de classes, Diagramme d'objets \\
 		\hline
 	\end{tabular}
-	\caption{Correspondance entre les phases 2TUP et les diagrammes UML utilisés}
-	\label{tab:2tup_uml}
 \end{table}
 
 « SALISA » combine des besoins fonctionnels nombreux, comme l'inscription des utilisateurs, la mise en correspondance, le paiement ou la messagerie, et des contraintes techniques fortes liées au contexte local, telles que le paiement mobile via MTN MoMo et Airtel Money \cite{mtn_momo}, une connexion parfois limitée ou une architecture distribuée. Le 2TUP permet de traiter ces deux dimensions en parallèle, de façon rigoureuse et coordonnée, ce qui en fait le processus idéal pour notre projet.

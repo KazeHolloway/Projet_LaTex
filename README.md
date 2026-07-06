@@ -11,9 +11,10 @@ Ce projet est entièrement rédigé en **LaTex**, avec une organisation en plusi
 - `section3_fin/` : annexes et références
 - `images/` : illustrations et schémas
 - `main.pdf` : version compilée du document (pour consultation rapide)
+- `dossier_complet/` : document complet (page de garde + main.tex) & PowerPoint
 
 ## Objectif
-Ce projet illustre la **conception et réalisation d’une application cross‑plateforme de mise en relation entre prestataires et clients pour services professionnels à CIS‑CONGO.**
+Ce projet illustre la **conception et réalisation d’une application cross‑plateforme de mise en relation entre prestataires et clients pour services professionnels à Akieni.**
 
 ## Technologies utilisées
 - **LaTeX** (compilation avec TeXstudio)

@@ -40,7 +40,9 @@ Les besoins techniques désignent l'ensemble des contraintes non fonctionnelles 
 	\item compatibilité avec les réseaux à faible débit (2G/3G) pour garantir l'accès dans les zones peu couvertes ;
 	\item fonctionnement hors ligne partiel pour la consultation des profils et des missions déjà chargés ;
 	\item sécurité des échanges par protocoles HTTPS et WSS, authentification par JWT et OTP ;
-	\item performance : temps de réponse des API inférieur à 2 secondes pour 95\% des requêtes ;
+	
+	\item performance : temps de réponse des API inférieur à 2 secondes pour 95\% des requêtes. Ce seuil est fondé sur les recommandations générales en ergonomie web, selon lesquelles un délai supérieur à 2 secondes provoque une baisse perceptible du confort d'utilisation, surtout sur réseau mobile. Compte tenu de l'usage majoritairement mobile de SALISA et des connexions parfois limitées à Brazzaville, ce seuil constitue un équilibre raisonnable entre performance cible et faisabilité technique ;
+	
 	\item disponibilité cible de 99,5\% ;
 	\item intégration des API de paiement mobile : MTN MoMo et Airtel Money \cite{mtn_momo} ;
 	\item base de données relationnelle (PostgreSQL) \cite{postgresql} avec cache Redis pour les sessions et les résultats fréquents ;
@@ -100,6 +102,8 @@ Au centre se trouve le système « SALISA » représenté par un rectangle avec 
 Un cas d'utilisation décrit une interaction entre un acteur et le système pour accomplir un objectif précis. Pour « SALISA », nous avons recensé 35 cas d'utilisation. Compte tenu de leur nombre et de la diversité des domaines qu'ils couvrent, les regrouper dans un seul diagramme de cas d'utilisation aurait rendu ce dernier illisible et peu exploitable. Nous avons donc opté pour une organisation en neuf packages fonctionnels cohérents, conformément aux recommandations de la norme UML 2 pour les systèmes de taille significative \cite{roques_uml}. Chaque package regroupe les cas d'utilisation qui relèvent d'un même domaine métier. Les tableaux~\ref{tab:cu_p1} à~\ref{tab:cu_p9} présentent le détail de chacun de ces packages.
 
 \begin{table}[H]
+	\caption{Cas d'utilisation du package P1 : Authentification}
+	\label{tab:cu_p1}
 	\centering
 	\begin{tabular}{|p{3cm}|p{10.5cm}|}
 		\hline
@@ -119,8 +123,6 @@ Un cas d'utilisation décrit une interaction entre un acteur et le système pour
 		\textbf{UC-05} & se déconnecter (Demandeur, Prestataire, Administrateur) \\
 		\hline
 	\end{tabular}
-	\caption{Cas d'utilisation du package P1 : Authentification}
-	\label{tab:cu_p1}
 \end{table}
 
 % ---------------------------------------------------------------
@@ -133,6 +135,8 @@ Un cas d'utilisation décrit une interaction entre un acteur et le système pour
 % ---------------------------------------------------------------
 
 \begin{table}[H]
+	\caption{Cas d'utilisation du package P2 : Profil prestataire}
+	\label{tab:cu_p2}
 	\centering
 	\begin{tabular}{|p{3cm}|p{10.5cm}|}
 		\hline
@@ -152,11 +156,11 @@ Un cas d'utilisation décrit une interaction entre un acteur et le système pour
 		\textbf{UC-10} & soumettre une demande de vérification d'identité (Prestataire, Administrateur) \\
 		\hline
 	\end{tabular}
-	\caption{Cas d'utilisation du package P2 : Profil prestataire}
-	\label{tab:cu_p2}
 \end{table}
 
 \begin{table}[H]
+	\caption{Cas d'utilisation du package P3 : Gestion des missions}
+	\label{tab:cu_p3}
 	\centering
 	\begin{tabular}{|p{3cm}|p{10.5cm}|}
 		\hline
@@ -172,11 +176,11 @@ Un cas d'utilisation décrit une interaction entre un acteur et le système pour
 		\textbf{UC-13} & modifier ou clore une mission publiée (Demandeur) \\
 		\hline
 	\end{tabular}
-	\caption{Cas d'utilisation du package P3 : Gestion des missions}
-	\label{tab:cu_p3}
 \end{table}
 
 \begin{table}[H]
+	\caption{Cas d'utilisation du package P4 : Recherche et matching}
+	\label{tab:cu_p4}
 	\centering
 	\begin{tabular}{|p{3cm}|p{10.5cm}|}
 		\hline
@@ -196,11 +200,11 @@ Un cas d'utilisation décrit une interaction entre un acteur et le système pour
 		\textbf{UC-18} & consulter le profil d'un prestataire (Demandeur) \\
 		\hline
 	\end{tabular}
-	\caption{Cas d'utilisation du package P4 : Recherche et matching}
-	\label{tab:cu_p4}
 \end{table}
 
 \begin{table}[H]
+	\caption{Cas d'utilisation du package P5 : Messagerie et devis}
+	\label{tab:cu_p5}
 	\centering
 	\begin{tabular}{|p{3cm}|p{10.5cm}|}
 		\hline
@@ -218,11 +222,11 @@ Un cas d'utilisation décrit une interaction entre un acteur et le système pour
 		\textbf{UC-22} & refuser ou demander une modification de devis (Demandeur) \\
 		\hline
 	\end{tabular}
-	\caption{Cas d'utilisation du package P5 : Messagerie et devis}
-	\label{tab:cu_p5}
 \end{table}
 
 \begin{table}[H]
+	\caption{Cas d'utilisation du package P6 : Paiement}
+	\label{tab:cu_p6}
 	\centering
 	\begin{tabular}{|p{3cm}|p{10.5cm}|}
 		\hline
@@ -242,11 +246,11 @@ Un cas d'utilisation décrit une interaction entre un acteur et le système pour
 		\textbf{UC-27} & demander un retrait (Prestataire) \\
 		\hline
 	\end{tabular}
-	\caption{Cas d'utilisation du package P6 : Paiement}
-	\label{tab:cu_p6}
 \end{table}
 
 \begin{table}[H]
+	\caption{Cas d'utilisation du package P7 : Notation et réputation}
+	\label{tab:cu_p7}
 	\centering
 	\begin{tabular}{|p{3cm}|p{10.5cm}|}
 		\hline
@@ -260,11 +264,11 @@ Un cas d'utilisation décrit une interaction entre un acteur et le système pour
 		\textbf{UC-29} & signaler un avis abusif (Demandeur, Prestataire) \\
 		\hline
 	\end{tabular}
-	\caption{Cas d'utilisation du package P7 : Notation et réputation}
-	\label{tab:cu_p7}
 \end{table}
 
 \begin{table}[H]
+	\caption{Cas d'utilisation du package P8 : Notifications}
+	\label{tab:cu_p8}
 	\centering
 	\begin{tabular}{|p{3cm}|p{10.5cm}|}
 		\hline
@@ -278,11 +282,11 @@ Un cas d'utilisation décrit une interaction entre un acteur et le système pour
 		\textbf{UC-31} & configurer ses préférences de notification (Demandeur, Prestataire) \\
 		\hline
 	\end{tabular}
-	\caption{Cas d'utilisation du package P8 : Notifications}
-	\label{tab:cu_p8}
 \end{table}
 
 \begin{table}[H]
+	\caption{Cas d'utilisation du package P9 : Administration}
+	\label{tab:cu_p9}
 	\centering
 	\begin{tabular}{|p{3cm}|p{10.5cm}|}
 		\hline
@@ -300,8 +304,6 @@ Un cas d'utilisation décrit une interaction entre un acteur et le système pour
 		\textbf{UC-35} & suspendre un compte utilisateur (Administrateur) \\
 		\hline
 	\end{tabular}
-	\caption{Cas d'utilisation du package P9 : Administration}
-	\label{tab:cu_p9}
 \end{table}
 
 \subsubsection{Relation entre les cas d'utilisation}
@@ -389,6 +391,8 @@ Une fois les neuf packages détaillés individuellement, il est utile de dispose
 Le tableau~\ref{tab:classification_cu} présente la classification des principaux cas d'utilisation selon leur priorité fonctionnelle, leur niveau de risque technique et l'itération de développement dans laquelle ils s'inscrivent. L'itération 1 regroupe les fonctionnalités essentielles au fonctionnement minimal du système. L'itération 2 contient les fonctionnalités importantes mais non bloquantes. L'itération 3 rassemble les fonctionnalités souhaitables à plus long terme, dont le développement dépend des ressources disponibles après la livraison des deux premières itérations.
 
 \begin{table}[H]
+	\caption{Classification des principaux cas d'utilisation de « SALISA »}
+	\label{tab:classification_cu}
 	\centering
 	\begin{tabular}{|c|p{4.5cm}|c|c|c|}
 		\hline
@@ -434,8 +438,6 @@ Le tableau~\ref{tab:classification_cu} présente la classification des principau
 		UC-27 & demander un retrait & Basse & Moyen & 3 \\
 		\hline
 	\end{tabular}
-	\caption{Classification des principaux cas d'utilisation de « SALISA »}
-	\label{tab:classification_cu}
 \end{table}
 
 \subsection{Spécification détaillée}
@@ -446,6 +448,8 @@ Le tableau~\ref{tab:classification_cu} présente la classification des principau
 
 \vspace{0.2cm}
 \begin{table}[H]
+	\caption{Description textuelle de UC-01 : s'inscrire via numéro de téléphone}
+	\label{tab:uc01}
 	\centering
 	\begin{tabular}{|p{3.5cm}|p{10cm}|}
 		\hline
@@ -488,8 +492,6 @@ Le tableau~\ref{tab:classification_cu} présente la classification des principau
 		\textbf{Postcondition} & le compte est créé ; le visiteur est devenu un utilisateur et peut accéder à toutes les fonctionnalités selon son rôle \\
 		\hline
 	\end{tabular}
-	\caption{Description textuelle de UC-01 : s'inscrire via numéro de téléphone}
-	\label{tab:uc01}
 \end{table}
 
 \vspace{0.5cm}
@@ -497,6 +499,8 @@ Le tableau~\ref{tab:classification_cu} présente la classification des principau
 
 \vspace{0.2cm}
 \begin{table}[H]
+	\caption{Description textuelle de UC-11 : publier une mission}
+	\label{tab:uc11}
 	\centering
 	\begin{tabular}{|p{3.5cm}|p{10cm}|}
 		\hline
@@ -538,8 +542,6 @@ Le tableau~\ref{tab:classification_cu} présente la classification des principau
 		\textbf{Postcondition} & la mission est publiée et les prestataires correspondants sont notifiés \\
 		\hline
 	\end{tabular}
-	\caption{Description textuelle de UC-11 : publier une mission}
-	\label{tab:uc11}
 \end{table}
 
 \subsubsection{Diagramme de séquence}
@@ -650,7 +652,7 @@ La figure~\ref{fig:diag_objets} illustre un exemple d'instanciation du système 
 
 \subsubsection{Architecture logicielle}
 
-« SALISA » repose sur une architecture modulaire organisée autour de cinq couches principales.
+« SALISA » repose sur une \textbf{architecture 3-tiers} de type \textbf{client-serveur}. Concrètement, cela signifie que le système est découpé en trois niveaux bien séparés : le premier est la \textbf{couche de présentation}, c'est-à-dire l'interface que l'utilisateur voit dans son navigateur ; le deuxième est la \textbf{couche de logique métier}, qui regroupe les traitements effectués côté serveur ; et le troisième est la \textbf{couche de données}, qui assure le stockage et la gestion des informations. Cette séparation claire entre les trois niveaux facilite la maintenance du système, permet de faire évoluer chaque couche indépendamment des autres, et améliore la sécurité en évitant que le client accède directement à la base de données. Cette architecture est organisée autour de cinq composants principaux.
 
 Le \textbf{front-end} est développé en Next.js 14 \cite{next_js}, un framework React qui permet de générer des pages côté serveur (SSR) et des pages statiques (SSG). Il assure l'aspect PWA mobile-first et l'optimisation pour les réseaux lents.
 
